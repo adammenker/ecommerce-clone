@@ -1,0 +1,6 @@
+# sensitive data
+.env
+
+# unnecessary 
+node_modules/
+notes.txt
