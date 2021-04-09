@@ -1,3 +1,3 @@
 <?php
-     include_once("/views/index.hbs"); 
+     include_once("views/index.hbs"); 
 ?>
