@@ -1,3 +1,3 @@
 <?php
-    echo "Hello Test";
+     include_once("views/index.hbs"); 
 ?>
