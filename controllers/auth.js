@@ -11,42 +11,43 @@ const db = mysql.createConnection({
 
 
 exports.register = (req, res) => {
-    console.log(req.body);
+    console.log('test*');
+    // console.log(req.body);
 
     // destructuring
-    const { name, email, password, passwordConfirm } = req.body;
+    // const { name, email, password, passwordConfirm } = req.body;
 
-    db.query('SELECT email FROM users WHERE email = ?', [email], async (error, results) => {
+    // db.query('SELECT email FROM users WHERE email = ?', [email], async (error, results) => {
 
-        if(error) {
-            console.log(error);
-        } 
+    //     if(error) {
+    //         console.log(error);
+    //     } 
 
-        if(results.length > 0) {
-            return res.render('register', {
-                message: 'That email is already in use'
-            });
-        } else if(password !== passwordConfirm) {
-            return res.render('register', {
-                message: 'Passwords do not match'
-            });
-        }
+    //     if(results.length > 0) {
+    //         return res.render('register', {
+    //             message: 'That email is already in use'
+    //         });
+    //     } else if(password !== passwordConfirm) {
+    //         return res.render('register', {
+    //             message: 'Passwords do not match'
+    //         });
+    //     }
 
-        let hashedPasword = await bcrypt.hash(password, 8);
-        console.log(hashedPasword);
+    //     let hashedPasword = await bcrypt.hash(password, 8);
+    //     console.log(hashedPasword);
 
-        db.query('INSERT INTO users SET ?', {name: name, email: email, password: hashedPasword}, (error, results) => {
-            if(error) {
-                console.log(error);
-            } else {
-                console.log(results);
-                return res.render('register', {
-                    message: 'User Registered'
-                });
-            }
-        });
+    //     db.query('INSERT INTO users SET ?', {name: name, email: email, password: hashedPasword}, (error, results) => {
+    //         if(error) {
+    //             console.log(error);
+    //         } else {
+    //             console.log(results);
+    //             return res.render('register', {
+    //                 message: 'User Registered'
+    //             });
+    //         }
+    //     });
 
 
-    });
+    // });
 
 }
