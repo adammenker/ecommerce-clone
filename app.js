@@ -6,22 +6,22 @@ const path = require("path");
 dotenv.config({path: './.env'});
 
 const app = express();
-const db = mysql.createConnection({
-    host: "us-cdbr-east-03.cleardb.com",
-    user: "b04903d33dd1c0",
-    password: "d17038e0",
-    database: "heroku_ce5d691c17f624d"
-});
+// const db = mysql.createConnection({
+//     host: "us-cdbr-east-03.cleardb.com",
+//     user: "b04903d33dd1c0",
+//     password: "d17038e0",
+//     database: "heroku_ce5d691c17f624d"
+// });
 
-const publicDirectory = path.join(__dirname, './public');
-app.use(express.static(publicDirectory));
+// const publicDirectory = path.join(__dirname, './public');
+// app.use(express.static(publicDirectory));
 
-// parsing url
-app.use(express.urlencoded({ extended: false}));
-// parsing json
-app.use(express.json());
+// // parsing url
+// app.use(express.urlencoded({ extended: false}));
+// // parsing json
+// app.use(express.json());
 
-app.set('view engine', 'hbs')
+// app.set('view engine', 'hbs');
 
 // db.connect( (error) => {
 //     try{
