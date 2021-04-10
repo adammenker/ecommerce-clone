@@ -1,11 +1,13 @@
-const mysql = require("mysql");
-const express = require("express");
-const dotenv = require("dotenv");
-const path = require("path");
+console.log('test');
 
-dotenv.config({path: './.env'});
+// const mysql = require("mysql");
+// const express = require("express");
+// const dotenv = require("dotenv");
+// const path = require("path");
 
-const app = express();
+// dotenv.config({path: './.env'});
+
+// const app = express();
 // const db = mysql.createConnection({
 //     host: "us-cdbr-east-03.cleardb.com",
 //     user: "b04903d33dd1c0",
