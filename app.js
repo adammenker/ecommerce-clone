@@ -23,23 +23,23 @@ app.use(express.json());
 
 app.set('view engine', 'hbs')
 
-db.connect( (error) => {
-    try{
-        if(error){
-            // console.log(error);
-        } else {
-            console.log("MYSQL Connected...");
-        }
-    } catch (error) {
-        console.log(error);
-    }
-});
+// db.connect( (error) => {
+//     try{
+//         if(error){
+//             // console.log(error);
+//         } else {
+//             console.log("MYSQL Connected...");
+//         }
+//     } catch (error) {
+//         console.log(error);
+//     }
+// });
 
-//Define Routes
-app.use('/', require('./routes/pages'));
-app.use('/auth', require('./routes/auth'));
+// //Define Routes
+// app.use('/', require('./routes/pages'));
+// app.use('/auth', require('./routes/auth'));
 
 
-app.listen(process.env.PORT || 3000, () => {
-    console.log(`Server started on port ${process.env.PORT}`);
-})
+// app.listen(process.env.PORT || 3000, () => {
+//     console.log(`Server started on port ${process.env.PORT}`);
+// });
