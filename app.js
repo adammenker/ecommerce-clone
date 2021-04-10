@@ -28,16 +28,17 @@ app.use(express.json());
 
 app.set('view engine', 'hbs');
 
-db.connect( (error) => {
-    try{
-        if(error){
-            // console.log(error);
-        } else {
-            console.log("MYSQL Connected...");
-        }
-    } catch (error) {
-        console.log(error);
-    }
+db.connect((error) => {
+    console.log(error);
+    // try{
+    //     if(error){
+    //         // console.log(error);
+    //     } else {
+    //         console.log("MYSQL Connected...");
+    //     }
+    // } catch (error) {
+    //     console.log(error);
+    // }
 });
 
 //Define Routes
