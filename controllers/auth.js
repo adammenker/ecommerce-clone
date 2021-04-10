@@ -2,7 +2,7 @@ const mysql = require("mysql");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 
-const db = mysql.createConnection({
+const db = mysql.createPool({
     host: "us-cdbr-east-03.cleardb.com",
     user: "b04903d33dd1c0",
     password: "d17038e0",
