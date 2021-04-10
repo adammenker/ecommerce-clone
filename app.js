@@ -24,10 +24,14 @@ app.use(express.json());
 app.set('view engine', 'hbs')
 
 db.connect( (error) => {
-    if(error){
-        // console.log(error);
-    } else {
-        console.log("MYSQL Connected...");
+    try{
+        if(error){
+            // console.log(error);
+        } else {
+            console.log("MYSQL Connected...");
+        }
+    } catch (error) {
+        console.log(error);
     }
 });
 
