@@ -28,7 +28,7 @@ app.use(express.json());
 
 app.set('view engine', 'hbs');
 
-db.getConnect((error) => {
+db.getConnection((error) => {
     console.log(error);
     // try{
     //     if(error){
