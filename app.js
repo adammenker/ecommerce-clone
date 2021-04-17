@@ -14,8 +14,6 @@ const db = mysql.createPool({
 });
 
 
-
-
 const publicDirectory = path.join(__dirname, './public');
 app.use(express.static(publicDirectory));
 
