@@ -4,6 +4,9 @@ const dotenv = require("dotenv");
 const path = require("path");
 const cookieParser = require("cookie-parser");
 
+console.log(__dirname);
+
+
 dotenv.config({path: './.env'});
 
 const app = express();
@@ -27,6 +30,8 @@ app.use(cookieParser());
 app.set('view engine', 'hbs');
 
 db.getConnection((error, connection) => {
+    console.log(__dirname);
+
     if(error){
         console.log(error);
         console.log('\n****************\n');
