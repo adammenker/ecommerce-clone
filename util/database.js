@@ -1,3 +1,5 @@
+const mysql = require("mysql");
+
 module.exports = {
     db: mysql.createPool({
         host: "us-cdbr-east-03.cleardb.com",
