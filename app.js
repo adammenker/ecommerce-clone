@@ -22,7 +22,7 @@ app.use(express.static(publicDirectory));
 app.use(express.urlencoded({ extended: false}));
 // parsing json
 app.use(express.json());
-app.use(cookieParse());
+app.use(cookieParser());
 
 app.set('view engine', 'hbs');
 
