@@ -3,7 +3,7 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 
 require('dotenv').config({path: "./.env"});
-
+console.log(process.env.JWT_SECRET);
 
 const db = mysql.createPool({
     host: "us-cdbr-east-03.cleardb.com",
@@ -53,7 +53,8 @@ exports.register = (req, res) => {
 
 
 exports.login = async (req, res) => {
-    console.log(__dirname);
+    console.log(process.env.JWT_SECRET);
+
     try{
         const {email, password} = req.body;
 
