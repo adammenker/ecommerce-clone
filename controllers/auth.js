@@ -1,8 +1,9 @@
 const mysql = require("mysql");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
+const dotenv = require("dotenv");
 
-require('dotenv').config({path: "./.env"});
+dotenv.config({path: './.env'});
 console.log(process.env.JWT_SECRET);
 
 const db = mysql.createPool({
