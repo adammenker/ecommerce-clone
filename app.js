@@ -7,10 +7,10 @@ dotenv.config({path: './.env'});
 
 const app = express();
 const db = mysql.createPool({
-    host: "us-cdbr-east-03.cleardb.com",
-    user: "b04903d33dd1c0",
+    host: process.env.DATABASE_HOST,
+    user: process.env.DATABASE_USER,
     password: process.env.DATABASE_PASSWORD,
-    database: "heroku_ce5d691c17f624d"
+    database: process.env.DATABASE
 });
 
 
