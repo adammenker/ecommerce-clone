@@ -22,12 +22,12 @@ app.use(express.static(publicDirectory));
 app.use(express.urlencoded({ extended: false}));
 // parsing json
 app.use(express.json());
+
 app.use(cookieParser());
 
 app.set('view engine', 'hbs');
 
 db.getConnection((error, connection) => {
-
     if(error){
         console.log(error);
         console.log('\n****************\n');
@@ -41,6 +41,6 @@ app.use('/', require('./routes/pages'));
 app.use('/auth', require('./routes/auth'));
 
 
-app.listen(process.env.PORT || 3000, () => {
-    console.log(`Server started on port ${process.env.PORT}`);
-});
+// app.listen(process.env.PORT || 3000, () => {
+//     console.log(`Server started on port ${process.env.PORT}`);
+// });
