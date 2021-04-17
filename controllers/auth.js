@@ -1,9 +1,10 @@
 const mysql = require("mysql");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
-const dotenv = require("dotenv");
+// const dotenv = require("dotenv");
 
-dotenv.config({path: '../.env'});
+// dotenv.config({path: '../.env'});
+require('dotenv').config();
 
 
 const db = mysql.createPool({
@@ -72,7 +73,7 @@ exports.login = async (req, res) => {
             }else {
                 const id = results[0].id;
 
-                const token = jwt.sign({id}, "hgjb", {
+                const token = jwt.sign({id}, process.env.JWT_SECRET, {
                     expiresIn: process.env.JWT_EXPIRES_IN
                 });
 
