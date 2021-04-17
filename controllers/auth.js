@@ -4,7 +4,7 @@ const bcrypt = require("bcryptjs");
 // const dotenv = require("dotenv");
 
 // dotenv.config({path: '../.env'});
-require('dotenv').config();
+require('dotenv').config({path: process.env.DOTENV_CONFIG_PATH});
 
 
 const db = mysql.createPool({
