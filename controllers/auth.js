@@ -4,6 +4,7 @@ const bcrypt = require("bcryptjs");
 const dotenv = require("dotenv");
 
 dotenv.config({path: './.env'});
+console.log(process.env.JWT_SECRET);
 console.log(dotenv);
 
 const db = mysql.createPool({
