@@ -1,11 +1,13 @@
 const mysql = require("mysql");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
-const dotenv = require("dotenv");
 
-dotenv.config({path: './.env'});
-console.log(process.env.JWT_SECRET);
-console.log(dotenv);
+// file path not working
+// const dotenv = require("dotenv");
+
+// dotenv.config({path: './.env'});
+// console.log(process.env.JWT_SECRET);
+// console.log(dotenv);
 
 const db = mysql.createPool({
     host: "us-cdbr-east-03.cleardb.com",
@@ -55,7 +57,7 @@ exports.register = (req, res) => {
 
 
 exports.login = async (req, res) => {
-    console.log(process.env.JWT_SECRET);
+    // console.log(process.env.JWT_SECRET);
 
     try{
         const {email, password} = req.body;
@@ -75,15 +77,16 @@ exports.login = async (req, res) => {
             }else {
                 const id = results[0].id;
 
-                const token = jwt.sign({id}, process.env.JWT_SECRET, {
-                    expiresIn: process.env.JWT_EXPIRES_IN
+                const token = jwt.sign({id}, "TEMPprocess.env.JWT_SECRET", {
+                    expiresIn: "90d"// replace number with process.env.JWT_EXPIRES_IN
                 });
 
                 console.log(`token: ${token}`);
 
+                // insert process.env.JWT_COOKIE_EXPIRES where "1" is in multiplication
                 const cookieOptions = {
                     expires: new Date(
-                        Date.now + process.env.JWT_COOKIE_EXPIRES * 24 * 60 * 60 * 1000
+                        Date.now + 1 * 24 * 60 * 60 * 1000
                     ), 
                     httpOnly: true
                 }
