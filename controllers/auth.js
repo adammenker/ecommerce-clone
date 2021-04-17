@@ -54,7 +54,7 @@ exports.login = async (req, res) => {
     try{
         const {email, password} = req.body;
 
-        if(!email || !passowrd){
+        if(!email || !password){
             return res.status(400).render('login', {
                 message: 'Please provide a valid email and password'
             })
