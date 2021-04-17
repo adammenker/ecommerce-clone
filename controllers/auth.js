@@ -1,7 +1,7 @@
 const mysql = require("mysql");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
-import db from "../util/database" ;
+const db = require("../util/database");
 
 // const db = mysql.createPool({
 //     host: "us-cdbr-east-03.cleardb.com",
