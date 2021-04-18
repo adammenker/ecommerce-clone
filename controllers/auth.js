@@ -63,7 +63,7 @@ exports.login = async (req, res) => {
         if(!email || !password){
             return res.status(400).render('login', {
                 message: 'Please provide a valid email and password'
-            })
+            });
         }
 
         db.query('SELECT * FROM users WHERE email = ?', [email], async (error, results) =>{
@@ -96,6 +96,8 @@ exports.login = async (req, res) => {
     } catch (err){
         console.log(err);
     }
-    
+}
+
+exports.isLoggedIn = async (req, res, next) => {
 
 }
