@@ -99,5 +99,9 @@ exports.login = async (req, res) => {
 }
 
 exports.isLoggedIn = async (req, res, next) => {
+    req.message = "test"
 
+    
+    next();
 }
+
