@@ -5,7 +5,7 @@ const cookieParser = require("cookie-parser");
 const dotenv = require("dotenv");
 dotenv.config({path: './.env'});
 
-console.log('\n\n\n\nadsglbdjksa,bkjdsa\n\n\n\n');
+
 
 const app = express();
 const db = mysql.createPool({
