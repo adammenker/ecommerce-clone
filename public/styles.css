@@ -26,3 +26,11 @@ nav li a {
 .btn-primary {
   margin: 15px 0px 0px 0px;
 }
+
+.avatar-ctn {
+  background-color: orange;
+}
+
+.avatar {
+  width: 65%;
+}
