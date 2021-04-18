@@ -1,6 +1,7 @@
 const mysql = require("mysql");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
+const { promisify } = require("util");
 
 // file path not working
 // const dotenv = require("dotenv");
@@ -74,7 +75,7 @@ exports.login = async (req, res) => {
                 });
             }else {
                 const id = results[0].id;
-
+                // replace string with process.env.JWT_SECRET
                 const token = jwt.sign({id}, "TEMPprocess.env.JWT_SECRET", {
                     expiresIn: "90d"// replace number with process.env.JWT_EXPIRES_IN
                 });
@@ -100,7 +101,17 @@ exports.login = async (req, res) => {
 
 exports.isLoggedIn = async (req, res, next) => {
     console.log(req.cookies);
+    if(req.cookies.jwt){
+        try{
+            const decoded = await promisify(jwt.verify)(
+                req.cookies.jwt,
+                "TEMPprocess.env.JWT_SECRET",
+            );
+            console.log(decoded);
+        } catch(error){
 
+        }
+    }
     
     next();
 }
