@@ -76,11 +76,11 @@ exports.login = async (req, res) => {
             }else {
                 const id = results[0].id;
                 // replace string with process.env.JWT_SECRET
-                const token = jwt.sign({id}, "TEMPprocess.env.JWT_SECRET", {
+                const token = jwt.sign(id, "TEMPprocess.env.JWT_SECRET", {
                     expiresIn: "90d"// replace number with process.env.JWT_EXPIRES_IN
                 });
 
-                console.log(`token: ${token}`);
+                // console.log(`token: ${token}`);
 
                 // insert process.env.JWT_COOKIE_EXPIRES where "1" is in multiplication
                 const cookieOptions = {
@@ -100,7 +100,7 @@ exports.login = async (req, res) => {
 }
 
 exports.isLoggedIn = async (req, res, next) => {
-    console.log(req.cookies);
+    // console.log(req.cookies);
     if(req.cookies.jwt){
         try{
             const decoded = await promisify(jwt.verify)(
@@ -109,7 +109,7 @@ exports.isLoggedIn = async (req, res, next) => {
             );
             console.log(decoded);
         } catch(error){
-
+            console.log(error);
         }
     }
     
