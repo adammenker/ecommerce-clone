@@ -2,7 +2,6 @@ const express = require("express");
 
 const router = express.Router();
 
-console.log('\n\n\n\nadsglbdjksa,bkjdsa\n\n\n\n');
 
 router.get('/', (req, res) => {
     try{
