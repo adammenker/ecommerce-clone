@@ -104,11 +104,17 @@ exports.isLoggedIn = async (req, res, next) => {
     // console.log(req.cookies);
     if(req.cookies.jwt){
         try{
+            // verify token and associated user
             const decoded = await promisify(jwt.verify)(
                 req.cookies.jwt,
                 "TEMPprocess.env.JWT_SECRET",
             );
             console.log(decoded);
+
+            // check for user in DB by querying for userID
+            db.query('SELECT * FROM users WHERE userID = ?', [decoded.id], (error, result) => {
+                console.log(result);
+            });
         } catch(error){
             console.log(error);
         }

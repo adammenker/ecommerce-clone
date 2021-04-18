@@ -29,7 +29,7 @@ app.set('view engine', 'hbs');
 db.getConnection((error, connection) => {
     if(error){
         console.log(error);
-        console.log('\n******************************\n* Application is not Running *');
+        console.log('\n******************************\n* Application is not Running *\n******************************\n');
     } else {
         console.log("MYSQL Connected...");
     }
