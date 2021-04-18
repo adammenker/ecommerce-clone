@@ -1,10 +1,11 @@
 const mysql = require("mysql");
 const express = require("express");
-const dotenv = require("dotenv");
 const path = require("path");
 const cookieParser = require("cookie-parser");
-
+const dotenv = require("dotenv");
 dotenv.config({path: './.env'});
+
+console.log('\n\n\n\nadsglbdjksa,bkjdsa\n\n\n\n');
 
 const app = express();
 const db = mysql.createPool({
@@ -14,19 +15,17 @@ const db = mysql.createPool({
     database: process.env.DATABASE
 });
 
-
 const publicDirectory = path.join(__dirname, './public');
 app.use(express.static(publicDirectory));
 
-// parsing url
+// parsing url & json
 app.use(express.urlencoded({ extended: false}));
-// parsing json
 app.use(express.json());
+
 
 app.use(cookieParser());
 
 app.set('view engine', 'hbs');
-
 db.getConnection((error, connection) => {
     if(error){
         console.log(error);
