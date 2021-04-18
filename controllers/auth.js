@@ -75,7 +75,7 @@ exports.login = async (req, res) => {
                 });
             }else {
                 const id = results[0].id;
-                console.log(id);
+                console.log(results);
                 // replace string with process.env.JWT_SECRET
                 const token = jwt.sign({id}, "TEMPprocess.env.JWT_SECRET", {
                     expiresIn: "90d"// replace number with process.env.JWT_EXPIRES_IN
