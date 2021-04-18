@@ -15,7 +15,7 @@ const db = mysql.createPool({
     password: "d17038e0",
     database: "heroku_ce5d691c17f624d"
 });
-console.log('\n\n\n\uuuuuuuuu,bkjdsa\n\n\n\n');
+console.log('\n\n\nuuuuuuuu,bkjdsa\n\n\n\n');
 
 
 exports.register = (req, res) => {
