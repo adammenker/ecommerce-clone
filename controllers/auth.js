@@ -74,7 +74,7 @@ exports.login = async (req, res) => {
                     message: 'Email or password is incorrect'
                 });
             }else {
-                const id = results[0].id;
+                const id = results[0].userID;
                 console.log(results);
                 // replace string with process.env.JWT_SECRET
                 const token = jwt.sign({id}, "TEMPprocess.env.JWT_SECRET", {
