@@ -22,7 +22,7 @@ exports.register = (req, res) => {
     console.log(req.body);
 
     // destructuring
-    const {name, email, password, passwordConfirm} = req.body;
+    const {name, phone, email, password, passwordConfirm} = req.body;
 
     db.query('SELECT email FROM users WHERE email = ?', [email], async (error, results) => {
 
@@ -43,7 +43,7 @@ exports.register = (req, res) => {
         let hashedPasword = await bcrypt.hash(password, 8);
         console.log(hashedPasword);
 
-        db.query('INSERT INTO users SET ?', {name: name, email: email, password: hashedPasword}, (error, results) => {
+        db.query('INSERT INTO users SET ?', {name: name, phone: phone, email: email, password: hashedPasword}, (error, results) => {
             if(error) {
                 console.log(error);
             } else {
