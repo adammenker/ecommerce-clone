@@ -133,8 +133,9 @@ exports.isLoggedIn = async (req, res, next) => {
 
 
 exports.logout = async (req, res) => {
+    // overwrites isLoggedIn cookie and then new cookies expires 2 seconds later
     res.cookie('jwt', 'logout', {
-        expires: new Date(Date.now + 2000),
+        expires: new Date(Date.now + 2),
         httpOnly: true
     });
 
