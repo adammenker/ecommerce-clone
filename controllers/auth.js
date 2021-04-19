@@ -48,6 +48,8 @@ exports.register = (req, res) => {
             });
         }  
 
+        phone = parseInt(phone);
+
         console.log(typeof phone);
 
         let hashedPasword = await bcrypt.hash(password, 8);
