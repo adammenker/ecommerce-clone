@@ -34,19 +34,19 @@ exports.register = (req, res) => {
             return res.render('register', {
                 message: 'That email is already in use'
             });
-        } else if(password !== passwordConfirm) {
-            return res.render('register', {
-                message: 'Passwords do not match'
-            });
         } else if(email.length == 0) {
             return res.render('register', {
                 message: 'An Email is required'
             });
-        } else if(password.length == 0) {
+        } else if(password !== passwordConfirm) {
+            return res.render('register', {
+                message: 'Passwords do not match'
+            });
+        }  else if(password.length == 0) {
             return res.render('register', {
                 message: 'A Password is required'
             });
-        } else if(parseInt(phone) == NaN || phone.length != 10) {
+        } else if(isNaN(parseInt(phone)) || phone.length != 10) {
             return res.render('register', {
                 message: 'Enter a 10 digit number for your phone number'
             });
