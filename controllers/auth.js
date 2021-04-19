@@ -115,7 +115,7 @@ exports.isLoggedIn = async (req, res, next) => {
             db.query('SELECT * FROM users WHERE userID = ?', [decoded.id], (error, result) => {
                 console.log(result);
 
-                if(results.length == 0){
+                if(result.length == 0){
                     return next();
                 }
 
