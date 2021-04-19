@@ -22,7 +22,7 @@ exports.register = (req, res) => {
     console.log(req.body);
 
     // destructuring
-    let {name, phone, email, password, passwordConfirm} = req.body;
+    const {name, phone, email, password, passwordConfirm} = req.body;
 
     db.query('SELECT email FROM users WHERE email = ?', [email], async (error, results) => {
 
@@ -46,9 +46,11 @@ exports.register = (req, res) => {
             return res.render('register', {
                 message: 'A Password is required'
             });
+        } else if(parseInt(phone) == NaN || phone.length != 10) {
+            return res.render('register', {
+                message: 'Enter a 10 digit number for your phone number'
+            });
         }  
-
-        phone = parseInt(phone);
 
         console.log(typeof phone);
 
