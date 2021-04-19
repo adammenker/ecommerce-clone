@@ -22,7 +22,7 @@ exports.register = (req, res) => {
     console.log(req.body);
 
     // destructuring
-    const {name, phone, email, password, passwordConfirm} = req.body;
+    let {name, phone, email, password, passwordConfirm} = req.body;
 
     db.query('SELECT email FROM users WHERE email = ?', [email], async (error, results) => {
 
