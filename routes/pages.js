@@ -4,13 +4,9 @@ const router = express.Router();
 
 
 router.get('/', authController.isLoggedIn, (req, res) => {
-    try{
-        res.render('index', {
-            user: req.user
-        });
-    } catch(error){
-        console.log(error);
-    }
+    res.render('index', {
+        user: req.user
+    });
 });
 
 router.get('/register', (req, res) => {
