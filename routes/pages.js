@@ -3,11 +3,9 @@ const authController = require('../controllers/auth');
 const router = express.Router();
 
 
-router.get('/', authController.isLoggedIn, (req, res) => {
+router.get('/', (req, res) => {
     try{
-        res.render('index', {
-            user: req.user
-        });
+        res.render('index');
     } catch(error){
         console.log(error);
     }
