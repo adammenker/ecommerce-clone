@@ -38,6 +38,18 @@ exports.register = (req, res) => {
             return res.render('register', {
                 message: 'Passwords do not match'
             });
+        } else if(password.length == 0) {
+            return res.render('register', {
+                message: 'A Password is required'
+            });
+        } else if(email.length == 0) {
+            return res.render('register', {
+                message: 'An Email is required'
+            });
+        } else if(email.length == 0) {
+            return res.render('register', {
+                message: 'An Email is required'
+            });
         }
 
         let hashedPasword = await bcrypt.hash(password, 8);
