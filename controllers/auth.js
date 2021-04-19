@@ -52,7 +52,7 @@ exports.register = (req, res) => {
             });
         }  
 
-        console.log(typeof phone);
+        console.log(parseInt(phone));
 
         let hashedPasword = await bcrypt.hash(password, 8);
         console.log(hashedPasword);
