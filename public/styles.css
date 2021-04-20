@@ -39,4 +39,6 @@ nav li a {
 
 #query-container {
   margin: 50px;
+  width: 50%;
+  text-align: center;
 }
