@@ -38,6 +38,7 @@ nav li a {
 }
 
 #query-container {
-  margin: 0 auto;
+  padding: 50px;
   width: 50%;
+  margin: 0 auto;
 }
