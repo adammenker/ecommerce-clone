@@ -39,12 +39,12 @@
         </button>
     </div>
 
-    <form>{:action => "", :autocomplete => "off"}
+    <form autocomplete="off">
         <div class="input-group mb-3">
-            <input id="myInput" class="form-control autocomplete" />{"aria-describedby" => "button-addon2", "aria-label"
-            => "Country", :name => "myCountry", :placeholder => "Country", :type => "text"}/<div
-                class="input-group-append">
-                <button id="button-addon2" class="btn btn-outline-secondary">{:type => "button"} OK</button>
+            <input aria-describedby="button-addon2" aria-label="Country" class="form-control autocomplete" id="myInput"
+                name="myCountry" placeholder="Country" type="text">/</input>
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" id="button-addon2" type="button">OK</button>
             </div>
         </div>
     </form>
