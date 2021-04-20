@@ -39,5 +39,8 @@ nav li a {
 
 #query-bar {
   margin: 10%;
-  padding: 100px;
+}
+
+#query-container {
+  padding: 50px;
 }
