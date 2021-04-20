@@ -85,7 +85,7 @@
             inp.addEventListener("input", function (e) {
                 let a, //OUTER html: variable for listed content with html-content
                     b, // INNER html: filled with array-Data and html
-                    i, //Counter
+                    i,
                     val = this.value;
 
                 /*close any already open lists of autocompleted values*/
@@ -194,8 +194,8 @@
 
         };
 
-        /*An array containing all the country names in the world:*/
-        let countries = [
+        /* An array containing all the product names */
+        let countriese = [
             "Afghanistan",
             "Albania",
             "Algeria",
@@ -420,22 +420,22 @@
             "Zimbabwe"
         ];
 
-        /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
-        autocomplete(document.getElementById("myInput"), countries);
+        /*initiate the autocomplete function on the "myInput" element, and pass along the products array as possible autocomplete values:*/
+        autocomplete(document.getElementById("myInput"), countriese);
 /**
-                                                                         * CREATES OUTPUT LIKE THIS:
-                                                                         *
-                                                                         * <div id="myInputautocomplete-list" class="autocomplete-items">
-                                                                         *    <div>
-                                                                         *       <strong>A</strong>fghanistan<input value="Afghanistan" type="hidden">
-                                                                         *    </div>
-                                                                         *    <div><strong>A</strong>lbania<input value="Albania" type="hidden"></div>
-                                                                         *    <div><strong>A</strong>zerbaijan<input value="Azerbaijan" type="hidden"></div>
-                                                                         *    ...
-                                                                         *    ...
-                                                                         *    ...
-                                                                         * </div>
-                                                                         */
+                                                                                 * CREATES OUTPUT LIKE THIS:
+                                                                                 *
+                                                                                 * <div id="myInputautocomplete-list" class="autocomplete-items">
+                                                                                 *    <div>
+                                                                                 *       <strong>A</strong>fghanistan<input value="Afghanistan" type="hidden">
+                                                                                 *    </div>
+                                                                                 *    <div><strong>A</strong>lbania<input value="Albania" type="hidden"></div>
+                                                                                 *    <div><strong>A</strong>zerbaijan<input value="Azerbaijan" type="hidden"></div>
+                                                                                 *    ...
+                                                                                 *    ...
+                                                                                 *    ...
+                                                                                 * </div>
+                                                                                 */
     </script>
 
 
