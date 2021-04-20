@@ -48,3 +48,15 @@ nav li a {
   width: 50%;
   margin: 0 auto;
 }
+
+.autocomplete {
+  position: relative;
+  display: inline-block;
+}
+.autocomplete-items {
+  position: absolute;
+  z-index: 99;
+  top: 100%;
+  left: 0;
+  right: 0;
+}
