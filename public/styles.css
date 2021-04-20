@@ -37,6 +37,7 @@ nav li a {
   border-bottom: 1px solid rgba(0, 0, 0, 0.125);
 }
 
-.input-group mb-3 {
+#query-bar {
   margin: 10%;
+  padding: 100px;
 }
