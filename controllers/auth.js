@@ -34,6 +34,10 @@ exports.register = (req, res) => {
             return res.render('register', {
                 message: 'That email is already in use'
             });
+        } else if(name.length == 0) {
+            return res.render('register', {
+                message: 'An Name is required'
+            });
         } else if(email.length == 0) {
             return res.render('register', {
                 message: 'An Email is required'
