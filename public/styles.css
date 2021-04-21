@@ -30,11 +30,11 @@ nav li a {
 .avatar-ctn {
   background-color: rgb(255, 255, 255);
   text-align: center;
+  margin: 30px;
 }
 
 .avatar {
-  width: 15%;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+  width: 25%;
 }
 
 #query-container {
