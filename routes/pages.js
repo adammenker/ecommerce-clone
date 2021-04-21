@@ -28,9 +28,13 @@ router.get('/profile', authController.isLoggedIn, (req, res) => {
 });
 
 router.get('/cart', authController.isLoggedIn, (req, res) => {
-    res.render('cart', {
-        user: req.user
-    });
+    if(req.user) {
+        res.render('cart', {
+            user: req.user
+        });
+    } else {
+        res.redirect('/login');
+    }  
 });
 
 module.exports = router;
