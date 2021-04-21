@@ -78,13 +78,17 @@
         "use strict";
 
         // const mysql = require("mysql");
-        import mysql from 'mysql';
+        import arr from './searchAutofill';
+        console.log(arr);
+
+        /*
         const db = mysql.createPool({
             host: "us-cdbr-east-03.cleardb.com",
             user: "b04903d33dd1c0",
             password: "d17038e0",
             database: "heroku_ce5d691c17f624d"
         });
+        */
 
         let autocomplete = (inp, arr) => {
             /*the autocomplete function takes two arguments,
@@ -203,10 +207,10 @@
 
         };
 
-        //****
+        /*
         db.query('SELECT name FROM products', async (error, results) => {
             console.log(results);
-            /** if(results.length == 0 || !(await bcrypt.compare(password, results[0].password))){
+            if(results.length == 0 || !(await bcrypt.compare(password, results[0].password))){
                 res.status(401).render('login', {
                     message: 'Email or password is incorrect'
                 });
@@ -230,9 +234,10 @@
 
                 res.cookie('jwt', token, cookieOptions);
                 res.status(200).redirect("/");
-            } **/
+            } 
         });
-        //****
+        */
+
 
 
 
@@ -465,19 +470,19 @@
         /*initiate the autocomplete function on the "myInput" element, and pass along the products array as possible autocomplete values:*/
         autocomplete(document.getElementById("myInput"), products);
 /**
-                                                                                                                                         * CREATES OUTPUT LIKE THIS:
-                                                                                                                                         *
-                                                                                                                                         * <div id="myInputautocomplete-list" class="autocomplete-items">
-                                                                                                                                         *    <div>
-                                                                                                                                         *       <strong>A</strong>fghanistan<input value="Afghanistan" type="hidden">
-                                                                                                                                         *    </div>
-                                                                                                                                         *    <div><strong>A</strong>lbania<input value="Albania" type="hidden"></div>
-                                                                                                                                         *    <div><strong>A</strong>zerbaijan<input value="Azerbaijan" type="hidden"></div>
-                                                                                                                                         *    ...
-                                                                                                                                         *    ...
-                                                                                                                                         *    ...
-                                                                                                                                         * </div>
-                                                                                                                                         */
+                                                                                                                                                         * CREATES OUTPUT LIKE THIS:
+                                                                                                                                                         *
+                                                                                                                                                         * <div id="myInputautocomplete-list" class="autocomplete-items">
+                                                                                                                                                         *    <div>
+                                                                                                                                                         *       <strong>A</strong>fghanistan<input value="Afghanistan" type="hidden">
+                                                                                                                                                         *    </div>
+                                                                                                                                                         *    <div><strong>A</strong>lbania<input value="Albania" type="hidden"></div>
+                                                                                                                                                         *    <div><strong>A</strong>zerbaijan<input value="Azerbaijan" type="hidden"></div>
+                                                                                                                                                         *    ...
+                                                                                                                                                         *    ...
+                                                                                                                                                         *    ...
+                                                                                                                                                         * </div>
+                                                                                                                                                         */
     </script>
 
 
