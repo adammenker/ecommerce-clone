@@ -18,8 +18,8 @@ const db = mysql.createPool({
 
 
 exports.getCart = (req, res, next) => {
-    console.log(res);
-    console.log(req);
+    console.log(res.body);
+    // console.log(req.body);
 
     // destructuring
     // const {name, phone, email, password, passwordConfirm} = req.body;
@@ -32,7 +32,7 @@ exports.getCart = (req, res, next) => {
         } 
 
         console.log(result);
-        if(results.length == 0) {
+        if(result.length == 0) {
             return next();
         } else {
             req.products = result;
