@@ -1,17 +1,14 @@
 "use strict";
 
-        // const mysql = require("mysql");
-        // import { arr } from './searchAutofill';
-        // console.log(arr);
-
-        /*
+        const mysql = require("mysql");
+        
         const db = mysql.createPool({
             host: "us-cdbr-east-03.cleardb.com",
             user: "b04903d33dd1c0",
             password: "d17038e0",
             database: "heroku_ce5d691c17f624d"
         });
-        */
+        
 
         let autocomplete = (inp, arr) => {
             /*the autocomplete function takes two arguments,
@@ -130,36 +127,49 @@
 
         };
 
-        /*
+
+
+        db.query('INSERT INTO products SET ?', {color: 'silver', name: 'shovel', category: 'garden', description: 'This is a shovel', 
+                                                units_in_stock: 1, price: 12, length: "24 in.", width: "8 in.", height: "4 in", weight: "6 lbs."}, (error, results) => {
+            if(error) {
+                console.log(error);
+            } else {
+                console.log(results);
+                return res.render('register', {
+                    message: 'User Registered'
+                });
+            }
+        });
+        
         db.query('SELECT name FROM products', async (error, results) => {
             console.log(results);
-            if(results.length == 0 || !(await bcrypt.compare(password, results[0].password))){
-                res.status(401).render('login', {
-                    message: 'Email or password is incorrect'
-                });
-            }else {
-                const id = results[0].userID;
-                console.log(results);
-                // replace string with process.env.JWT_SECRET
-                const token = jwt.sign({id}, "TEMPprocess.env.JWT_SECRET", {
-                    expiresIn: "90d"// replace number with process.env.JWT_EXPIRES_IN
-                });
+            // if(results.length == 0 || !(await bcrypt.compare(password, results[0].password))){
+            //     res.status(401).render('login', {
+            //         message: 'Email or password is incorrect'
+            //     });
+            // }else {
+            //     const id = results[0].userID;
+            //     console.log(results);
+            //     // replace string with process.env.JWT_SECRET
+            //     const token = jwt.sign({id}, "TEMPprocess.env.JWT_SECRET", {
+            //         expiresIn: "90d"// replace number with process.env.JWT_EXPIRES_IN
+            //     });
 
-                // console.log(`token: ${token}`);
+            //     // console.log(`token: ${token}`);
 
-                // insert process.env.JWT_COOKIE_EXPIRES where "1" is in multiplication
-                const cookieOptions = {
-                    expires: new Date(
-                        Date.now + 1 * 24 * 60 * 60 * 1000
-                    ), 
-                    httpOnly: true
-                }
+            //     // insert process.env.JWT_COOKIE_EXPIRES where "1" is in multiplication
+            //     const cookieOptions = {
+            //         expires: new Date(
+            //             Date.now + 1 * 24 * 60 * 60 * 1000
+            //         ), 
+            //         httpOnly: true
+            //     }
 
-                res.cookie('jwt', token, cookieOptions);
-                res.status(200).redirect("/");
-            } 
+            //     res.cookie('jwt', token, cookieOptions);
+            //     res.status(200).redirect("/");
+            // } 
         });
-        */
+    
 
 
 
