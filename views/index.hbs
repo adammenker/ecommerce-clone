@@ -77,7 +77,8 @@
     <script>
         "use strict";
 
-        const mysql = require("mysql");
+        // const mysql = require("mysql");
+        import mysql from 'mysql';
         const db = mysql.createPool({
             host: "us-cdbr-east-03.cleardb.com",
             user: "b04903d33dd1c0",
@@ -464,19 +465,19 @@
         /*initiate the autocomplete function on the "myInput" element, and pass along the products array as possible autocomplete values:*/
         autocomplete(document.getElementById("myInput"), products);
 /**
-                                                                                                                                 * CREATES OUTPUT LIKE THIS:
-                                                                                                                                 *
-                                                                                                                                 * <div id="myInputautocomplete-list" class="autocomplete-items">
-                                                                                                                                 *    <div>
-                                                                                                                                 *       <strong>A</strong>fghanistan<input value="Afghanistan" type="hidden">
-                                                                                                                                 *    </div>
-                                                                                                                                 *    <div><strong>A</strong>lbania<input value="Albania" type="hidden"></div>
-                                                                                                                                 *    <div><strong>A</strong>zerbaijan<input value="Azerbaijan" type="hidden"></div>
-                                                                                                                                 *    ...
-                                                                                                                                 *    ...
-                                                                                                                                 *    ...
-                                                                                                                                 * </div>
-                                                                                                                                 */
+                                                                                                                                         * CREATES OUTPUT LIKE THIS:
+                                                                                                                                         *
+                                                                                                                                         * <div id="myInputautocomplete-list" class="autocomplete-items">
+                                                                                                                                         *    <div>
+                                                                                                                                         *       <strong>A</strong>fghanistan<input value="Afghanistan" type="hidden">
+                                                                                                                                         *    </div>
+                                                                                                                                         *    <div><strong>A</strong>lbania<input value="Albania" type="hidden"></div>
+                                                                                                                                         *    <div><strong>A</strong>zerbaijan<input value="Azerbaijan" type="hidden"></div>
+                                                                                                                                         *    ...
+                                                                                                                                         *    ...
+                                                                                                                                         *    ...
+                                                                                                                                         * </div>
+                                                                                                                                         */
     </script>
 
 
