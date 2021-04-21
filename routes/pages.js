@@ -34,7 +34,7 @@ router.get('/cart', authController.isLoggedIn, cartController.getCart, (req, res
         console.log("* both user and products");
         res.render('cart', {
             user: req.user,
-            products: products
+            products: req.products
         });
     } else if(req.user){
         console.log("* just user");
