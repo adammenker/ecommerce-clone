@@ -17,7 +17,7 @@ const db = mysql.createPool({
 });
 
 
-exports.getCart = (req, res) => {
+exports.getCart = (req, res, next) => {
     console.log(req.body);
 
     // destructuring
@@ -27,7 +27,7 @@ exports.getCart = (req, res) => {
     db.query('SELECT * FROM products', async (error, results) => {
         if(error) {
             console.log(error);
-            next();
+            return next();
         } 
 
         console.log(results);
@@ -36,7 +36,7 @@ exports.getCart = (req, res) => {
                 message: 'There are no items in your cart'
             });
         }  
-        next();
+        return next();
     });
 }
 
