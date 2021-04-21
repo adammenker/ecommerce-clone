@@ -1,5 +1,6 @@
 const express = require("express");
 const authController = require('../controllers/auth');
+const cartController = require('../controllers/cart');
 const router = express.Router();
 
 
@@ -27,7 +28,7 @@ router.get('/profile', authController.isLoggedIn, (req, res) => {
     }   
 });
 
-router.get('/cart', authController.isLoggedIn, (req, res) => {
+router.get('/cart', authController.isLoggedIn, cartController.getCart, (req, res) => {
     if(req.user) {
         res.render('cart', {
             user: req.user
