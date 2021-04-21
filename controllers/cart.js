@@ -25,16 +25,18 @@ exports.getCart = (req, res) => {
 
     // change to getting products from 'cart' table with given userID
     db.query('SELECT * FROM products', async (error, results) => {
-
         if(error) {
             console.log(error);
+            next();
         } 
 
+        console.log(results);
         if(results.length > 0) {
             return res.render('cart', {
                 message: 'There are no items in your cart'
             });
         }  
+        next();
     });
 }
 
