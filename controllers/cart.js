@@ -18,7 +18,7 @@ const db = mysql.createPool({
 
 
 exports.getCart = (req, res, next) => {
-    console.log(req.body);
+    // console.log(req.body);
 
     // destructuring
     // const {name, phone, email, password, passwordConfirm} = req.body;
