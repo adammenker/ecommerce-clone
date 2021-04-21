@@ -31,7 +31,7 @@ exports.getCart = (req, res, next) => {
         } 
 
         console.log(result);
-        if(results.length == 0) {
+        if(result.length == 0) {
             return next();
         } else {
             req.products = result;
