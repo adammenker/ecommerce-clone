@@ -32,7 +32,8 @@ router.get('/cart', authController.isLoggedIn, (req, res) => {
     if(req.user) {
         cartController.getCart();
         res.render('cart', {
-            user: req.user
+            user: req.user,
+            products: req.products
         });
     } else {
         res.redirect('/login');
