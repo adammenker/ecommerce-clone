@@ -28,14 +28,16 @@ router.get('/profile', authController.isLoggedIn, (req, res) => {
     }   
 });
 
-router.get('/cart', authController.isLoggedIn, (req, res) => {
-    const products = cartController.getCart();
-    if(req.user && products) {
+router.get('/cart', authController.isLoggedIn, cartController.getCart, (req, res) => {
+    // const products = cartController.getCart();
+    if(req.user && req.products) {
+        console.log("* both user and products");
         res.render('cart', {
             user: req.user,
             products: products
         });
     } else if(req.user){
+        console.log("* just user");
         res.render('cart', {
             user: req.user
         });

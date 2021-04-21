@@ -18,7 +18,8 @@ const db = mysql.createPool({
 
 
 exports.getCart = (req, res, next) => {
-    // console.log(req.body);
+    console.log(res);
+    console.log(req);
 
     // destructuring
     // const {name, phone, email, password, passwordConfirm} = req.body;
@@ -27,15 +28,16 @@ exports.getCart = (req, res, next) => {
     db.query('SELECT * FROM products', async (error, result) => {
         if(error) {
             console.log(error);
-            return;
+            return next();
         } 
 
         console.log(result);
-        if(result.length == 0) {
-            return;
+        if(results.length == 0) {
+            return next();
         } else {
-            return result;
+            req.products = result;
         } 
+        return next();
     });
 }
 
