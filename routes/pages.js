@@ -29,11 +29,15 @@ router.get('/profile', authController.isLoggedIn, (req, res) => {
 });
 
 router.get('/cart', authController.isLoggedIn, (req, res) => {
-    if(req.user) {
-        cartController.getCart();
+    const products = cartController.getCart();
+    if(req.user && products) {
         res.render('cart', {
             user: req.user,
-            products: req.products
+            products: products
+        });
+    } else if(req.user){
+        res.render('cart', {
+            user: req.user
         });
     } else {
         res.redirect('/login');

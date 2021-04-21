@@ -27,16 +27,15 @@ exports.getCart = (req, res, next) => {
     db.query('SELECT * FROM products', async (error, result) => {
         if(error) {
             console.log(error);
-            return next();
+            return;
         } 
 
         console.log(result);
         if(result.length == 0) {
-            return next();
+            return;
         } else {
-            req.products = result;
+            return result;
         } 
-        return next();
     });
 }
 
