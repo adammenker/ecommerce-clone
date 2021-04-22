@@ -31,7 +31,7 @@ exports.getCart = (req, res, next) => {
             return next();
         } else {
             productNames = generateCartHtml(result);
-            req.productNames = productNames;
+            req.products = productNames;
         } 
         return next();
     });
@@ -41,6 +41,8 @@ function generateCartHtml(products) {
     let productNames = [];
     for(let i = 0; i < products.length; i++){
         productNames.push(products[i].name);
+        productNames.push(products[i].category);
+        productNames.push(products[i].price);
         productNames.push("\\");
         // console.log(products[i].name);
     }
