@@ -14,10 +14,24 @@ for(let i = 0; i < productText.length; i++) {
     }
 }
 // remove empty string at the end
-productText = productText.slice(0, -1);
+productArray = productText.slice(0, -1);
 // *** TEST ***
-console.log(productText);
+console.log(productArray);
 
 
+function createTableRows(productArr) {
+    let tableBody = '';
+    for(let i = 0; i < productArr.length; i++) {
+        tableBody += 
+            '<tr>' +
+                `<th scope="row">${i + 1}</th>` +
+                `<td>${Mark}</td>` +
+                `<td>${Otto}</td>` +
+                `<td>${$mdo}</td>` +
+            '</tr>'
+    }
+}
 
-//document.getElementById("test2").innerHTML = "yeyeyw"
+productHTML = createTableRows(productArray);
+
+document.getElementById("product-table-body").innerHTML = productHTML;
