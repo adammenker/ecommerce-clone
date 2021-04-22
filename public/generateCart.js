@@ -1,1 +1,4 @@
-// console.log(products);
+
+let productText = document.getElementById("test").innerHTML
+
+console.log(productText);
