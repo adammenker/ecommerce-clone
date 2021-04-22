@@ -27,12 +27,13 @@ function createTableRows(productArr) {
     let currentProduct = ''
     for(let i = 0; i < productArr.length; i++) {
         currentProduct = productArr[i].split(",");
-        productName = currentProduct[0];
-        productCategory = currentProduct[1];
-        productPrice = currentProduct[2];
+        productID = currentProduct[0];
+        productName = currentProduct[1];
+        productCategory = currentProduct[2];
+        productPrice = currentProduct[3];
         tableBody += 
             '<tr>' +
-                `<th scope="row">${'# ' + i}</th>` +
+                `<th scope="row">${productID}</th>` +
                 `<td>${productName}</td>` +
                 `<td>${productCategory}</td>` +
                 `<td>${"$" + productPrice}</td>` +
@@ -45,4 +46,4 @@ productHTML = createTableRows(productArray);
 
 document.getElementById("product-table-body").innerHTML = productHTML;
 
-// document.getElementById("product-string").style.opacity = "0";
+document.getElementById("product-string").style.opacity = "0";
