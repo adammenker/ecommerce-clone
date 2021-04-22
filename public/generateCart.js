@@ -14,8 +14,8 @@ for(let i = 0; i < productText.length; i++) {
     }
 }
 // remove empty string at the end
-productText.slice(0, -1);
-
+productText = productText.slice(0, -1);
+// *** TEST ***
 console.log(productText);
 
 
