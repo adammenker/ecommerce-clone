@@ -27,12 +27,19 @@ exports.getCart = (req, res, next) => {
 
         console.log(result);
         if(result.length == 0) {
+            generateCartHtml(result)
             return next();
         } else {
             req.products = result;
         } 
         return next();
     });
+}
+
+function generateCartHtml(products) {
+    for(let i = 0; i < products.length; i++){
+        console.log(products[i].name);
+    }
 }
 
 

@@ -1,1 +1,1 @@
-console.log(products[0]);
+// console.log(products);
