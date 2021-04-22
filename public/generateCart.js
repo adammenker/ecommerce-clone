@@ -15,6 +15,9 @@ for(let i = 0; i < productText.length; i++) {
 }
 // remove empty string at the end
 productArray = productText.slice(0, -1);
+// *** TEST ***
+console.log(productArray);
+
 
 function createTableRows(productArr) {
     let tableBody = '';
@@ -34,4 +37,4 @@ productHTML = createTableRows(productArray);
 
 document.getElementById("product-table-body").innerHTML = productHTML;
 
-document.getElementById("product-string").style.opacity = "0";
+// document.getElementById("product-string").style.opacity = "0";
