@@ -1,5 +1,5 @@
 
-let productText = document.getElementById("test").innerHTML
+let productText = document.getElementById("product-string").innerHTML
 
 productText = productText.split("\\");
 
