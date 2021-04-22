@@ -24,8 +24,8 @@ function createTableRows(productArr) {
     for(let i = 0; i < productArr.length; i++) {
         tableBody += 
             '<tr>' +
-                `<th scope="row">${i + 5}</th>` +
-                `<td>${'Mark'}</td>` +
+                `<th scope="row">${'# ' + i}</th>` +
+                `<td>${productArray[i]}</td>` +
                 `<td>${'Otto'}</td>` +
                 `<td>${'$mdo'}</td>` +
             '</tr>'
@@ -36,3 +36,5 @@ function createTableRows(productArr) {
 productHTML = createTableRows(productArray);
 
 document.getElementById("product-table-body").innerHTML = productHTML;
+
+document.getElementById("product-string").style.opacity = "0";
