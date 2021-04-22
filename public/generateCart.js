@@ -25,9 +25,9 @@ function createTableRows(productArr) {
         tableBody += 
             '<tr>' +
                 `<th scope="row">${i + 1}</th>` +
-                `<td>${Mark}</td>` +
-                `<td>${Otto}</td>` +
-                `<td>${$mdo}</td>` +
+                `<td>${'Mark'}</td>` +
+                `<td>${'Otto'}</td>` +
+                `<td>${'$mdo'}</td>` +
             '</tr>'
     }
 }
