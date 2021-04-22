@@ -31,7 +31,7 @@ exports.getCart = (req, res, next) => {
             return next();
         } else {
             productNames = generateCartHtml(result);
-            req.products = productNames;
+            req.productNames = productNames;
         } 
         return next();
     });
