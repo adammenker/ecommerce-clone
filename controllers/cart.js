@@ -25,11 +25,12 @@ exports.getCart = (req, res, next) => {
             return next();
         } 
 
-        console.log(result);
+        // console.log(result);
         if(result.length == 0) {
-            generateCartHtml(result)
+            
             return next();
         } else {
+            generateCartHtml(result);
             req.products = result;
         } 
         return next();
