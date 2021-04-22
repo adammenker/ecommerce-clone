@@ -38,7 +38,9 @@ exports.getCart = (req, res, next) => {
 }
 
 function generateCartHtml(products) {
-    let productNames = []
+    let productNames = [];
+    let div = '';
+    return div+= '<div>test</div>';
     for(let i = 0; i < products.length; i++){
         productNames.push(products[i].name);
         console.log(products[i].name);
