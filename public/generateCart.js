@@ -30,6 +30,7 @@ function createTableRows(productArr) {
                 `<td>${'$mdo'}</td>` +
             '</tr>'
     }
+    return tableBody;
 }
 
 productHTML = createTableRows(productArray);
