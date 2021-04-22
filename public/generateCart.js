@@ -24,7 +24,7 @@ function createTableRows(productArr) {
     for(let i = 0; i < productArr.length; i++) {
         tableBody += 
             '<tr>' +
-                `<th scope="row">${i + 1}</th>` +
+                `<th scope="row">${i + 5}</th>` +
                 `<td>${'Mark'}</td>` +
                 `<td>${'Otto'}</td>` +
                 `<td>${'$mdo'}</td>` +
