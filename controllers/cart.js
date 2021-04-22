@@ -30,17 +30,20 @@ exports.getCart = (req, res, next) => {
             
             return next();
         } else {
-            generateCartHtml(result);
-            req.products = result;
+            productNames = generateCartHtml(result);
+            req.products = productNames;
         } 
         return next();
     });
 }
 
 function generateCartHtml(products) {
+    let productNames = []
     for(let i = 0; i < products.length; i++){
+        productNames.push(products[i].name);
         console.log(products[i].name);
     }
+    return productNames;
 }
 
 
