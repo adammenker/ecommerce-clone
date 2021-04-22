@@ -41,7 +41,7 @@ function generateCartHtml(products) {
     let productNames = [];
     for(let i = 0; i < products.length; i++){
         productNames.push(products[i].productID);
-        productNames.push((products[i].name).replace(",", "**Z$*"));
+        productNames.push((products[i].name).replace(",", "**2Z$*4TZQ$**3")); // replaced characters reference on generateCart.js line 31
         productNames.push(products[i].category);
         productNames.push(products[i].price);
         productNames.push("\\");
