@@ -28,7 +28,7 @@ function createTableRows(productArr) {
     for(let i = 0; i < productArr.length; i++) {
         currentProduct = productArr[i].split(",");
         productID = currentProduct[0];
-        productName = currentProduct[1];
+        productName = (currentProduct[1]).replace("**Z$*", ",");
         productCategory = currentProduct[2];
         productPrice = currentProduct[3];
         tableBody += 

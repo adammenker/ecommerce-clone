@@ -41,7 +41,7 @@ function generateCartHtml(products) {
     let productNames = [];
     for(let i = 0; i < products.length; i++){
         productNames.push(products[i].productID);
-        productNames.push(products[i].name);
+        productNames.push((products[i].name).replace(",", "**Z$*"));
         productNames.push(products[i].category);
         productNames.push(products[i].price);
         productNames.push("\\");
@@ -49,5 +49,6 @@ function generateCartHtml(products) {
     }
     return productNames;
 }
+
 
 
