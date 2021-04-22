@@ -26,7 +26,7 @@ function createTableRows(productArr) {
     let productPrice = '';
     let currentProduct = ''
     for(let i = 0; i < productArr.length; i++) {
-        currentProduct = productArr.split(",");
+        currentProduct = productArr[i].split(",");
         productName = currentProduct[0];
         productCategory = currentProduct[1];
         productPrice = currentProduct[2];
