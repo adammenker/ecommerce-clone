@@ -19,6 +19,7 @@ productArray = productText.slice(0, -1);
 // *** TEST ***
 // console.log(productArray);
 
+let totalPrice = 0;
 
 function createTableRows(productArr) {
     let tableBody = '';
@@ -44,7 +45,17 @@ function createTableRows(productArr) {
 }
 
 productHTML = createTableRows(productArray);
-
 document.getElementById("product-table-body").innerHTML = productHTML;
-
 document.getElementById("product-string").style.opacity = "0";
+
+let quantity = productArray.length;
+
+function setTotals() {
+    let subtotal = 0; 
+    for(let i = 0; i < productArray.length; i++) {
+        currentProduct = productArr[i].split(",");
+        subtotal += currentProduct[3];
+    }
+    console.log(subtotal);
+    return subtotal;
+}
