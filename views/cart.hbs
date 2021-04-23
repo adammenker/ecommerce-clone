@@ -46,7 +46,11 @@
                             </tbody>
                         </table>
 
-                        <a href="#" class="btn btn-primary">Checkout</a>
+                        <form action="/pages/checkout" method="post">
+                            <button name="cartValues" value="test">Checkout</button>
+                        </form>
+
+                        {{!-- <a href="/checkout" class="btn btn-primary">Checkout</a> --}}
                     </div>
                     <div class="card-footer text-muted">
                         MySQL 3380 Web Interface

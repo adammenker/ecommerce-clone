@@ -43,7 +43,7 @@ router.get('/cart', authController.isLoggedIn, cartController.getCart, (req, res
     }  
 });
 
-router.get('/checkout', authController.isLoggedIn, (req, res) => {
+router.get('/checkout', authController.isLoggedIn, cartController.createOrder, (req, res) => {
     if(req.user){
         res.render('checkout', {
             user: req.user

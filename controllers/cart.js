@@ -39,6 +39,7 @@ function generateCartHtml(products) {
     let productNames = [];
     for(let i = 0; i < products.length; i++){
         productNames.push(products[i].productID);
+        // replace character string with a .env so no injections
         productNames.push((products[i].name).replace(",", "**2Z$*4TZQ$**3")); // replaced characters reference on generateCart.js line 31
         productNames.push(products[i].category);
         productNames.push(products[i].price);
@@ -47,5 +48,24 @@ function generateCartHtml(products) {
     return productNames;
 }
 
+exports.createOrder = (req, res, next) => {
+    console.log(req.body);
+    next();
 
+    let currentDate = new Date();
+    let cDay = currentDate.getDate();
+    let cMonth = currentDate.getMonth() + 1;
+    let cYear = currentDate.getFullYear();
+    let date = cDay + "-" + cMonth + "-" + cYear;
+
+    // db.query('INSERT INTO orders SET ?', {order_date: date, phone: phone, email: email, password: hashedPasword}, (error, results) => {
+    //     if(error) {
+    //         console.log(error);
+    //     } else {
+    //         return res.render('register', {
+    //             message: 'User Registered'
+    //         });
+    //     }
+    // });
+}
 
