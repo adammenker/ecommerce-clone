@@ -53,13 +53,13 @@ function setTotals() {
     let subtotal = 0; 
     for(let i = 0; i < productArray.length; i++) {
         currentProduct = productArray[i].split(",");
-        subtotal += currentProduct[3];
+        subtotal += parseFloat(currentProduct[3]);
     }
     console.log(subtotal);
     return subtotal;
 }
 
-let total = setTotals();
+let subtotal = setTotals();
 let quantity = productArray.length;
 
 document.getElementById("quantity-label").innerHTML = `Quantity: ${quantity}`;
