@@ -49,12 +49,13 @@ function generateCartHtml(products) {
 }
 
 exports.createOrder = (req, res, next) => {
+    console.log('firing');
     reqValues = req.body.values
     reqValues = reqValues.split(",");
     price = parseFloat(reqValues[0].replace("$", ""));
     numberOfProducts = parseInt(reqValues[1]);
     let trackingNumber = Math.round(Math.random() * 10000000000);
-    // trackingNumber = validateTrackingNum(trackingNumber);
+    trackingNumber = validateTrackingNum(trackingNumber);
 
     let currentDate = new Date();
     let cDay = currentDate.getDate();
@@ -82,6 +83,7 @@ exports.createOrder = (req, res, next) => {
 
 
 function validateTrackingNum(trackingNumber) {
+    
     db.query('SELECT * FROM products WHERE tracking_number = ?', [trackingNumber], async (error, result) => {
         if(error) {
             console.log(error);
@@ -91,6 +93,7 @@ function validateTrackingNum(trackingNumber) {
         if(result.length == 0) {
             return trackingNumber;
         } else {
+            console.log('repeat hit');
             trackingNum = Math.round(Math.random() * 10000000000000); 
             validateTrackingNum(trackingNum)
         } 
