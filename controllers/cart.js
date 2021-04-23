@@ -83,16 +83,16 @@ exports.createOrder = (req, res, next) => {
 }
 
 
-function validateTrackingNum(trackingNumber) {
+function validateTrackingNum(trackingNo) {
     
-    db.query('SELECT tracking_number FROM orders WHERE tracking_number = ?', [trackingNumber], async (error, result) => {
+    db.query('SELECT tracking_number FROM orders WHERE tracking_number = ?', [trackingNo], async (error, result) => {
         if(error) {
             console.log(error);
             return next();
         } 
 
         if(result.length == 0) {
-            return trackingNumber;
+            return trackingNo;
         } else {
             console.log('repeat hit');
             trackingNum = Math.round(Math.random() * 10000000000000); 
