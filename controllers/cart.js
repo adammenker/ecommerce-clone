@@ -72,7 +72,7 @@ exports.createOrder = (req, res, next) => {
         });
     }
 
-    db.query('INSERT INTO orders SET ?', {tracking_number: 10, order_date: date, ship_method: defaultShippingMethod, number_of_products: numberOfProducts}, (error, results) => {
+    db.query('INSERT INTO orders SET ?', {tracking_number: Math.round(10 * Math.random()), order_date: date, ship_method: defaultShippingMethod, number_of_products: numberOfProducts}, (error, results) => {
         if(error) {
             console.log(error);
             return next();
