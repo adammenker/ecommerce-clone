@@ -49,8 +49,8 @@ function generateCartHtml(products) {
 }
 
 exports.createOrder = (req, res, next) => {
+    console.log(req.get('a'));
     console.log('req: ');
-    console.log(req);
     next();
 
     let currentDate = new Date();
