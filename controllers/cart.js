@@ -49,9 +49,12 @@ function generateCartHtml(products) {
 }
 
 exports.createOrder = (req, res, next) => {
-    console.log(req.body);
-    console.log(req.body.values);
-    console.log(req.body.values[0]);
+    reqValues = req.body.values
+    reqValues = reqValues.split(",");
+    price = parseFloat(reqValues[0]);
+    numberOfProducts = parseInt(reqValues[1]);
+    console.log(price + numberOfProducts);
+    
     next();
 
     let currentDate = new Date();
