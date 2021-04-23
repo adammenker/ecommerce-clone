@@ -49,6 +49,7 @@ function generateCartHtml(products) {
 }
 
 exports.createOrder = (req, res, next) => {
+    console.log('req: ');
     console.log(req.body);
     next();
 
