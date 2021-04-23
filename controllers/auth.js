@@ -111,6 +111,7 @@ exports.login = async (req, res) => {
 }
 
 exports.isLoggedIn = async (req, res, next) => {
+    console.log(req.body);
     if(req.cookies.jwt){
         try{
             // verify token and associated user
