@@ -84,7 +84,7 @@ exports.createOrder = (req, res, next) => {
 
 function validateTrackingNum(trackingNumber) {
     
-    db.query('SELECT tracking_number FROM products WHERE tracking_number = ?', [trackingNumber], async (error, result) => {
+    db.query('SELECT tracking_number FROM orders WHERE tracking_number = ?', [trackingNumber], async (error, result) => {
         if(error) {
             console.log(error);
             return next();
