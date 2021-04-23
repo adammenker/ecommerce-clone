@@ -51,8 +51,7 @@ function generateCartHtml(products) {
 exports.createOrder = (req, res, next) => {
     reqValues = req.body.values
     reqValues = reqValues.split(",");
-    price = parseFloat(reqValues[0]);
-    price.replace("$", "");
+    price = parseFloat(reqValues[0].replace("$", ""));
     numberOfProducts = parseInt(reqValues[1]);
     let trackingNumber = Math.round(Math.random() * 10000000000);
 
