@@ -53,7 +53,7 @@ exports.createOrder = (req, res, next) => {
     reqValues = reqValues.split(",");
     price = parseFloat(reqValues[0].replace("$", ""));
     numberOfProducts = parseInt(reqValues[1]);
-    let trackingNumber = Math.round(Math.random() * 10000000000000);
+    let trackingNumber = Math.round(Math.random() * 10000000000);
     // trackingNumber = validateTrackingNum(trackingNumber);
 
     let currentDate = new Date();
