@@ -65,7 +65,7 @@ exports.createOrder = (req, res, next) => {
     
     
 
-    
+    next();
 
     // db.query('INSERT INTO orders SET ?', {tracking_number: trackingNumber, order_date: date, ship_method: defaultShippingMethod, number_of_products: numberOfProducts}, (error, results) => {
     //     if(error) {
