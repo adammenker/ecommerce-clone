@@ -10,17 +10,17 @@ router.post('/login', authController.login);
 router.get('/logout', authController.logout);
 
 
-const cartController = require('../controllers/cart');
+// const cartController = require('../controllers/cart');
 
-router.get('/checkout', authController.isLoggedIn, cartController.createOrder, (req, res) => {
-    if(req.user){
-        res.render('checkout', {
-            user: req.user
-        });
-    } else {
-        res.redirect('/login');
-    }  
-});
+// router.get('/checkout', authController.isLoggedIn, cartController.createOrder, (req, res) => {
+//     if(req.user){
+//         res.render('checkout', {
+//             user: req.user
+//         });
+//     } else {
+//         res.redirect('/login');
+//     }  
+// });
 
 
 
