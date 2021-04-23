@@ -52,7 +52,7 @@ document.getElementById("product-string").style.opacity = "0";
 function setTotals() {
     let subtotal = 0; 
     for(let i = 0; i < productArray.length; i++) {
-        currentProduct = productArr[i].split(",");
+        currentProduct = productArray[i].split(",");
         subtotal += currentProduct[3];
     }
     console.log(subtotal);
@@ -65,4 +65,4 @@ let quantity = productArray.length;
 document.getElementById("quantity-label").innerHTML = `Quantity: ${quantity}`;
 document.getElementById("subtotal-label").innerHTML = `Subtotal: ${subtotal}`;
 
-// document.getElementById("checkout-button").
+document.getElementById("checkout-button").setAttribute("value", {total, quantity});
