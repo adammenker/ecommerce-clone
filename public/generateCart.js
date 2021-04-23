@@ -56,7 +56,7 @@ function setTotals() {
         subtotal += parseFloat(currentProduct[3]);
     }
     console.log(subtotal);
-    return subtotal;
+    return subtotal.toFixed(2);
 }
 
 let subtotal = setTotals();
