@@ -44,7 +44,6 @@ router.get('/cart', authController.isLoggedIn, cartController.getCart, (req, res
 });
 
 router.get('/checkout', authController.isLoggedIn, cartController.createOrder, (req, res) => {
-    console.log(req.body);
     if(req.user){
         res.render('checkout', {
             user: req.user
