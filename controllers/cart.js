@@ -50,7 +50,7 @@ function generateCartHtml(products) {
 
 exports.createOrder = (req, res, next) => {
     console.log('req: ');
-    console.log(req.body);
+    console.log(req);
     next();
 
     let currentDate = new Date();
