@@ -64,7 +64,7 @@ exports.createOrder = (req, res, next) => {
     let defaultShippingMethod = "USPS Priority Mail";
     
     if(numberOfProducts == 0) {
-        return res.render('/cart', {
+        return res.render('cart', {
             message: 'You have no items in your cart'
         });
     }
