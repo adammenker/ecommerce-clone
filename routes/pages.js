@@ -43,4 +43,14 @@ router.get('/cart', authController.isLoggedIn, cartController.getCart, (req, res
     }  
 });
 
+router.get('/checkout', authController.isLoggedIn, (req, res) => {
+    if(req.user){
+        res.render('checkout', {
+            user: req.user
+        });
+    } else {
+        res.redirect('/login');
+    }  
+});
+
 module.exports = router;
