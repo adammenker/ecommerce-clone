@@ -54,7 +54,7 @@ exports.createOrder = (req, res, next) => {
     reqValues = reqValues.split(",");
     price = parseFloat(reqValues[0].replace("$", ""));
     numberOfProducts = parseInt(reqValues[1]);
-    let trackingNumber = Math.round(Math.random()* 100000000000 * Math.random());
+    let trackingNumber = (Math.round(Math.random()* 100000000000 * Math.random())).toString();
     console.log('firing2' + trackingNumber);
     // trackingNumber = validateTrackingNum(trackingNumber);
 
@@ -74,7 +74,7 @@ exports.createOrder = (req, res, next) => {
 
     let t = Math.round(Math.random()* 100000000000 * Math.random());
 
-    db.query('INSERT INTO orders SET ?', {tracking_number: tafew(Math.round(Math.random()* 100000000000 * Math.random())), order_date: date, ship_method: defaultShippingMethod, number_of_products: numberOfProducts}, (error, results) => {
+    db.query('INSERT INTO orders SET ?', {tracking_number: Math.round(Math.random()* 100000000000 * Math.random()), order_date: date, ship_method: defaultShippingMethod, number_of_products: numberOfProducts}, (error, results) => {
         if(error) {
             console.log(error);
             return next();
