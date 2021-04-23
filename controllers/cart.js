@@ -53,13 +53,14 @@ exports.createOrder = (req, res, next) => {
     reqValues = reqValues.split(",");
     price = parseFloat(reqValues[0].replace("$", ""));
     numberOfProducts = parseInt(reqValues[1]);
-    let trackingNumber = Math.round(Math.random() * 10000000000);
+    let trackingNumber = Math.round(Math.random() * 10000000000000);
+    trackingNumber = validateTrackingNum(trackingNumber);
 
     let currentDate = new Date();
     let cDay = currentDate.getDate();
     let cMonth = currentDate.getMonth() + 1;
     let cYear = currentDate.getFullYear();
-    let date = cDay + "-" + cMonth + "-" + cYear;
+    let date = cMonth + "/" + cDay + "/" + cYear;
 
     let defaultShippingMethod = "USPS Priority Mail";
     
@@ -79,3 +80,19 @@ exports.createOrder = (req, res, next) => {
     });
 }
 
+
+function validateTrackingNum(trackingNumber) {
+    db.query('SELECT * FROM products WHERE tracking_number = ?', [trackingNumber], async (error, result) => {
+        if(error) {
+            console.log(error);
+            return next();
+        } 
+
+        if(result.length == 0) {
+            return trackingNumber;
+        } else {
+            trackingNum = Math.round(Math.random() * 10000000000000); 
+            validateTrackingNum(trackingNum)
+        } 
+    });
+}
