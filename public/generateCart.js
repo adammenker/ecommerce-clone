@@ -15,8 +15,9 @@ for(let i = 0; i < productText.length; i++) {
 }
 // remove empty string at the end
 productArray = productText.slice(0, -1);
+
 // *** TEST ***
-console.log(productArray);
+// console.log(productArray);
 
 
 function createTableRows(productArr) {

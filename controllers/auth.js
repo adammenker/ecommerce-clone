@@ -19,8 +19,6 @@ const db = mysql.createPool({
 
 
 exports.register = (req, res) => {
-    console.log(req.body);
-
     // destructuring
     const {name, phone, email, password, passwordConfirm} = req.body;
 
@@ -56,16 +54,13 @@ exports.register = (req, res) => {
             });
         }  
 
-        console.log(parseInt(phone));
 
         let hashedPasword = await bcrypt.hash(password, 8);
-        console.log(hashedPasword);
 
         db.query('INSERT INTO users SET ?', {name: name, phone: phone, email: email, password: hashedPasword}, (error, results) => {
             if(error) {
                 console.log(error);
             } else {
-                console.log(results);
                 return res.render('register', {
                     message: 'User Registered'
                 });
@@ -85,21 +80,17 @@ exports.login = async (req, res) => {
             });
         }
 
-        db.query('SELECT * FROM users WHERE email = ?', [email], async (error, results) =>{
-            console.log(results);
+        db.query('SELECT * FROM users WHERE email = ?', [email], async (error, results) => {
             if(results.length == 0 || !(await bcrypt.compare(password, results[0].password))){
                 res.status(401).render('login', {
                     message: 'Email or password is incorrect'
                 });
-            }else {
+            } else {
                 const id = results[0].userID;
-                console.log(results);
                 // replace string with process.env.JWT_SECRET
                 const token = jwt.sign({id}, "TEMPprocess.env.JWT_SECRET", {
                     expiresIn: "90d"// replace number with process.env.JWT_EXPIRES_IN
                 });
-
-                // console.log(`token: ${token}`);
 
                 // insert process.env.JWT_COOKIE_EXPIRES where "1" is in multiplication
                 const cookieOptions = {
@@ -119,7 +110,6 @@ exports.login = async (req, res) => {
 }
 
 exports.isLoggedIn = async (req, res, next) => {
-    // console.log(req.cookies);
     if(req.cookies.jwt){
         try{
             // verify token and associated user
@@ -127,12 +117,9 @@ exports.isLoggedIn = async (req, res, next) => {
                 req.cookies.jwt,
                 "TEMPprocess.env.JWT_SECRET",
             );
-            console.log(decoded);
 
             // check for user in DB by querying for userID
             db.query('SELECT * FROM users WHERE userID = ?', [decoded.id], (error, result) => {
-                console.log(result);
-
                 if(result.length == 0){
                     return next();
                 }

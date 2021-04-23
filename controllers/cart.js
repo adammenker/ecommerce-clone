@@ -25,9 +25,7 @@ exports.getCart = (req, res, next) => {
             return next();
         } 
 
-        // console.log(result);
         if(result.length == 0) {
-            
             return next();
         } else {
             productNames = generateCartHtml(result);
@@ -45,7 +43,6 @@ function generateCartHtml(products) {
         productNames.push(products[i].category);
         productNames.push(products[i].price);
         productNames.push("\\");
-        // console.log(products[i].name);
     }
     return productNames;
 }
