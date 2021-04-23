@@ -48,7 +48,6 @@ productHTML = createTableRows(productArray);
 document.getElementById("product-table-body").innerHTML = productHTML;
 document.getElementById("product-string").style.opacity = "0";
 
-let quantity = productArray.length;
 
 function setTotals() {
     let subtotal = 0; 
@@ -59,3 +58,9 @@ function setTotals() {
     console.log(subtotal);
     return subtotal;
 }
+
+let total = setTotals();
+let quantity = productArray.length;
+
+document.getElementById("quantity-label").innerHTML = `Quantity: ${quantity}`;
+document.getElementById("subtotal-label").innerHTML = `Subtotal: ${subtotal}`;
