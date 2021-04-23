@@ -16,10 +16,6 @@ for(let i = 0; i < productText.length; i++) {
 // remove empty string at the end
 productArray = productText.slice(0, -1);
 
-// *** TEST ***
-// console.log(productArray);
-
-let totalPrice = 0;
 
 function createTableRows(productArr) {
     let tableBody = '';
@@ -55,7 +51,6 @@ function setTotals() {
         currentProduct = productArray[i].split(",");
         subtotal += parseFloat(currentProduct[3]);
     }
-    console.log(subtotal);
     return subtotal.toFixed(2);
 }
 
