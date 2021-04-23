@@ -19,7 +19,7 @@ const db = mysql.createPool({
 
 exports.getCart = (req, res, next) => {
     // change to getting products from 'cart' table with given userID
-    db.query('SELECT * FROM products', async (error, result) => {
+    db.query('SELECT * FROM products WHERE productID = 0', async (error, result) => {
         if(error) {
             console.log(error);
             return next();
@@ -52,10 +52,9 @@ exports.createOrder = (req, res, next) => {
     reqValues = req.body.values
     reqValues = reqValues.split(",");
     price = parseFloat(reqValues[0]);
+    price.replace("$", "");
     numberOfProducts = parseInt(reqValues[1]);
-    console.log(price + numberOfProducts);
-    
-    next();
+    let trackingNumber = Math.round(Math.random() * 10000000000);
 
     let currentDate = new Date();
     let cDay = currentDate.getDate();
@@ -63,13 +62,18 @@ exports.createOrder = (req, res, next) => {
     let cYear = currentDate.getFullYear();
     let date = cDay + "-" + cMonth + "-" + cYear;
 
-    // db.query('INSERT INTO orders SET ?', {order_date: date, phone: phone, email: email, password: hashedPasword}, (error, results) => {
+    let defaultShippingMethod = "USPS Priority Mail";
+    
+    
+
+    
+
+    // db.query('INSERT INTO orders SET ?', {tracking_number: trackingNumber, order_date: date, ship_method: defaultShippingMethod, number_of_products: numberOfProducts}, (error, results) => {
     //     if(error) {
     //         console.log(error);
+    //         return next();
     //     } else {
-    //         return res.render('register', {
-    //             message: 'User Registered'
-    //         });
+    //         return next();
     //     }
     // });
 }
