@@ -58,6 +58,6 @@ let subtotal = setTotals();
 let quantity = productArray.length;
 
 document.getElementById("quantity-label").innerHTML = `Quantity: ${quantity}`;
-document.getElementById("subtotal-label").innerHTML = `Subtotal: ${subtotal}`;
+document.getElementById("subtotal-label").innerHTML = `Subtotal: $${subtotal}`;
 
 document.getElementById("checkout-button").setAttribute("value", `$${subtotal},${quantity}`);
