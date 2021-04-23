@@ -26,9 +26,7 @@ exports.getCart = (req, res, next) => {
         } 
 
         if(result.length == 0) {
-            return res.render('/cart', {
-                message: 'You have no items in your cart'
-            });
+            return next();
         } else {
             productNames = generateCartHtml(result);
             req.products = productNames;
@@ -66,7 +64,9 @@ exports.createOrder = (req, res, next) => {
     let defaultShippingMethod = "USPS Priority Mail";
     
     if(numberOfProducts == 0) {
-        next();
+        return res.render('/cart', {
+            message: 'You have no items in your cart'
+        });
     }
 
     next();
