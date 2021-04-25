@@ -49,12 +49,13 @@ function generateCartHtml(products) {
 }
 
 exports.createOrder = (req, res, next) => {
-    console.log('firing');
+    console.log(req.body.values);
     reqValues = req.body.values
     reqValues = reqValues.split(",");
     price = parseFloat(reqValues[0].replace("$", ""));
     numberOfProducts = parseInt(reqValues[1]);
     let trackingNumber = (Math.round(100000000 * Math.random())).toString();
+    trackingNumber = validateTrackingNum(trackingNumber);
     console.log(trackingNumber);
     // trackingNumber = validateTrackingNum(trackingNumber);
 
@@ -72,8 +73,6 @@ exports.createOrder = (req, res, next) => {
         });
     }
 
-    let t = Math.round(Math.random()* 10000000 * Math.random());
-
     db.query('INSERT INTO orders SET ?', {tracking_number: trackingNumber, order_date: date, ship_method: defaultShippingMethod, number_of_products: numberOfProducts}, (error, results) => {
         if(error) {
             console.log(error);
@@ -84,25 +83,23 @@ exports.createOrder = (req, res, next) => {
     });
 }
 
-function tafew(num) {
-    return num;
-}
-
-
 function validateTrackingNum(trackingNo) {
     
     db.query('SELECT tracking_number FROM orders WHERE tracking_number = ?', [trackingNo], async (error, result) => {
         if(error) {
             console.log(error);
-            return next();
+            return;
         } 
 
         if(result.length == 0) {
             return trackingNo;
         } else {
             console.log('repeat hit');
-            trackingNum = Math.round(Math.random() * 10000000000000); 
+            trackingNo = parseInt(trackingNo);
+            trackingNum = Math.round(Math.random() * 100000000); 
             validateTrackingNum(trackingNum)
+            let trackingNo = (Math.round(100000000 * Math.random())).toString();
+            return trackingNo
         } 
     });
 }
