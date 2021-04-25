@@ -51,7 +51,7 @@ router.post('/orderSummary', authController.isLoggedIn, cartController.createOrd
             price: req.price
         });
     } else if(req.user){
-        res.render('orderSummary', {
+        res.render('cart', {
             user: req.user
         });
     } else {
