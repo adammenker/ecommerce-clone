@@ -129,4 +129,4 @@ let products = [
 ];
 
 /*initiate the autocomplete function on the "myInput" element, and pass along the products array as possible autocomplete values:*/
-autocomplete(document.getElementById("myInput"), products);
+autocomplete(document.getElementById("userInput"), products);

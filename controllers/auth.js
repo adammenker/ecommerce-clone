@@ -62,7 +62,7 @@ exports.register = (req, res) => {
                 console.log(error);
             } else {
                 return res.render('register', {
-                    message: 'User Registered'
+                    successMessage: 'User Registered'
                 });
             }
         });

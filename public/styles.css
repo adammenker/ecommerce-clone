@@ -63,6 +63,7 @@ nav li a {
 
 #cart-totals-container {
   background-color: rgb(235, 235, 235);
+  border-radius: 5px;
 }
 
 #cart-totals-container p {

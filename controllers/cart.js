@@ -1,5 +1,4 @@
 const mysql = require("mysql");
-
 const { promisify } = require("util");
 
 // file path not working
@@ -84,22 +83,24 @@ exports.createOrder = (req, res, next) => {
     });
 }
 
-function validateTrackingNum(trackingNo) {
-    db.query('SELECT tracking_number FROM orders WHERE tracking_number = ?', [trackingNo], async (error, result) => {
-        if(error) {
-            console.log(error);
-            return trackingNo;
-        } 
+// function validateTrackingNum(trackingNo) {
+//     db.query('SELECT tracking_number FROM orders WHERE tracking_number = ?', [trackingNo], async (error, result) => {
+//         if(error) {
+//             console.log(error);
+//             return trackingNo;
+//         } 
 
-        if(result.length == 0) {
-            return trackingNo;
-        } else {
-            console.log('repeat hit');
-            trackingNo = parseInt(trackingNo);
-            trackingNum = Math.round(Math.random() * 100000000); 
-            validateTrackingNum(trackingNum)
-            let trackingNo = (Math.round(100000000 * Math.random())).toString();
-            return trackingNo
-        } 
-    });
-}
+//         if(result.length == 0) {
+//             return trackingNo;
+//         } else {
+//             console.log('repeat hit');
+//             trackingNo = parseInt(trackingNo);
+//             trackingNum = Math.round(Math.random() * 100000000); 
+//             validateTrackingNum(trackingNum)
+//             let trackingNo = (Math.round(100000000 * Math.random())).toString();
+//             return trackingNo
+//         } 
+//     });
+// }
+
+
