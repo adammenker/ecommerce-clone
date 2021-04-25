@@ -44,14 +44,14 @@ router.get('/cart', authController.isLoggedIn, cartController.getCart, (req, res
     }  
 });
 
-router.post('/orders', authController.isLoggedIn, ordersController.getOrder, (req, res) => {
+router.post('/orderSummary', authController.isLoggedIn, cartController.createOrder, (req, res) => {
     if(req.user && req.price) {
-        res.render('orders', {
+        res.render('ordersSummary', {
             user: req.user,
             price: req.price
         });
     } else if(req.user){
-        res.render('orders', {
+        res.render('orderSummary', {
             user: req.user
         });
     } else {
