@@ -42,7 +42,7 @@ function createTableRows(productArr) {
 
 productHTML = createTableRows(productArray);
 document.getElementById("product-table-body").innerHTML = productHTML;
-document.getElementById("product-string").style.opacity = "0";
+document.getElementById("product-string").style.display = "none";
 
 
 function setSubtotals() {
