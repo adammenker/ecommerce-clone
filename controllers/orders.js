@@ -9,7 +9,7 @@ const db = mysql.createPool({
 });
 
 
-exports.getOrder = (req, next, res) => {
+exports.getOrder = (req, res, next) => {
     db.query('SELECT * FROM orders', async (error, result) => {
         console.log(result);
         // if(error) {
