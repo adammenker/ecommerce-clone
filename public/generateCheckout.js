@@ -5,7 +5,7 @@ function calculateTax(subtotal){
 }
 
 function calculateFinalTotal(tax, subtotal, shipping) { 
-    return parseInt(tax) + parseInt(subtotal) + parseInt(shipping);
+    return parseFloat(tax) + parseFloat(subtotal) + parseFloat(shipping);
 }
 let shipping = 5;
 let taxes = calculateTax(subtotal).toFixed(2);

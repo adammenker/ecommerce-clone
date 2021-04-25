@@ -45,7 +45,7 @@ document.getElementById("product-table-body").innerHTML = productHTML;
 document.getElementById("product-string").style.opacity = "0";
 
 
-function setTotals() {
+function setSubtotals() {
     let subtotal = 0; 
     for(let i = 0; i < productArray.length; i++) {
         currentProduct = productArray[i].split(",");
@@ -54,10 +54,24 @@ function setTotals() {
     return subtotal.toFixed(2);
 }
 
-let subtotal = setTotals();
+let subtotal = setSubtotals();
 let quantity = productArray.length;
 
-document.getElementById("quantity-label").innerHTML = `Quantity: ${quantity}`;
-document.getElementById("subtotal-label").innerHTML = `Subtotal: $${subtotal}`;
-
 document.getElementById("checkout-button").setAttribute("value", `$${subtotal},${quantity}`);
+
+
+function calculateTax(subtotal){
+    return subtotal * .08;
+}
+
+function calculateFinalTotal(tax, subtotal, shipping) { 
+    return parseFloat(tax) + parseFloat(subtotal) + parseFloat(shipping);
+}
+let shipping = 5;
+let taxes = calculateTax(subtotal).toFixed(2);
+let finalTotal = calculateFinalTotal(taxes, subtotal, shipping);
+
+document.getElementById("subtotal-label").innerHTML = `Subtotal: $${subtotal}`;
+document.getElementById("taxes-label").innerHTML = `Taxes: $${taxes}`;
+document.getElementById("shipping-label").innerHTML = `Shipping: $${shipping}`;
+document.getElementById("total-label").innerHTML = `Total: $${finalTotal}`;

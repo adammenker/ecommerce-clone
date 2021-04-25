@@ -45,10 +45,12 @@
                                 {{!-- generated in generateCart.js --}}
                             </tbody>
                         </table>
-                        <h5 id="quantity-label">Quantity: </h5>
-                        <h5 id="subtotal-label">Subtotal: </h5>
+                        <p id="subtotal-label">Subtotal: </p>
+                        <p id="taxes-label">Taxes: </p>
+                        <p id="shipping-label">Shipping: </p>
+                        <p id="total-label">Total: </p>
                         <div class="container mt-4">
-                            <form action="/checkout" method="post">
+                            <form action="/orders" method="post">
                                 <button id="checkout-button" class="btn btn-primary" type="submit" name="values"
                                     value="a">
                                     Complete Order
