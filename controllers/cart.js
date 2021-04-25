@@ -55,7 +55,6 @@ exports.createOrder = (req, res, next) => {
     price = parseFloat(reqValues[0].replace("$", ""));
     numberOfProducts = parseInt(reqValues[1]);
     let trackingNumber = (Math.round(100000000 * Math.random())).toString();
-    console.log(trackingNumber);
     // trackingNumber = validateTrackingNum(trackingNumber);
 
     let currentDate = new Date();
@@ -70,6 +69,8 @@ exports.createOrder = (req, res, next) => {
         return res.render('cart', {
             message: 'You have no items in your cart'
         });
+    } else {
+        req.price = price;
     }
 
     db.query('INSERT INTO orders SET ?', {tracking_number: trackingNumber, order_date: date, ship_method: defaultShippingMethod, number_of_products: numberOfProducts}, (error, results) => {

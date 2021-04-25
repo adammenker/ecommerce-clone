@@ -44,13 +44,18 @@ router.get('/cart', authController.isLoggedIn, cartController.getCart, (req, res
 });
 
 router.post('/checkout', authController.isLoggedIn, cartController.createOrder, (req, res) => {
-    if(req.user){
+    if(req.user && req.products) {
+        res.render('checkout', {
+            user: req.user,
+            price: req.price
+        });
+    } else if(req.user){
         res.render('checkout', {
             user: req.user
         });
     } else {
         res.redirect('/login');
-    }  
+    } 
 });
 
 
