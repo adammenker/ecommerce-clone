@@ -26,12 +26,15 @@
             <div class="col-12">
                 <div class="card text-center">
                     <div class="card-header">
-                        Your Cart
+                        Pay and Finish Order
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">Hey {{user.name}}, checkout when you are ready!</h5>
-
-                        <a href="/" class="btn btn-primary">Complete Order</a>
+                        <h2 id="subtotal-price-header">Subtotal: $</h2>
+                        <h2 id="taxes-price-header">Taxes: $</h2>
+                        <h2 id="shipping-price-header">Taxes: $</h2>
+                        <h2 id="total-price-header">Total: $</h2>
+                        <a href="/" class="btn btn-primary">Submit Order</a>
                     </div>
                     <div class="card-footer text-muted">
                         MySQL 3380 Web Interface
@@ -45,7 +48,7 @@
         integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
         crossorigin="anonymous"></script>
 
-
+    <script src="/generateCart.js"></script>
 </body>
 
 </html>
