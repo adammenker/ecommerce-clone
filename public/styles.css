@@ -62,9 +62,13 @@ nav li a {
 }
 
 #cart-totals-container {
-  background-color: rgb(68, 133, 253);
+  background-color: rgb(235, 235, 235);
 }
 
 #cart-totals-container p {
-  margin-bottom: 5px;
+  margin-bottom: 3px;
+}
+
+#checkout-button {
+  margin-top: 8px;
 }
