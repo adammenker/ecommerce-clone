@@ -60,3 +60,11 @@ nav li a {
   left: 0;
   right: 0;
 }
+
+#cart-totals-container {
+  background-color: rgb(68, 133, 253);
+}
+
+#cart-totals-container p {
+  margin-bottom: 5px;
+}
