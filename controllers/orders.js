@@ -10,7 +10,7 @@ const db = mysql.createPool({
 
 
 exports.getOrder = (req, next, res) => {
-    db.query('SELECT * FROM orders WHERE userID = ?', [userID], async (error, result) => {
+    db.query('SELECT * FROM orders', async (error, result) => {
         console.log(result);
         // if(error) {
         //     console.log(error);

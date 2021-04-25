@@ -72,8 +72,7 @@ exports.createOrder = (req, res, next) => {
         req.price = price;
     }
 
-    // will need to be called on "submit order"
-    db.query('INSERT INTO orders SET ?', {tracking_number: trackingNumber, order_date: date, ship_method: defaultShippingMethod, number_of_products: numberOfProducts}, (error, results) => {
+    db.query('INSERT INTO orders SET ?', {tracking_number: trackingNumber, order_date: date, ship_method: defaultShippingMethod, number_of_products: numberOfProducts, price: price}, (error, results) => {
         if(error) {
             console.log(error);
             return next();
