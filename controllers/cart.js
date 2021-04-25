@@ -55,7 +55,6 @@ exports.createOrder = (req, res, next) => {
     price = parseFloat(reqValues[0].replace("$", ""));
     numberOfProducts = parseInt(reqValues[1]);
     let trackingNumber = (Math.round(100000000 * Math.random())).toString();
-    trackingNumber = validateTrackingNum(trackingNumber);
     console.log(trackingNumber);
     // trackingNumber = validateTrackingNum(trackingNumber);
 
@@ -84,11 +83,10 @@ exports.createOrder = (req, res, next) => {
 }
 
 function validateTrackingNum(trackingNo) {
-    
     db.query('SELECT tracking_number FROM orders WHERE tracking_number = ?', [trackingNo], async (error, result) => {
         if(error) {
             console.log(error);
-            return;
+            return trackingNo;
         } 
 
         if(result.length == 0) {
