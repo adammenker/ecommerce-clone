@@ -43,20 +43,20 @@ router.get('/cart', authController.isLoggedIn, cartController.getCart, (req, res
     }  
 });
 
-// router.post('/checkout', authController.isLoggedIn, cartController.createOrder, (req, res) => {
-//     if(req.user && req.price) {
-//         res.render('checkout', {
-//             user: req.user,
-//             price: req.price
-//         });
-//     } else if(req.user){
-//         res.render('checkout', {
-//             user: req.user
-//         });
-//     } else {
-//         res.redirect('/login');
-//     } 
-// });
+router.post('/orders', authController.isLoggedIn, cartController.createOrder, (req, res) => {
+    if(req.user && req.price) {
+        res.render('orders', {
+            user: req.user,
+            price: req.price
+        });
+    } else if(req.user){
+        res.render('orders', {
+            user: req.user
+        });
+    } else {
+        res.redirect('/login');
+    } 
+});
 
 
 

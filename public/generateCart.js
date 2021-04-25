@@ -57,9 +57,6 @@ function setSubtotals() {
 let subtotal = setSubtotals();
 let quantity = productArray.length;
 
-document.getElementById("checkout-button").setAttribute("value", `$${subtotal},${quantity}`);
-
-
 function calculateTax(subtotal){
     return subtotal * .08;
 }
@@ -70,6 +67,8 @@ function calculateFinalTotal(tax, subtotal, shipping) {
 let shipping = 5;
 let taxes = calculateTax(subtotal).toFixed(2);
 let finalTotal = calculateFinalTotal(taxes, subtotal, shipping);
+
+document.getElementById("checkout-button").setAttribute("value", `$${finalTotal},${quantity}`);
 
 document.getElementById("subtotal-label").innerHTML = `Subtotal: $${subtotal}`;
 document.getElementById("taxes-label").innerHTML = `Taxes: $${taxes}`;
