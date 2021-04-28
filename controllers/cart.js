@@ -54,6 +54,7 @@ exports.createOrder = (req, res, next) => {
     price = parseFloat(reqValues[0].replace("$", ""));
     numberOfProducts = parseInt(reqValues[1]);
     let trackingNumber = (Math.round(100000000 * Math.random())).toString();
+    trackingNumber = (58008484).toString();
     trackingNumber = validateTrackingNum(trackingNumber);
 
     let currentDate = new Date();
@@ -91,14 +92,13 @@ function validateTrackingNum(trackingNo) {
 
         if(result.length == 0) {
             console.log('no repeat');
-            return trackingNo;
         } else {
             console.log('repeat hit');
             trackingNum = (Math.round(100000000 * Math.random())).toString(); 
             validateTrackingNum(trackingNum);
         } 
     });
-    // return trackingNo;
+    return trackingNo;
 }
 
 
