@@ -26,7 +26,7 @@ exports.insertAutofillScript = (req, res, next) => {
             }
             
             let test = {t: "<h1>a</h1>"};
-            let scr = {s: "<script>console.log('a');</script>"};
+            let scr = {s: "<script>console.log('afsd');</script>"};
 
             req.test = test;
             req.script = scr;
