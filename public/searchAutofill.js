@@ -120,15 +120,16 @@ let autocomplete = (inp, arr) => {
 
 let productArr = document.getElementById("hidden-product-array");
 console.log(productArr);
+let products = productArr.split(',');
 
 /* An array containing all the product names */
-let products = [
-    "Shovel",
-    "iPhone",
-    "Catch 22",
-    "Football",
-    "Lamp"
-];
+// let products = [
+//     "Shovel",
+//     "iPhone",
+//     "Catch 22",
+//     "Football",
+//     "Lamp"
+// ];
 
 /*initiate the autocomplete function on the "myInput" element, and pass along the products array as possible autocomplete values:*/
 autocomplete(document.getElementById("userInput"), products);
