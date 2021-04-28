@@ -10,7 +10,7 @@ router.get('/', authController.isLoggedIn, productsController.insertAutofillScri
     res.render('index', {
         user: req.user,
         test: req.test,
-        script: req.script.s
+        script: req.scr.s
     });
 });
 
