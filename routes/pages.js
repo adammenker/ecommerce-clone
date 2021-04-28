@@ -9,8 +9,7 @@ const router = express.Router();
 router.get('/', authController.isLoggedIn, productsController.insertAutofillScript, (req, res) => {
     res.render('index', {
         user: req.user,
-        test: req.test,
-        script: req.script
+        products: req.productNames
     });
 });
 

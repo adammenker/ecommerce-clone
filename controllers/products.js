@@ -25,12 +25,8 @@ exports.insertAutofillScript = (req, res, next) => {
                 productNames.push(result[i].name);
             }
             
-            let test = {t: "<h1>a</h1>"};
-            let scr = {s: "<script>console.log('afsd');</script>"};
 
-            req.test = test;
-            req.script = scr;
-            console.log(productNames);
+            req.productNames = productNames;
         } 
         return next();
     });
