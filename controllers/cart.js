@@ -54,7 +54,7 @@ exports.createOrder = (req, res, next) => {
     price = parseFloat(reqValues[0].replace("$", ""));
     numberOfProducts = parseInt(reqValues[1]);
     let trackingNumber = (Math.round(100000000 * Math.random())).toString();
-    // trackingNumber = validateTrackingNum(trackingNumber);
+    trackingNumber = validateTrackingNum(trackingNumber);
 
     let currentDate = new Date();
     let cDay = currentDate.getDate();
@@ -82,24 +82,37 @@ exports.createOrder = (req, res, next) => {
     });
 }
 
-// function validateTrackingNum(trackingNo) {
-//     db.query('SELECT tracking_number FROM orders WHERE tracking_number = ?', [trackingNo], async (error, result) => {
-//         if(error) {
-//             console.log(error);
-//             return trackingNo;
-//         } 
+function validateTrackingNum(trackingNo) {
+    db.query('SELECT tracking_number FROM orders WHERE tracking_number = ?', [trackingNo], async (error, result) => {
+        if(error) {
+            console.log(error);
+            return trackingNo;
+        } 
 
-//         if(result.length == 0) {
-//             return trackingNo;
-//         } else {
-//             console.log('repeat hit');
-//             trackingNo = parseInt(trackingNo);
-//             trackingNum = Math.round(Math.random() * 100000000); 
-//             validateTrackingNum(trackingNum)
-//             let trackingNo = (Math.round(100000000 * Math.random())).toString();
-//             return trackingNo
-//         } 
-//     });
-// }
+        if(result.length == 0) {
+            return trackingNo;
+        } else {
+            console.log('repeat hit');
+            trackingNum = (Math.round(100000000 * Math.random())).toString(); 
+            validateTrackingNum(trackingNum);
+        } 
+    });
+}
 
 
+exports.emptyCart = (req, res, next) => {
+    db.query('SELECT * FROM orders', async (error, result) => {
+        console.log(result);
+        // if(error) {
+        //     console.log(error);
+        //     return next();
+        // } 
+
+        // if(result.length == 0) {
+        //     return next();
+        // } else {
+        //     req.order = result;
+        // } 
+        return next();
+    });
+}
