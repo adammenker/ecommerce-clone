@@ -123,7 +123,6 @@ exports.isLoggedIn = async (req, res, next) => {
                 if(result.length == 0){
                     return next();
                 }
-                console.log(result[0]);
                 req.user = result[0];
                 return next();
             });

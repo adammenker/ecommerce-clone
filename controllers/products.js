@@ -159,9 +159,12 @@ exports.insertAutofillScript = (req, res, next) => {
                         autocomplete(document.getElementById("userInput"), products);
                     </script>` 
                 }
+
+                let test = `<div>${productNames}</div>`
             // console.log(hbsScriptText);
             req.productNames = productNames;
             req.autofillScript = hbsScriptText.script;
+            req.test = test;
         } 
         return next();
     });
