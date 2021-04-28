@@ -119,8 +119,9 @@ let autocomplete = (inp, arr) => {
 };
 
 let productArr = document.getElementById("hidden-product-array");
-console.log(productArr);
+
 let products = productArr.split(',');
+console.log(products);
 
 /* An array containing all the product names */
 // let products = [
