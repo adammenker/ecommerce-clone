@@ -150,7 +150,7 @@ exports.insertAutofillScript = (req, res, next) => {
 
 
                 /* An array containing all the product names */
-                ${productNames}
+                {{productNames}}
 
                 /*initiate the autocomplete function on the "myInput" element, and pass along the products array as possible autocomplete values:*/
                 autocomplete(document.getElementById("userInput"), products);
