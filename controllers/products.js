@@ -31,7 +31,7 @@ function generateProductHtml(products) {
     let productNames = [];
     for(let i = 0; i < products.length; i++){
         // replace character string with a .env so no injections
-        productNames.push((products[i].name).replace(",", "**2Z$*4TZQ$**3")); // replaced characters reference on generateCart.js line 31
+        productNames.push(products[i].name); // replaced characters reference on generateCart.js line 31
         productNames.push("\\");
     }
     return productNames;
