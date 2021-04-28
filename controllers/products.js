@@ -24,6 +24,7 @@ exports.insertAutofillScript = (req, res, next) => {
             for(let i = 0; i < result.length; i++) {
                 productNames.push(result[i].name);
             }
+            console.log(productNames);
             // below is the autofill script
 
             let hbsScriptText = 
@@ -156,6 +157,7 @@ exports.insertAutofillScript = (req, res, next) => {
                 /*initiate the autocomplete function on the "myInput" element, and pass along the products array as possible autocomplete values:*/
                 autocomplete(document.getElementById("userInput"), products);
             </script>`
+            console.log(hbsScriptText);
             req.productNames = productNames;
             req.autofillScript = hbsScriptText;
         } 
