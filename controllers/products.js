@@ -165,6 +165,7 @@ exports.insertAutofillScript = (req, res, next) => {
             req.productNames = productNames;
             req.autofillScript = hbsScriptText.script;
             req.test = test.t;
+            console.log("aaads");
         } 
         return next();
     });
