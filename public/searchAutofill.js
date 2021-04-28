@@ -119,6 +119,22 @@ let autocomplete = (inp, arr) => {
 };
 
 let productArr = document.getElementById("hidden-product-array").innerHTML;
+// console.log(productArr);
+
+productArr = productArr.split("\\");
+
+for(let i = 0; i < productArr.length; i++) {
+    if(i == 0) {
+        // remove ending comma
+        productArr[i] = productArr[i].slice(0, -1);
+    } else {
+        // remove starting and ending comma
+        productArr[i] = productArr[i].slice(1);
+        productArr[i] = productArr[i].slice(0, -1);
+    }
+}
+// remove empty string at the end
+productArr = productArr.slice(0, -1);
 console.log(productArr);
 // let products = productArr.split(',');
 // console.log(products);
@@ -133,4 +149,4 @@ console.log(productArr);
 // ];
 
 /*initiate the autocomplete function on the "myInput" element, and pass along the products array as possible autocomplete values:*/
-autocomplete(document.getElementById("userInput"), products);
+// autocomplete(document.getElementById("userInput"), products);
