@@ -48,8 +48,7 @@ function generateCartHtml(products) {
 }
 
 exports.createOrder = (req, res, next) => {
-    console.log(req.user.userID);
-    console.log(req.body.values);
+    userID = req.user.userID;
     reqValues = req.body.values
     reqValues = reqValues.split(",");
     price = parseFloat(reqValues[0].replace("$", ""));
@@ -73,7 +72,7 @@ exports.createOrder = (req, res, next) => {
         req.price = price;
     }
 
-    db.query('INSERT INTO orders SET ?', {tracking_number: trackingNumber, order_date: date, ship_method: defaultShippingMethod, number_of_products: numberOfProducts, price: price}, (error, results) => {
+    db.query('INSERT INTO orders SET ?', {tracking_number: trackingNumber, order_date: date, ship_method: defaultShippingMethod, number_of_products: numberOfProducts, price: price, userID: userID}, (error, results) => {
         if(error) {
             console.log(error);
             return next();
