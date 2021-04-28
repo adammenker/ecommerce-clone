@@ -162,9 +162,9 @@ exports.insertAutofillScript = (req, res, next) => {
 
                 let test = {t: `<div>aa</div>`}
             // console.log(hbsScriptText);
-            req.productNames = productNames;
+            req.t2 = "agggg";
             req.autofillScript = hbsScriptText.script;
-            req.test = test.t;
+            req.test = test;
             console.log("aaads");
         } 
         return next();
