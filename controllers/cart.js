@@ -48,6 +48,7 @@ function generateCartHtml(products) {
 }
 
 exports.createOrder = (req, res, next) => {
+    console.log(req.user);
     console.log(req.body.values);
     reqValues = req.body.values
     reqValues = reqValues.split(",");
