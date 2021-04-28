@@ -90,6 +90,7 @@ function validateTrackingNum(trackingNo) {
         } 
 
         if(result.length == 0) {
+            console.log('no repeat');
             return trackingNo;
         } else {
             console.log('repeat hit');
@@ -97,6 +98,7 @@ function validateTrackingNum(trackingNo) {
             validateTrackingNum(trackingNum);
         } 
     });
+    return trackingNo;
 }
 
 
