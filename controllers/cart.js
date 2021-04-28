@@ -54,8 +54,7 @@ exports.createOrder = (req, res, next) => {
     price = parseFloat(reqValues[0].replace("$", ""));
     numberOfProducts = parseInt(reqValues[1]);
     let trackingNumber = (Math.round(100000000 * Math.random())).toString();
-    trackingNumber = (58008484).toString();
-    trackingNumber = validateTrackingNum(trackingNumber);
+    // trackingNumber = validateTrackingNum(trackingNumber);
 
     let currentDate = new Date();
     let cDay = currentDate.getDate();
@@ -89,7 +88,7 @@ function validateTrackingNum(trackingNo) {
             console.log(error);
             return trackingNo;
         } 
-
+        // returns do not do anything inside the if and else statements
         if(result.length == 0) {
             console.log('no repeat');
         } else {
