@@ -160,11 +160,11 @@ exports.insertAutofillScript = (req, res, next) => {
                     </script>` 
                 }
 
-                let test = `<div>${productNames}</div>`
+                let test = {t: `<div>aa</div>`}
             // console.log(hbsScriptText);
             req.productNames = productNames;
             req.autofillScript = hbsScriptText.script;
-            req.test = test;
+            req.test = test.t;
         } 
         return next();
     });
