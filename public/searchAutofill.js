@@ -136,17 +136,6 @@ for(let i = 0; i < productArr.length; i++) {
 // remove empty string at the end
 productArr = productArr.slice(0, -1);
 console.log(productArr);
-// let products = productArr.split(',');
-// console.log(products);
-
-/* An array containing all the product names */
-// let products = [
-//     "Shovel",
-//     "iPhone",
-//     "Catch 22",
-//     "Football",
-//     "Lamp"
-// ];
 
 /*initiate the autocomplete function on the "myInput" element, and pass along the products array as possible autocomplete values:*/
 autocomplete(document.getElementById("userInput"), productArr);
