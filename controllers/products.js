@@ -20,16 +20,21 @@ exports.insertAutofillScript = (req, res, next) => {
         if(result.length == 0) {
             return next();
         } else {
-            let productNames = [];
-            for(let i = 0; i < result.length; i++) {
-                productNames.push(result[i].name);
-            }
-            
-
+            productNames = generateProductHtml(result);
             req.productNames = productNames;
         } 
         return next();
     });
+}
+
+function generateProductHtml(products) {
+    let productNames = [];
+    for(let i = 0; i < products.length; i++){
+        // replace character string with a .env so no injections
+        productNames.push((products[i].name).replace(",", "**2Z$*4TZQ$**3")); // replaced characters reference on generateCart.js line 31
+        productNames.push("\\");
+    }
+    return productNames;
 }
 
 
