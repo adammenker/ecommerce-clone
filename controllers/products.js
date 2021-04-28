@@ -29,6 +29,7 @@ exports.insertAutofillScript = (req, res, next) => {
             let scr = {s: "<script>console.log('a');</script>"};
 
             req.test = test;
+            req.script = scr;
             console.log(productNames);
         } 
         return next();
