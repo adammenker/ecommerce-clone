@@ -8,7 +8,8 @@ const router = express.Router();
 
 router.get('/', authController.isLoggedIn, productsController.insertAutofillScript, (req, res) => {
     res.render('index', {
-        user: req.user
+        user: req.user,
+        test: req.test
     });
 });
 

@@ -25,7 +25,7 @@ exports.insertAutofillScript = (req, res, next) => {
                 productNames.push(result[i].name);
             }
             
-            let test = {a: "a", b: "b", c: "c"};
+            let test = {t: "<h1>a</h1>"};
 
             req.test = test;
             console.log(productNames);
