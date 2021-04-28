@@ -12,6 +12,11 @@ const db = mysql.createPool({
 exports.insertAutofillScript = (req, res, next) => {
     db.query('SELECT name FROM products', async (error, result) => {
         console.log(result);
+        let productNames = [];
+        for(let i = 0; i < result.length; i++) {
+            productNames.push(result[i].name);
+        }
+        console.log(productNames);
         // if(error) {
         //     console.log(error);
         //     return next();
