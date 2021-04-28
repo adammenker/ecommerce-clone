@@ -2,10 +2,11 @@ const express = require("express");
 const authController = require('../controllers/auth');
 const cartController = require('../controllers/cart');
 const ordersController = require('../controllers/orders');
+const productsController = require('../controllers/products');
 const router = express.Router();
 
 
-router.get('/', authController.isLoggedIn, (req, res) => {
+router.get('/', authController.isLoggedIn, productsController.insertAutofillScript, (req, res) => {
     res.render('index', {
         user: req.user
     });
