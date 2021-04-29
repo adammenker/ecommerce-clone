@@ -119,7 +119,7 @@ let autocomplete = (inp, arr) => {
 };
 
 let productArr = document.getElementById("hidden-product-array").innerHTML;
-document.getElementById("hidden-product-array").style("display", "none");
+document.getElementById("hidden-product-array").style.display = "none";
 // console.log(productArr);
 
 productArr = productArr.split("\\");
@@ -136,7 +136,6 @@ for(let i = 0; i < productArr.length; i++) {
 }
 // remove empty string at the end
 productArr = productArr.slice(0, -1);
-console.log(productArr);
 
 /*initiate the autocomplete function on the "myInput" element, and pass along the products array as possible autocomplete values:*/
 autocomplete(document.getElementById("userInput"), productArr);
