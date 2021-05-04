@@ -46,7 +46,7 @@ router.get('/cart', authController.isLoggedIn, cartController.getCart, (req, res
     }  
 });
 
-router.post('/orderSummary', authController.isLoggedIn, cartController.createOrder, (req, res) => {
+router.post('/orderSummary', authController.isLoggedIn, ordersController.createOrder, (req, res) => {
     if(req.user && req.price) {
         res.render('orderSummary', {
             user: req.user,

@@ -9,6 +9,42 @@ const db = mysql.createPool({
 });
 
 
+exports.createOrder = (req, res, next) => {
+    userID = req.user.userID;
+    reqValues = req.body.values
+    reqValues = reqValues.split(",");
+    price = parseFloat(reqValues[0].replace("$", ""));
+    numberOfProducts = parseInt(reqValues[1]);
+    let trackingNumber = (Math.round(100000000 * Math.random())).toString();
+    // trackingNumber = validateTrackingNum(trackingNumber);
+
+    let currentDate = new Date();
+    let cDay = currentDate.getDate();
+    let cMonth = currentDate.getMonth() + 1;
+    let cYear = currentDate.getFullYear();
+    let date = cMonth + "/" + cDay + "/" + cYear;
+
+    let defaultShippingMethod = "USPS Priority Mail";
+    
+    if(numberOfProducts == 0) {
+        return res.render('cart', {
+            message: 'You have no items in your cart'
+        });
+    } else {
+        req.price = price;
+    }
+
+    db.query('INSERT INTO orders SET ?', {tracking_number: trackingNumber, order_date: date, ship_method: defaultShippingMethod, number_of_products: numberOfProducts, price: price, userID: userID}, (error, results) => {
+        if(error) {
+            console.log(error);
+            return next();
+        } else {
+            return next();
+        }
+    });
+}
+
+
 exports.getOrder = (req, res, next) => {
     db.query('SELECT * FROM orders', async (error, result) => {
         console.log(result);
