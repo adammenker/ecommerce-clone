@@ -47,19 +47,20 @@ exports.createOrder = (req, res, next) => {
 
 exports.getOrder = (req, res, next) => {
     let userID = req.user.userID;
-    console.log(req.user);
-    db.query('SELECT * FROM orders WHERE userID = ?', [userID], async (error, result) => {
-        console.log(result);
-        // if(error) {
-        //     console.log(error);
-        //     return next();
-        // } 
 
-        // if(result.length == 0) {
-        //     return next();
-        // } else {
-        //     req.order = result;
-        // } 
+    db.query('SELECT * FROM orders WHERE userID = ?', [userID], async (error, result) => {
+        if(error) {
+            console.log(error);
+            return next();
+        } 
+
+        if(result.length == 0) {
+            return res.render('orderSummary', {
+                message: 'You Have No Previous Orders'
+            });
+        } else {
+            req.order = result;
+        } 
         return next();
     });
 }

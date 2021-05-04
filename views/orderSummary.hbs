@@ -26,7 +26,7 @@
             <div class="col-12">
                 <div class="card text-center">
                     <div class="card-header">
-                        Your Cart
+                        Your Past Orders
                     </div>
                     <div class="card-body">
                         <table class="table">
@@ -48,6 +48,11 @@
 
                         <a href="/" class="btn btn-primary">Browse More Products</a>
                     </div>
+
+                    {{#if message}}
+                    <h4 class="alert alert-danger mt-4">{{message}}</h4>
+                    {{/if}}
+
                     <div class="card-footer text-muted">
                         MySQL 3380 Web Interface
                     </div>
