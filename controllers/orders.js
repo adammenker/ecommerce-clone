@@ -46,6 +46,7 @@ exports.createOrder = (req, res, next) => {
 
 
 exports.getOrder = (req, res, next) => {
+    console.log(req.user);
     db.query('SELECT * FROM orders', async (error, result) => {
         console.log(result);
         // if(error) {
