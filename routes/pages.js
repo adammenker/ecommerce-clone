@@ -46,13 +46,23 @@ router.get('/cart', authController.isLoggedIn, cartController.getCart, (req, res
     }  
 });
 
-router.get('/orderSummary', authController.isLoggedIn, ordersController.createOrder, ordersController.getOrder, (req, res) => {
+router.post('/orderSummary', authController.isLoggedIn, ordersController.createOrder, ordersController.getOrder, (req, res) => {
     if(req.user && req.price) {
         res.render('orderSummary', {
             user: req.user,
             price: req.price
         });
     } else if(req.user){
+        res.render('cart', {
+            user: req.user
+        });
+    } else {
+        res.redirect('/login');
+    } 
+});
+
+router.get('/orderSummary', authController.isLoggedIn, ordersController.getOrder, (req, res) => {
+    if(req.user){
         res.render('cart', {
             user: req.user
         });
