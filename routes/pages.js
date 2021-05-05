@@ -50,7 +50,6 @@ router.post('/orderSummary', authController.isLoggedIn, ordersController.createO
     if(req.user && req.orders) {
         res.render('orderSummary', {
             user: req.user,
-            // price: req.price,
             orders: req.orders
         });
     } else if(req.user){
