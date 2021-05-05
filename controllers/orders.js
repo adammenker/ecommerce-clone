@@ -78,5 +78,5 @@ function generateOrderHtml(orders) {
         ordersArray.push(orders[i].price);
         ordersArray.push("\\");
     }
-    return productNames;
+    return ordersArray;
 }
