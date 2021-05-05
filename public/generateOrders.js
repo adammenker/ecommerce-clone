@@ -38,6 +38,6 @@ function createTableRows(orderArr) {
     return tableBody;
 }
 
-orderHTML = createTableRows(orderArray);
+orderHTML = createTableRows(ordersArray);
 document.getElementById("order-table-body").innerHTML = orderHTML;
 document.getElementById("order-string").style.display = "none";
