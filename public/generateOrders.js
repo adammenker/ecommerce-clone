@@ -1,0 +1,1 @@
+let ordersText = document.getElementById("orders-string").innerHTML;

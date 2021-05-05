@@ -59,9 +59,24 @@ exports.getOrder = (req, res, next) => {
                 message: 'You Have No Previous Orders'
             });
         } else {
-            req.orders = result;
+            req.orders = generateOrderHtml(result);
         } 
         return next();
     });
 }
 
+
+function generateOrderHtml(orders) {
+    let ordersArray = [];
+    for(let i = 0; i < orders.length; i++){
+        ordersArray.push(orders[i].order_number);
+        // replace character string with a .env so no injections
+        ordersArray.push(orders[i].tracking_number); // replaced characters reference on generateCart.js line 31
+        ordersArray.push(orders[i].order_date);
+        ordersArray.push(orders[i].ship_method);
+        ordersArray.push(orders[i].number_of_products);
+        ordersArray.push(orders[i].price);
+        ordersArray.push("\\");
+    }
+    return productNames;
+}
