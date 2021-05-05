@@ -63,7 +63,7 @@ router.post('/orderSummary', authController.isLoggedIn, ordersController.createO
 
 router.get('/orderSummary', authController.isLoggedIn, ordersController.getOrder, (req, res) => {
     if(req.user){
-        res.render('orderSumary', {
+        res.render('orderSummary', {
             user: req.user,
             table: req.table,
             test: req.test
