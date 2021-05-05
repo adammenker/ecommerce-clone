@@ -10,7 +10,7 @@ const db = mysql.createPool({
 
 
 exports.createOrder = (req, res, next) => {
-    console.log(req);
+    // console.log(req);
     console.log(req.body);
     console.log(req.body.values);
     userID = req.user.userID;
