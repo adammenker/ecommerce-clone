@@ -59,9 +59,7 @@ exports.getOrder = (req, res, next) => {
                 message: 'You Have No Previous Orders'
             });
         } else {
-            req.test = "aa";
-            req.table = <th scope="row">N/A</th><td>N/A</td><td>N/A</td><td>N/A</td>;
-            req.order = result;
+            req.orders = result;
         } 
         return next();
     });

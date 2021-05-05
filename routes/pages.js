@@ -65,8 +65,7 @@ router.get('/orderSummary', authController.isLoggedIn, ordersController.getOrder
     if(req.user){
         res.render('orderSummary', {
             user: req.user,
-            table: req.table,
-            test: req.test
+            orders: req.orders,
         });
     } else {
         res.redirect('/login');
