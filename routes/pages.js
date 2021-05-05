@@ -47,10 +47,11 @@ router.get('/cart', authController.isLoggedIn, cartController.getCart, (req, res
 });
 
 router.post('/orderSummary', authController.isLoggedIn, ordersController.createOrder, ordersController.getOrder, (req, res) => {
-    if(req.user && req.price) {
+    if(req.user && req.orders) {
         res.render('orderSummary', {
             user: req.user,
-            price: req.price
+            // price: req.price,
+            orders: req.orders
         });
     } else if(req.user){
         res.render('cart', {
@@ -62,8 +63,6 @@ router.post('/orderSummary', authController.isLoggedIn, ordersController.createO
 });
 
 router.get('/orderSummary', authController.isLoggedIn, ordersController.getOrder, (req, res) => {
-    console.log('abab');
-    console.log(req.orders);
     if(req.user){
         res.render('orderSummary', {
             user: req.user,
