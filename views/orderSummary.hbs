@@ -39,19 +39,18 @@
                                 </tr>
                             </thead>
                             <tbody id="product-table-body">
+                                <tr>
+                                    {{table}}
+                                </tr>
                             </tbody>
                         </table>
 
                         {{#if message}}
-                        <h4 class="alert alert-danger mt-4">{{message}}</h4>
+                        <h4 class="alert alert-dark mt-4">{{message}}</h4>
                         {{/if}}
 
                         <a href="/" class="btn btn-primary">Browse More Products</a>
                     </div>
-
-                    {{#if message}}
-                    <h4 class="alert alert-danger mt-4">{{message}}</h4>
-                    {{/if}}
 
                     <div class="card-footer text-muted">
                         MySQL 3380 Web Interface
