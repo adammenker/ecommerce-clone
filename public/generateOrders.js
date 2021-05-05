@@ -30,8 +30,8 @@ function createTableRows(orderArr) {
                 `<th scope="row">${order_number}</th>` +
                 `<td>${tracking_number}</td>` +
                 `<td>${order_date}</td>` +
-                `<td>${"$" + ship_method}</td>` +
-                `<td>${"$" + number_of_products}</td>` +
+                `<td>${ship_method}</td>` +
+                `<td>${number_of_products}</td>` +
                 `<td>${"$" + price}</td>` +
             '</tr>'
     }
@@ -40,4 +40,4 @@ function createTableRows(orderArr) {
 
 orderHTML = createTableRows(ordersArray);
 document.getElementById("order-table-body").innerHTML = orderHTML;
-document.getElementById("order-string").style.display = "none";
+document.getElementById("orders-string").style.display = "none";
