@@ -17,22 +17,22 @@ ordersArray = ordersText.slice(0, -1);
 
 function createTableRows(orderArr) {
     let tableBody = '';
-    let orderName = '';
-    let orderCategory = '';
-    let orderPrice = '';
-    let currentOrder = ''
     for(let i = 0; i < orderArr.length; i++) {
         currentOrder = orderArr[i].split(",");
-        orderID = currentOrder[0];
-        orderName = (currentOrder[1]).replace("**2Z$*4TZQ$**3", ",");
-        orderCategory = currentOrder[2];
-        orderPrice = currentOrder[3];
+        order_number = currentOrder[0];
+        tracking_number = currentOrder[1];
+        order_date = currentOrder[2];
+        ship_method = currentOrder[3];
+        number_of_products = currentOrder[4];
+        price = currentOrder[5];
         tableBody += 
             '<tr>' +
-                `<th scope="row">${orderID}</th>` +
-                `<td>${orderName}</td>` +
-                `<td>${orderCategory}</td>` +
-                `<td>${"$" + orderPrice}</td>` +
+                `<th scope="row">${order_number}</th>` +
+                `<td>${tracking_number}</td>` +
+                `<td>${order_date}</td>` +
+                `<td>${"$" + ship_method}</td>` +
+                `<td>${"$" + number_of_products}</td>` +
+                `<td>${"$" + price}</td>` +
             '</tr>'
     }
     return tableBody;
