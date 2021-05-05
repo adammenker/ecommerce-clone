@@ -44,7 +44,10 @@ exports.createOrder = (req, res, next) => {
 
 
 exports.getOrder = (req, res, next) => {
-    if(req.user.userID) {
+    if(!req.user){
+        console.log('****nadisfjlbakjsb');
+    }
+    if(req.user) {
         let userID = req.user.userID;
 
         db.query('SELECT * FROM orders WHERE userID = ?', [userID], async (error, result) => {
