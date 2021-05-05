@@ -30,8 +30,6 @@ exports.createOrder = (req, res, next) => {
         return res.render('cart', {
             message: 'You have no items in your cart'
         });
-    } else {
-        req.price = price;
     }
 
     db.query('INSERT INTO orders SET ?', {tracking_number: trackingNumber, order_date: date, ship_method: defaultShippingMethod, number_of_products: numberOfProducts, price: price, userID: userID}, (error, results) => {
