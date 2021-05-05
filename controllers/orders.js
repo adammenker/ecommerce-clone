@@ -59,6 +59,7 @@ exports.getOrder = (req, res, next) => {
                 message: 'You Have No Previous Orders'
             });
         } else {
+            console.log(generateOrderHtml(result));
             orderArray = generateOrderHtml(result);
             req.orders = orderArray;
         } 

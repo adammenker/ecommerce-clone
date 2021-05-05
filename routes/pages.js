@@ -62,11 +62,12 @@ router.post('/orderSummary', authController.isLoggedIn, ordersController.createO
 });
 
 router.get('/orderSummary', authController.isLoggedIn, ordersController.getOrder, (req, res) => {
+    console.log('abab');
     console.log(req.orders);
     if(req.user){
         res.render('orderSummary', {
             user: req.user,
-            orders: req.orders,
+            orders: req.orders
         });
     } else {
         res.redirect('/login');
