@@ -59,7 +59,7 @@ async function getCartProductsArray(productIDsArray) {
             } 
             if(i == productIDsArray.length - 1){
                 console.log(i);
-                console.log(products + "&&");
+                console.log(products);
                 return products;
             } else {
                 console.log(i);
