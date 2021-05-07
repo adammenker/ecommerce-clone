@@ -66,7 +66,7 @@ function calculateFinalTotal(tax, subtotal, shipping) {
 }
 let shipping = 5;
 let taxes = calculateTax(subtotal).toFixed(2);
-let finalTotal = calculateFinalTotal(taxes, subtotal, shipping);
+let finalTotal = calculateFinalTotal(taxes, subtotal, shipping).toFixed(2);
 
 document.getElementById("checkout-button").setAttribute("value", `$${finalTotal},${quantity}`);
 
