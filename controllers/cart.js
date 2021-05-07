@@ -17,9 +17,6 @@ const db = mysql.createPool({
 
 
 exports.getCart = (req, res, next) => {
-    console.log(req.user);
-    // change to getting products from 'cart' table with given userID
-    
     if(req.user) {
         let userID = req.user.userID;
         db.query('SELECT productID FROM cart WHERE userID = ?', [userID], async (error, result) => {
@@ -28,6 +25,21 @@ exports.getCart = (req, res, next) => {
                 console.log(error);
                 return next();
             } 
+
+            let productIDsArray = [];
+            for(let i = 0; i < result.length; i++) {
+                productIDsArray.concat(result[i].productID);
+            }
+            console.log(productIDsArray);
+
+            // letproductID = result.productID;
+            // db.query('SELECT * FROM products WHERE productID = ?', [productID], async (error, result) => {
+            //     console.log(result);
+            //     if(error) {
+            //         console.log(error);
+            //         return next();
+            //     } 
+            // });
 
             // if(result.length == 0) {
             //     return next();
