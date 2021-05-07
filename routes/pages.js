@@ -32,6 +32,9 @@ router.get('/profile', authController.isLoggedIn, (req, res) => {
 });
 
 router.get('/cart', authController.isLoggedIn, cartController.getCart, (req, res) => {
+    console.log('**');
+    console.log(req.products);
+    console.log('**');
     if(req.user && req.products) {
         res.render('cart', {
             user: req.user,
