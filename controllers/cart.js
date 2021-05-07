@@ -18,22 +18,27 @@ const db = mysql.createPool({
 
 exports.getCart = (req, res, next) => {
     console.log(req.user);
-    console.log(req);
     // change to getting products from 'cart' table with given userID
-    db.query('SELECT * FROM products', async (error, result) => {
-        if(error) {
-            console.log(error);
-            return next();
-        } 
+    let userID = req.user.userID;
+    if(req.user) {
+        db.query('SELECT productID FROM cart WHERE userID = ?', [userID], async (error, result) => {
+            console.log(result);
+            if(error) {
+                console.log(error);
+                return next();
+            } 
 
-        if(result.length == 0) {
+            // if(result.length == 0) {
+            //     return next();
+            // } else {
+            //     productNames = generateCartHtml(result);
+            //     req.products = productNames;
+            // } 
             return next();
-        } else {
-            productNames = generateCartHtml(result);
-            req.products = productNames;
-        } 
+        });
+    } else {
         return next();
-    });
+    }
 }
 
 function generateCartHtml(products) {
