@@ -18,6 +18,7 @@ const db = mysql.createPool({
 
 exports.getCart = (req, res, next) => {
     console.log(req.user);
+    console.log(req);
     // change to getting products from 'cart' table with given userID
     db.query('SELECT * FROM products', async (error, result) => {
         if(error) {
