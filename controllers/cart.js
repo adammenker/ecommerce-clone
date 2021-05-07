@@ -45,7 +45,7 @@ exports.getCart = (req, res, next) => {
                     } 
                 });
             }
-            console.log(prodcuts);
+            console.log(products);
             // if(result.length == 0) {
             //     return next();
             // } else {
