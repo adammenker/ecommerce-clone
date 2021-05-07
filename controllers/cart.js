@@ -19,8 +19,9 @@ const db = mysql.createPool({
 exports.getCart = (req, res, next) => {
     console.log(req.user);
     // change to getting products from 'cart' table with given userID
-    let userID = req.user.userID;
+    
     if(req.user) {
+        let userID = req.user.userID;
         db.query('SELECT productID FROM cart WHERE userID = ?', [userID], async (error, result) => {
             console.log(result);
             if(error) {
