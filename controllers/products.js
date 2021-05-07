@@ -11,8 +11,8 @@ const db = mysql.createPool({
 
 
 exports.getProduct = (req, res, next) => {
-    console.log(req);
-    console.log(req);
+    // console.log(req);
+    // console.log(res);
     // db.query('SELECT * FROM products WHERE name = ?', [productName], async (error, result) => {
     //     if(error) {
     //         console.log(error);
