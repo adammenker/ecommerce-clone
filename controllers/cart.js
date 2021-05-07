@@ -51,8 +51,6 @@ exports.getCart = (req, res, next) => {
                     } 
                 });
             }
-            
-            return next();
         });
     } else {
         return next();
