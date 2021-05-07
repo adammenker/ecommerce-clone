@@ -11,7 +11,24 @@ const db = mysql.createPool({
 
 
 exports.getProduct = (req, res, next) => {
-    
+    console.log(req);
+    console.log(req);
+    // db.query('SELECT * FROM products WHERE name = ?', [productName], async (error, result) => {
+    //     if(error) {
+    //         console.log(error);
+    //         return next();
+    //     } 
+
+    //     if(result.length == 0) {
+    //         return res.render('orderSummary', {
+    //             message: 'You Have No Previous Orders'
+    //         });
+    //     } else {
+    //         req.orders = generateOrderHtml(result);
+    //     } 
+    //     return next();
+    // });
+    return next();
 }
 
 exports.insertAutofillScript = (req, res, next) => {
