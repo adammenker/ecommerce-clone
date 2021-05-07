@@ -110,3 +110,7 @@ exports.emptyCart = (req, res, next) => {
         return next();
     });
 }
+
+exports.removeItemFromCart = (req, res, next) => {
+    
+}

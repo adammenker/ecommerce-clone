@@ -9,6 +9,11 @@ const db = mysql.createPool({
 });
 
 
+
+exports.getProduct = (req, res, next) => {
+    
+}
+
 exports.insertAutofillScript = (req, res, next) => {
     db.query('SELECT name FROM products', async (error, result) => {
         if(error) {
