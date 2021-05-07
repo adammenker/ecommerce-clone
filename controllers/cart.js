@@ -33,7 +33,7 @@ exports.getCart = (req, res, next) => {
             }
             console.log(productIDsArray);
 
-            let products = {};
+            let products = [];
             for(let i = 0; i < productIDsArray.length; i++){
                 let productID = productIDsArray[i];
                 db.query('SELECT * FROM products WHERE productID = ?', [productID], async (error, result) => {
