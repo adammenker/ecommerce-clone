@@ -36,7 +36,6 @@ exports.getCart = (req, res, next) => {
             console.log(productIDsArray);
 
             let products = await getCartProductsArray(productIDsArray);
-            products = ['a'];
             console.log(products + "**");
             // if(result.length == 0) {
             //     return next();
@@ -63,9 +62,12 @@ async function getCartProductsArray(productIDsArray) {
                 return next();
             } 
         });
+        if(i == productIDsArray.length - 1){
+            return products;
+            console.log(products);
+            console.log(products + "&&");
+        }
     }
-    console.log(products + "&&");
-    return products;
 }
 
 function generateCartHtml(products) {
