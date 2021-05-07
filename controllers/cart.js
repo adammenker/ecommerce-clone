@@ -36,6 +36,7 @@ exports.getCart = (req, res, next) => {
             console.log(productIDsArray);
 
             let products = await getCartProductsArray(productIDsArray);
+            products = ['a'];
             console.log(products + "**");
             // if(result.length == 0) {
             //     return next();
