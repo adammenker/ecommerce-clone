@@ -30,19 +30,22 @@ exports.getCart = (req, res, next) => {
             for(let i = 0; i < result.length; i++) {
                 console.log(result[i].productID);
                 productIDsArray.push(result[i].productID);
-                // productIDsArray[i] = result[i].productID
             }
             console.log(productIDsArray);
 
-            // letproductID = result.productID;
-            // db.query('SELECT * FROM products WHERE productID = ?', [productID], async (error, result) => {
-            //     console.log(result);
-            //     if(error) {
-            //         console.log(error);
-            //         return next();
-            //     } 
-            // });
-
+            let products = {};
+            for(let i = 0; i < productIDsArray.length; i++){
+                let productID = productIDsArray[i];
+                db.query('SELECT * FROM products WHERE productID = ?', [productID], async (error, result) => {
+                    console.log(result);
+                    products.push(result);
+                    if(error) {
+                        console.log(error);
+                        return next();
+                    } 
+                });
+            }
+            console.log(prodcuts);
             // if(result.length == 0) {
             //     return next();
             // } else {
