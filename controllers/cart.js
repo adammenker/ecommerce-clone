@@ -58,9 +58,11 @@ async function getCartProductsArray(productIDsArray) {
                 return next();
             } 
             if(i == productIDsArray.length - 1){
+                console.log(i);
                 console.log(products + "&&");
                 return products;
             } else {
+                console.log(i);
                 console.log('not done yet');
             }
         });
