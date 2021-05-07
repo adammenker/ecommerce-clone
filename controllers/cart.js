@@ -28,6 +28,7 @@ exports.getCart = (req, res, next) => {
 
             let productIDsArray = [];
             for(let i = 0; i < result.length; i++) {
+                console.log(result[i]);
                 productIDsArray.concat(result[i].productID);
             }
             console.log(productIDsArray);
