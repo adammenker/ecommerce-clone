@@ -32,7 +32,27 @@ exports.getCart = (req, res, next) => {
                 productIDsArray.push(result[i].productID);
             }
 
-            await getCartProductsArray(productIDsArray);
+            // await getCartProductsArray(productIDsArray);
+            let products = [];
+            for(let i = 0; i < productIDsArray.length; i++){
+                let productID = productIDsArray[i];
+                db.query('SELECT * FROM products WHERE productID = ?', [productID], async (error, result) => {
+
+                    products.push(result[0]);
+                    if(error) {
+                        console.log(error);
+                        return next();
+                    } 
+                    if(i == productIDsArray.length - 1){
+                        // productNames = generateCartHtml(products);
+                        req.products = generateCartHtml(products);
+                        
+                        console.log(i);
+                        console.log(products);
+                        return next();
+                    } 
+                });
+            }
             
             return next();
         });
