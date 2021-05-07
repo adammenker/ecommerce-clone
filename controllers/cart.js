@@ -52,14 +52,12 @@ async function getCartProductsArray(productIDsArray) {
     for(let i = 0; i < productIDsArray.length; i++){
         let productID = productIDsArray[i];
         db.query('SELECT * FROM products WHERE productID = ?', [productID], async (error, result) => {
-            console.log(result);
-            products.push(result);
+            products.push(result[0]);
             if(error) {
                 console.log(error);
                 return next();
             } 
             if(i == productIDsArray.length - 1){
-                console.log(products);
                 console.log(products + "&&");
                 return products;
             } else {
