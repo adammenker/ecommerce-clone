@@ -20,7 +20,6 @@ exports.getCart = (req, res, next) => {
     if(req.user) {
         let userID = req.user.userID;
         db.query('SELECT productID FROM cart WHERE userID = ?', [userID], async (error, result) => {
-            console.log(result);
             if(error) {
                 console.log(error);
                 return next();
@@ -30,10 +29,8 @@ exports.getCart = (req, res, next) => {
 
             let productIDsArray = [];
             for(let i = 0; i < result.length; i++) {
-                console.log(result[i].productID);
                 productIDsArray.push(result[i].productID);
             }
-            console.log(productIDsArray);
 
             let products = await getCartProductsArray(productIDsArray);
             console.log(products + "**");
@@ -66,6 +63,8 @@ async function getCartProductsArray(productIDsArray) {
             return products;
             console.log(products);
             console.log(products + "&&");
+        } else {
+            console.log('not done yet');
         }
     }
 }
