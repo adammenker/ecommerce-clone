@@ -58,14 +58,14 @@ async function getCartProductsArray(productIDsArray) {
                 console.log(error);
                 return next();
             } 
+            if(i == productIDsArray.length - 1){
+                console.log(products);
+                console.log(products + "&&");
+                return products;
+            } else {
+                console.log('not done yet');
+            }
         });
-        if(i == productIDsArray.length - 1){
-            console.log(products);
-            console.log(products + "&&");
-            return products;
-        } else {
-            console.log('not done yet');
-        }
     }
 }
 
