@@ -73,7 +73,7 @@ router.get('/orderSummary', authController.isLoggedIn, ordersController.getOrder
 });
 
 
-router.post('/product', authController.isLoggedIn, (req, res) => {
+router.get('/product', authController.isLoggedIn, (req, res) => {
     console.log(req.user);
     res.render('product', {
         user: req.user
