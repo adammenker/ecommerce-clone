@@ -18,7 +18,7 @@ exports.getProduct = (req, res, next) => {
             return next();
         } 
         
-        console.log(result);
+        // console.log(result);
 
         if(result.length == 0) {
             return res.render('product', {
