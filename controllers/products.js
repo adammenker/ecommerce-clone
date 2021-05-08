@@ -23,7 +23,6 @@ exports.getProduct = (req, res, next) => {
                 message: 'This Product Is Not Available'
             });
         } else {
-            console.log('hit ****');
             req.product = result[0];
         } 
         return next();
