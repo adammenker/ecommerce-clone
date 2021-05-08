@@ -11,23 +11,24 @@ const db = mysql.createPool({
 
 
 exports.getProduct = (req, res, next) => {
-    console.log(req.body.userInput);
-    // console.log(res);
-    // db.query('SELECT * FROM products WHERE name = ?', [productName], async (error, result) => {
-    //     if(error) {
-    //         console.log(error);
-    //         return next();
-    //     } 
+    let productName = req.body.userInput;
+    db.query('SELECT * FROM products WHERE name = ?', [productName], async (error, result) => {
+        if(error) {
+            console.log(error);
+            return next();
+        } 
+        
+        console.log(result);
 
-    //     if(result.length == 0) {
-    //         return res.render('orderSummary', {
-    //             message: 'You Have No Previous Orders'
-    //         });
-    //     } else {
-    //         req.orders = generateOrderHtml(result);
-    //     } 
-    //     return next();
-    // });
+        if(result.length == 0) {
+            return res.render('orderSummary', {
+                message: 'This Product Is Not Available'
+            });
+        } else {
+            req.product = result;
+        } 
+        return next();
+    });
     return next();
 }
 
