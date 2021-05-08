@@ -18,15 +18,13 @@ exports.getProduct = (req, res, next) => {
             return next();
         } 
         
-        console.log(result);
-
         if(result.length == 0) {
             return res.render('product', {
                 message: 'This Product Is Not Available'
             });
         } else {
             console.log('hit ****');
-            req.product = result;
+            req.product = result[0];
         } 
         return next();
     });
