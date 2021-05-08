@@ -85,12 +85,12 @@ nav li a {
 
 #product-name {
   width: 100%;
-  height: 100px;
+  height: 70px;
 }
 
 #product-description {
   width: 100%;
-  height: 150px;
+  height: 200px;
 }
 
 #product-price {
@@ -99,5 +99,5 @@ nav li a {
 }
 
 #add-product-to-cart-button {
-  margin: 40px;
+  margin: 30px;
 }
