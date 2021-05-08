@@ -87,9 +87,10 @@ document.getElementById("total-label").innerHTML = `Total: $${finalTotal}`;
 
 
 function removeItemRow(productID) {
+    productID = parseInt(productID);
     console.log(productID);
     for(let i = 0; i < document.getElementById("cart-table").rows.length; i++) {
-        let itemNo = document.getElementById("cart-table").rows[i].innerHTML;
+        let itemNo = parseInt(document.getElementById("cart-table").rows[i].innerHTML);
         if(itemNo == productID){
             console.log(itemNo + productID);
             document.getElementById("myTable").rows[i].remove()
