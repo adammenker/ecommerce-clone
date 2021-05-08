@@ -30,7 +30,6 @@ exports.getProduct = (req, res, next) => {
         } 
         return next();
     });
-    return next();
 }
 
 exports.insertAutofillScript = (req, res, next) => {
