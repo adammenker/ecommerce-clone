@@ -101,3 +101,8 @@ nav li a {
 #add-product-to-cart-button {
   margin: 30px;
 }
+
+#no-results-for-product-message {
+  text-align: center;
+  margin: 20px;
+}
