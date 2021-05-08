@@ -78,7 +78,7 @@ router.post('/product', authController.isLoggedIn, productsController.getProduct
     res.render('product', {
         user: req.user,
         product: req.product,
-        image: '/shovel.png'
+        image: '/headphones.png'
     });
 });
 
