@@ -12,7 +12,7 @@ const db = mysql.createPool({
 
 exports.getProduct = (req, res, next) => {
     let productName = req.body.userInput;
-    db.query('SELECT * FROM products WHERE name = ?', [productName], async (error, result) => {
+    db.query('SELECT color FROM products WHERE name = ?', [productName], async (error, result) => {
         if(error) {
             console.log(error);
             return next();
