@@ -74,7 +74,7 @@ router.get('/orderSummary', authController.isLoggedIn, ordersController.getOrder
 
 
 router.post('/product', authController.isLoggedIn, productsController.getProduct, (req, res) => {
-    console.log(req.product);
+    console.log(req.product.image);
     res.render('product', {
         user: req.user,
         product: req.product,
