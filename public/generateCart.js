@@ -94,7 +94,7 @@ function removeItemRow(productID) {
         console.log(itemNo);
         if(itemNo == productID){
             console.log(itemNo + productID);
-            document.getElementById("myTable").rows[i].remove()
+            document.getElementById("cart-table").rows[i].remove()
         }
     }
 }
