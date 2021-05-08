@@ -82,3 +82,18 @@ nav li a {
 .product-information {
   margin-top: 75px;
 }
+
+#product-name {
+  width: 100%;
+  height: 100px;
+}
+
+#product-description {
+  width: 100%;
+  height: 200px;
+}
+
+#product-price {
+  width: 100%;
+  height: 100px;
+}
