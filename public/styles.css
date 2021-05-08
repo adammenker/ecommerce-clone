@@ -73,3 +73,7 @@ nav li a {
 #checkout-button {
   margin-top: 8px;
 }
+
+#product-image {
+  width: 200px;
+}
