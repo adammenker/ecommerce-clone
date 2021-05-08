@@ -21,7 +21,7 @@ exports.getProduct = (req, res, next) => {
         console.log(result);
 
         if(result.length == 0) {
-            return res.render('orderSummary', {
+            return res.render('product', {
                 message: 'This Product Is Not Available'
             });
         } else {
