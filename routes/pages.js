@@ -74,12 +74,17 @@ router.get('/orderSummary', authController.isLoggedIn, ordersController.getOrder
 
 
 router.post('/product', authController.isLoggedIn, productsController.getProduct, (req, res) => {
-    console.log(req.product.image);
-    res.render('product', {
-        user: req.user,
-        product: req.product,
-        image: '/headphones.png'
-    });
+    if(req.message){
+        res.render('product', {
+            message: req.message
+        });
+    } else {
+        res.render('product', {
+            user: req.user,
+            product: req.product,
+            image: '/headphones.png'
+        });
+    }
 });
 
 module.exports = router;

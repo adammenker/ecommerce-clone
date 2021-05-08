@@ -20,7 +20,7 @@ exports.getProduct = (req, res, next) => {
         
         if(result.length == 0) {
             return res.render('product', {
-                message: 'This Product Is Not Available'
+                message: "We Couldn't Find a Product With That Name"
             });
         } else {
             req.product = result[0];
