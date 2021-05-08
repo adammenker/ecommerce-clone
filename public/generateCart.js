@@ -90,7 +90,7 @@ function removeItemRow(productID) {
     productID = parseInt(productID);
     console.log(productID);
     for(let i = 0; i < document.getElementById("cart-table").rows.length; i++) {
-        let itemNo = parseInt(document.getElementById("cart-table").rows[i].innerHTML);
+        let itemNo = parseInt(document.getElementById("cart-table").rows[i].cells[0].innerHTML);
         console.log(itemNo);
         if(itemNo == productID){
             console.log(itemNo + productID);
