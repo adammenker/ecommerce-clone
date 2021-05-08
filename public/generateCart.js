@@ -91,6 +91,7 @@ function removeItemRow(productID) {
     console.log(productID);
     for(let i = 0; i < document.getElementById("cart-table").rows.length; i++) {
         let itemNo = parseInt(document.getElementById("cart-table").rows[i].innerHTML);
+        console.log(itemNo);
         if(itemNo == productID){
             console.log(itemNo + productID);
             document.getElementById("myTable").rows[i].remove()
