@@ -53,7 +53,7 @@ router.post('/cart', authController.isLoggedIn, cartController.removeItemFromCar
     });
 });
 
-router.post('/orderSummary', authController.isLoggedIn, ordersController.createOrder, ordersController.getOrder, (req, res) => {
+router.post('/orderSummary', authController.isLoggedIn, ordersController.createOrder, cartController.emptyCart, ordersController.getOrder, (req, res) => {
     if(req.user && req.orders) {
         res.render('orderSummary', {
             user: req.user,

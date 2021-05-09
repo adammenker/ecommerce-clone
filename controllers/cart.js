@@ -71,20 +71,15 @@ function generateCartHtml(products) {
 
 
 exports.emptyCart = (req, res, next) => {
-    db.query('SELECT * FROM orders', async (error, result) => {
-        console.log(result);
-        // if(error) {
-        //     console.log(error);
-        //     return next();
-        // } 
-
-        // if(result.length == 0) {
-        //     return next();
-        // } else {
-        //     req.order = result;
-        // } 
-        return next();
-    });
+    let userID = parseInt(req.user.userID);
+    console.log(userID);
+    // db.query('DELETE FROM cart WHERE userID = ?', [userID], async (error, result) => {
+    //     if(error) {
+    //         console.log(error);
+    //         return next();
+    //     }
+    //     return next();
+    // });
 }
 
 exports.removeItemFromCart = (req, res, next) => {
@@ -95,7 +90,7 @@ exports.removeItemFromCart = (req, res, next) => {
             console.log(error);
             return next();
         }
-        next();
+        return next();
     });
     
 }
