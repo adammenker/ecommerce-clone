@@ -73,13 +73,13 @@ function generateCartHtml(products) {
 exports.emptyCart = (req, res, next) => {
     let userID = parseInt(req.user.userID);
     console.log(userID);
-    // db.query('DELETE FROM cart WHERE userID = ?', [userID], async (error, result) => {
-    //     if(error) {
-    //         console.log(error);
-    //         return next();
-    //     }
-    //     return next();
-    // });
+    db.query('DELETE FROM cart WHERE userID = ?', [userID], async (error, result) => {
+        if(error) {
+            console.log(error);
+            return next();
+        }
+        return next();
+    });
 }
 
 exports.removeItemFromCart = (req, res, next) => {
