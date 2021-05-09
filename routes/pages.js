@@ -48,7 +48,7 @@ router.get('/cart', authController.isLoggedIn, cartController.getCart, (req, res
 
 router.post('/cart', authController.isLoggedIn, cartController.removeItemFromCart, (req, res) => {
     console.log(req);
-    res.render('cart', {
+    res.render('index', {
     });
 });
 
