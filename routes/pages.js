@@ -93,27 +93,12 @@ router.post('/product', authController.isLoggedIn, productsController.getProduct
             product: req.product,
         });
     } else {
-        console.log(req.product);
-        console.log(req.user);
-        console.log('abc');
         res.render('product', {
             noProductFoundMessage: req.message
         });
     }
 });
 
-router.get('/product', authController.isLoggedIn, cartController.addToCart, (req, res) => {
-    console.log('hit');
-    if(req.message){
-        res.render('product', {
-            message: req.message
-        });
-    } else {
-        res.render('product', {
-            user: req.user,
-            product: req.product,
-        });
-    }
-});
+
 
 module.exports = router;
