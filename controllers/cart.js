@@ -93,5 +93,10 @@ exports.removeItemFromCart = (req, res, next) => {
         }
         return next();
     });
-    
+}
+
+
+exports.addToCart = (req, res, next) => {
+    console.log(req.body);
+    return next()
 }

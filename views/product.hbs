@@ -36,14 +36,14 @@
         <div class="jumbotron">
             <div class="row justify-content-evenly">
                 <div class="col-4">
-                    <img id="product-image" src="{{product.image}}" alt="shovel">
+                    <img id="product-image" src="{{product.image}}" alt="product image">
                 </div>
                 <div class="col-6 product-information">
                     <h3 id="product-name">{{product.name}}</h3>
                     <h4 id="product-description">{{product.description}}
                     </h4>
                     <h2 id="product-price">${{product.price}}</h2>
-                    <form action="/cart">
+                    <form action="/product">
                         <button id="add-product-to-cart-button" type="submit" class="btn btn-primary">Add to
                             Cart</button>
                     </form>
