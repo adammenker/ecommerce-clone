@@ -46,9 +46,9 @@ router.get('/cart', authController.isLoggedIn, cartController.getCart, (req, res
     }  
 });
 
-router.post('/cart', authController.isLoggedIn, cartController.removeItemFromCart, (req, res) => {
+router.post('/cart', authController.isLoggedIn, cartController.removeItemFromCart, cartController.getCart, (req, res) => {
     res.render('cart', {
-        
+
     });
 });
 
