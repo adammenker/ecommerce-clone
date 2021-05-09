@@ -23,6 +23,7 @@ exports.getProduct = (req, res, next) => {
                 message: "We Couldn't Find a Product With That Name"
             });
         } else {
+            result[0].price = (parseInt(result[0].price).toFixed(2)).toString();
             req.product = result[0];
         } 
         return next();
