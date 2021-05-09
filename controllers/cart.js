@@ -46,7 +46,6 @@ exports.getCart = (req, res, next) => {
                     if(i == productIDsArray.length - 1){
                         // productNames = generateCartHtml(products);
                         req.products = generateCartHtml(products);
-                        console.log(req.products);
                         return next();
                     } 
                 });
@@ -54,29 +53,6 @@ exports.getCart = (req, res, next) => {
         });
     } else {
         return next();
-    }
-}
-
-async function getCartProductsArray(productIDsArray) {
-    let products = [];
-    for(let i = 0; i < productIDsArray.length; i++){
-        let productID = productIDsArray[i];
-        db.query('SELECT * FROM products WHERE productID = ?', [productID], async (error, result) => {
-
-            products.push(result[0]);
-            if(error) {
-                console.log(error);
-                return next();
-            } 
-            if(i == productIDsArray.length - 1){
-                // productNames = generateCartHtml(products);
-                req.products = generateCartHtml(products);
-                
-                console.log(i);
-                console.log(products);
-                return next();
-            } 
-        });
     }
 }
 
@@ -112,5 +88,5 @@ exports.emptyCart = (req, res, next) => {
 }
 
 exports.removeItemFromCart = (req, res, next) => {
-    
+    console.log(req.body);
 }
