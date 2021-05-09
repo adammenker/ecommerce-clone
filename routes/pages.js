@@ -84,6 +84,7 @@ router.get('/orders', authController.isLoggedIn, ordersController.getOrder, (req
 
 router.post('/product', authController.isLoggedIn, productsController.getProduct, cartController.addToCart, (req, res) => {
     console.log(req.product);
+    console.log(req.user);
 
 
     if(req.product && req.user){
