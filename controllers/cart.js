@@ -98,6 +98,8 @@ exports.removeItemFromCart = (req, res, next) => {
 
 exports.addToCart = (req, res, next) => {
     console.log(req.body.addToCartButton);
-    req.product = req.body.addToCartButton;
+    console.log(req.body.addToCartButton.product);
+    // console.log(req.body.addToCartButton);
+    // req.product = req.body.addToCartButton;
     return next();
 }
