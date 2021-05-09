@@ -24,6 +24,7 @@ exports.getCart = (req, res, next) => {
                 console.log(error);
                 return next();
             } else if (result.length == 0){
+                req.message = "There are no items in you cart."
                 return next();
             }
 

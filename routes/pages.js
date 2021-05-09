@@ -39,7 +39,8 @@ router.get('/cart', authController.isLoggedIn, cartController.getCart, (req, res
         });
     } else if(req.user){
         res.render('cart', {
-            user: req.user
+            user: req.user,
+            message: req.message
         });
     } else {
         res.redirect('/login');
@@ -49,7 +50,8 @@ router.get('/cart', authController.isLoggedIn, cartController.getCart, (req, res
 router.post('/cart', authController.isLoggedIn, cartController.removeItemFromCart, cartController.getCart, (req, res) => {
     res.render('cart', {
         user: req.user,
-        products: req.products
+        products: req.products,
+        message: req.message
     });
 });
 
