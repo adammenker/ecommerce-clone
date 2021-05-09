@@ -111,3 +111,11 @@ nav li a {
   position: relative;
   /* z-index: -1; */
 }
+
+#product-name {
+  text-overflow: ellipsis;
+}
+
+#product-description {
+  text-overflow: ellipsis;
+}
