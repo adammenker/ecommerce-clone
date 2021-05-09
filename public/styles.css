@@ -113,9 +113,11 @@ nav li a {
 }
 
 #product-name {
+  overflow: hidden;
   text-overflow: ellipsis;
 }
 
 #product-description {
+  overflow: hidden;
   text-overflow: ellipsis;
 }
