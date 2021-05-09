@@ -47,9 +47,10 @@ router.get('/cart', authController.isLoggedIn, cartController.getCart, (req, res
 });
 
 router.post('/cart', authController.isLoggedIn, cartController.removeItemFromCart, cartController.getCart, (req, res) => {
-    res.render('cart', {
-
-    });
+    // res.render('cart', {
+    //     user: req.user,
+    //     products: req.products
+    // });
 });
 
 router.post('/orderSummary', authController.isLoggedIn, ordersController.createOrder, ordersController.getOrder, (req, res) => {
