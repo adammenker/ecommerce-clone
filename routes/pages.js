@@ -53,9 +53,9 @@ router.post('/cart', authController.isLoggedIn, cartController.removeItemFromCar
     });
 });
 
-router.post('/orderSummary', authController.isLoggedIn, ordersController.createOrder, cartController.emptyCart, ordersController.getOrder, (req, res) => {
+router.post('/orders', authController.isLoggedIn, ordersController.createOrder, cartController.emptyCart, ordersController.getOrder, (req, res) => {
     if(req.user && req.orders) {
-        res.render('orderSummary', {
+        res.render('orders', {
             user: req.user,
             orders: req.orders
         });
@@ -68,9 +68,9 @@ router.post('/orderSummary', authController.isLoggedIn, ordersController.createO
     } 
 });
 
-router.get('/orderSummary', authController.isLoggedIn, ordersController.getOrder, (req, res) => {
+router.get('/orders', authController.isLoggedIn, ordersController.getOrder, (req, res) => {
     if(req.user){
-        res.render('orderSummary', {
+        res.render('orders', {
             user: req.user,
             orders: req.orders
         });

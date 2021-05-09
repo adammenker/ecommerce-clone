@@ -54,7 +54,7 @@ exports.getOrder = (req, res, next) => {
             } 
 
             if(result.length == 0) {
-                return res.render('orderSummary', {
+                return res.render('orders', {
                     message: 'You Have No Previous Orders'
                 });
             } else {
