@@ -28,7 +28,7 @@ function createTableRows(productArr) {
         productID = currentProduct[0];
         productName = (currentProduct[1]).replace("**2Z$*4TZQ$**3", ",");
         productCategory = currentProduct[2];
-        productPrice = currentProduct[3];
+        productPrice = currentProduct[3].toFixed(2);
         tableBody += 
             '<tr>' +
                 `<th scope="row">${productID}</th>` +
