@@ -87,14 +87,3 @@ document.getElementById("subtotal-label").innerHTML = `Subtotal: $${subtotal}`;
 document.getElementById("taxes-label").innerHTML = `Taxes: $${taxes}`;
 document.getElementById("shipping-label").innerHTML = `Shipping: $${shipping}`;
 document.getElementById("total-label").innerHTML = `Total: $${finalTotal}`;
-
-
-function removeItemRow(productID) {
-    productID = parseInt(productID);
-    for(let i = 0; i < document.getElementById("cart-table").rows.length; i++) {
-        let itemNo = parseInt(document.getElementById("cart-table").rows[i].cells[0].innerHTML);
-        if(itemNo == productID){
-            document.getElementById("cart-table").rows[i].remove()
-        }
-    }
-}

@@ -43,7 +43,7 @@
                     <h4 id="product-description">{{product.description}}
                     </h4>
                     <h2 id="product-price">${{product.price}}</h2>
-                    <form action="/product">
+                    <form action="/product" method="POST">
                         <button id="add-product-to-cart-button" type="submit" class="btn btn-primary"
                             name="addToCartButton" value="{{product}}">Add to
                             Cart</button>

@@ -98,7 +98,6 @@ exports.removeItemFromCart = (req, res, next) => {
 
 exports.addToCart = (req, res, next) => {
     // console.log(req);
-    console.log(req.body);
-    console.log(req.addToCartButton);
-    return next()
+    console.log(req.body.addToCartButton);
+    return next();
 }
