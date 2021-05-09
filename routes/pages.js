@@ -85,14 +85,14 @@ router.get('/orders', authController.isLoggedIn, ordersController.getOrder, (req
 router.post('/product', authController.isLoggedIn, productsController.getProduct, cartController.addToCart, (req, res) => {
     console.log(req.body);
 
-    if(req.message){
-        res.render('product', {
-            message: req.message
-        });
-    } else {
+    if(req.product && req.user){
         res.render('product', {
             user: req.user,
             product: req.product,
+        });
+    } else {
+        res.render('product', {
+            message: req.message
         });
     }
 });
