@@ -45,7 +45,6 @@ exports.getCart = (req, res, next) => {
                     } 
                     if(i == productIDsArray.length - 1){
                         // productNames = generateCartHtml(products);
-                        console.log(products);
                         req.products = generateCartHtml(products);
                         return next();
                     } 
@@ -89,7 +88,9 @@ exports.emptyCart = (req, res, next) => {
 }
 
 exports.removeItemFromCart = (req, res, next) => {
-    console.log('**(&*(*&*');
+    
     console.log(req.body);
+    console.log('*');
+    console.log(req.body.removeItemProductId);
     next();
 }

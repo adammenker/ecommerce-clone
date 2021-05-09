@@ -37,7 +37,7 @@ function createTableRows(productArr) {
                 `<td>${"$" + productPrice}</td>` +
                 `<td>
                     <form action="/cart" method="post" autocomplete="off">
-                        <button class="btn btn-outline-secondary" type="submit" name="remove-item-product-id" value="${productID}">
+                        <button class="btn btn-outline-secondary" type="submit" name="removeItemProductId" value="${productID}">
                             Remove
                         </button>
                     </form>
