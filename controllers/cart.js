@@ -45,7 +45,7 @@ exports.getCart = (req, res, next) => {
                     } 
                     if(i == productIDsArray.length - 1){
                         // productNames = generateCartHtml(products);
-                        console.log(req.products);
+                        console.log(products);
                         req.products = generateCartHtml(products);
                         return next();
                     } 
