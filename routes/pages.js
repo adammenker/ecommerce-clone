@@ -91,7 +91,19 @@ router.post('/product', authController.isLoggedIn, productsController.getProduct
         res.render('product', {
             user: req.user,
             product: req.product,
-            image: '/headphones.png'
+        });
+    }
+});
+
+router.get('/product', authController.isLoggedIn, (req, res) => {
+    if(req.message){
+        res.render('product', {
+            message: req.message
+        });
+    } else {
+        res.render('product', {
+            user: req.user,
+            product: req.product,
         });
     }
 });
