@@ -98,7 +98,7 @@ router.post('/product', authController.isLoggedIn, productsController.getProduct
         console.log(req.user);
         console.log('abc');
         res.render('product', {
-            message: req.message
+            noProductFoundMessage: req.message
         });
     }
 });
