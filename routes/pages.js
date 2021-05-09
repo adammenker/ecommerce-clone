@@ -103,17 +103,17 @@ router.post('/product', authController.isLoggedIn, productsController.getProduct
     }
 });
 
-router.get('/product', authController.isLoggedIn, cartController.addToCart, (req, res) => {
-    if(req.message){
-        res.render('product', {
-            message: req.message
-        });
-    } else {
-        res.render('product', {
-            user: req.user,
-            product: req.product,
-        });
-    }
-});
+// router.get('/product', authController.isLoggedIn, cartController.addToCart, (req, res) => {
+//     if(req.message){
+//         res.render('product', {
+//             message: req.message
+//         });
+//     } else {
+//         res.render('product', {
+//             user: req.user,
+//             product: req.product,
+//         });
+//     }
+// });
 
 module.exports = router;
