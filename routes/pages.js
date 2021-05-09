@@ -82,7 +82,7 @@ router.get('/orders', authController.isLoggedIn, ordersController.getOrder, (req
 });
 
 
-router.post('/product', authController.isLoggedIn, productsController.getProduct, (req, res) => {
+router.post('/product', authController.isLoggedIn, productsController.getProduct, cartController.addToCart, (req, res) => {
     console.log(req.body);
 
     if(req.message){
