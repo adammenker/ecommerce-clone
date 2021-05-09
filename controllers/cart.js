@@ -89,4 +89,5 @@ exports.emptyCart = (req, res, next) => {
 
 exports.removeItemFromCart = (req, res, next) => {
     console.log(req.body);
+    next();
 }
