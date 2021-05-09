@@ -88,9 +88,8 @@ exports.emptyCart = (req, res, next) => {
 }
 
 exports.removeItemFromCart = (req, res, next) => {
-    
-    console.log(req.body);
-    console.log('*');
-    console.log(req.body.removeItemProductId);
+    console.log(req);
+    let productID = parseInt(req.body.removeItemProductId);
+    // db.query('')
     next();
 }
