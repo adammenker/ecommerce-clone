@@ -95,6 +95,7 @@ exports.removeItemFromCart = (req, res, next) => {
             console.log(error);
             return next();
         }
+        next();
     });
-    next();
+    
 }
