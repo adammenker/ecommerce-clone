@@ -106,3 +106,8 @@ nav li a {
   text-align: center;
   margin: 20px;
 }
+
+.remove-item-from-cart-icon {
+  position: relative;
+  z-index: -1;
+}
