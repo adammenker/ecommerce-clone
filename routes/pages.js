@@ -83,8 +83,8 @@ router.get('/orders', authController.isLoggedIn, ordersController.getOrder, (req
 
 
 router.post('/product', authController.isLoggedIn, productsController.getProduct, cartController.addToCart, (req, res) => {
-    console.log(req.product);
-    console.log(req.user);
+    // console.log(req.product);
+    // console.log(req.user);
 
 
     if(req.product && req.user){
@@ -93,6 +93,8 @@ router.post('/product', authController.isLoggedIn, productsController.getProduct
             product: req.product,
         });
     } else {
+        console.log(req.product);
+        console.log(req.user);
         res.render('product', {
             message: req.message
         });
