@@ -91,6 +91,7 @@ router.post('/product', authController.isLoggedIn, productsController.getProduct
         res.render('product', {
             user: req.user,
             product: req.product,
+            message: null
         });
     } else {
         console.log(req.product);
