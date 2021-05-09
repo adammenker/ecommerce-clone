@@ -52,6 +52,9 @@
                                 </tr>
                             </tbody>
                         </table>
+                        {{#if message}}
+                        <h4 class="alert alert-danger mt-4">{{message}}</h4>
+                        {{else}}
                         <div id="cart-totals-container">
                             <p id="subtotal-label">Subtotal: </p>
                             <p id="taxes-label">Taxes: </p>
@@ -59,17 +62,14 @@
                             <p id="total-label">Total: </p>
                         </div>
                         <div class="container mt-4">
-                            {{#if message}}
-                            <h4 class="alert alert-danger mt-4">{{message}}</h4>
-                            {{else}}
                             <form action="/orders" method="post">
                                 <button id="checkout-button" class="btn btn-primary" type="submit" name="values"
                                     value="a">
                                     Complete Order
                                 </button>
                             </form>
-                            {{/if}}
                         </div>
+                        {{/if}}
                     </div>
                     <div class="card-footer text-muted">
                         MySQL 3380 Web Interface
