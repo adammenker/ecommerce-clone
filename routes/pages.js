@@ -95,7 +95,7 @@ router.post('/product', authController.isLoggedIn, productsController.getProduct
     }
 });
 
-router.get('/product', authController.isLoggedIn, (req, res) => {
+router.get('/product', authController.isLoggedIn, cartController.addToCart, (req, res) => {
     if(req.message){
         res.render('product', {
             message: req.message
