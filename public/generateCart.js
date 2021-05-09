@@ -36,7 +36,7 @@ function createTableRows(productArr) {
                 `<td>${productCategory}</td>` +
                 `<td>${"$" + productPrice}</td>` +
                 `<td>
-                    <form id="remove-item-from-cart-form" action="/cart" method="POST" autocomplete="off">
+                    <form id="remove-item-from-cart-form" action="/cart" method="POST" autocomplete="off" name="remove-item-product-id" value="${productID}">
                         <button class="btn btn-outline-secondary" id="remove-item-from-cart-button" type="submit" onclick="removeItemRow(${productID})">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
                                 <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
@@ -88,12 +88,9 @@ document.getElementById("total-label").innerHTML = `Total: $${finalTotal}`;
 
 function removeItemRow(productID) {
     productID = parseInt(productID);
-    console.log(productID);
     for(let i = 0; i < document.getElementById("cart-table").rows.length; i++) {
         let itemNo = parseInt(document.getElementById("cart-table").rows[i].cells[0].innerHTML);
-        console.log(itemNo);
         if(itemNo == productID){
-            console.log(itemNo + productID);
             document.getElementById("cart-table").rows[i].remove()
         }
     }
