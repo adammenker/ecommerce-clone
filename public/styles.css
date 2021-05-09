@@ -109,5 +109,5 @@ nav li a {
 
 .remove-item-from-cart-icon {
   position: relative;
-  z-index: -1;
+  /* z-index: -1; */
 }
