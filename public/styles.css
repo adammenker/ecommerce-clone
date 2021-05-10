@@ -74,6 +74,10 @@ nav li a {
   margin-top: 8px;
 }
 
+#product-image-container {
+  height: 80%;
+}
+
 #product-image {
   margin-top: 75px;
   width: 100%;
