@@ -101,7 +101,13 @@ exports.addToCart = (req, res, next) => {
         let product = (req.body.addToCartButton).split("**2Z$*4TZQ$**3");
         req.product = {name: product[0],description: product[1],price: product[2],image: product[3], productID: product[4]};
 
-        db.query("", [])
+        // db.query("INSERT INTO cart (userID,productID) values (?,?)", [userID, product[4]], async (error, result) {
+        //     if(error) {
+        //         console.log(error);
+        //         return next();
+        //     }
+
+        // });
 
         
         return next();
