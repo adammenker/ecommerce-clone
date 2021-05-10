@@ -97,16 +97,16 @@ exports.removeItemFromCart = (req, res, next) => {
 
 exports.addToCart = (req, res, next) => {
     try{
-        console.log(req.body);
         let product = (req.body.addToCartButton).split("**2Z$*4TZQ$**3");
-        req.product = {name: product[0],
-                    description: product[1],
-                    price: product[2],
-                    image: product[3]
-                    };
+        req.product = {name: product[0],description: product[1],price: product[2],image: product[3], productID: product[4]};
+
+
+
+        
+        return next();
     } catch(error){
         return next();
     }
     
-    return next();
+    
 }
