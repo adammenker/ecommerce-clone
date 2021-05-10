@@ -22,6 +22,7 @@ exports.getProduct = (req, res, next) => {
             req.message = "We Couldn't Find a Product With That Name"
         } else {
             result[0].price = (parseFloat(result[0].price).toFixed(2)).toString();
+            console.log(req.product);
             req.product = result[0];
         } 
         return next();
