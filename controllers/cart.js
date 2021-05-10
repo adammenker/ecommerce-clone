@@ -20,7 +20,6 @@ exports.getCart = (req, res, next) => {
     if(req.user) {
         let userID = req.user.userID;
         db.query('SELECT productID FROM cart WHERE userID = ?', [userID], async (error, result) => {
-            console.log(result);
             if(error) {
                 console.log(error);
                 return next();
@@ -31,16 +30,16 @@ exports.getCart = (req, res, next) => {
 
             let productIDsArray = [];
             for(let i = 0; i < result.length; i++) {
-                console.log('hit');
                 productIDsArray.push(result[i].productID);
             }
 
             // await getCartProductsArray(productIDsArray);
             let products = [];
             for(let i = 0; i < productIDsArray.length; i++){
+                console.log('** ' + i);
                 let productID = productIDsArray[i];
                 db.query('SELECT * FROM products WHERE productID = ?', [productID], async (error, result) => {
-
+                    console.log(i);
                     products.push(result[0]);
                     if(error) {
                         console.log(error);
