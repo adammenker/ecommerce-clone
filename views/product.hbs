@@ -44,7 +44,8 @@
                     <h2 id="product-price">${{product.price}}</h2>
                     <form action="/product" method="POST" autocomplete="off">
                         <button id="add-product-to-cart-button" type="submit" class="btn btn-primary"
-                            name="addToCartButton" value="{{product}}">
+                            name="addToCartButton"
+                            value="{{product.name}},{{product.description}},{{product.price}},{{product.image}}">
                             Add to Cart
                         </button>
                     </form>
