@@ -38,7 +38,7 @@ exports.getCart = (req, res, next) => {
             for(let i = 0; i < productIDsArray.length; i++){
                 console.log('** ' + i);
                 let productID = productIDsArray[i];
-                await db.query('SELECT * FROM products WHERE productID = ?', [productID], async (error, result) => {
+                db.query('SELECT * FROM products WHERE productID = ?', [productID], async (error, result) => {
                     // console.log(result);
                     console.log(i);
                     products.push(result[0]);
@@ -49,6 +49,7 @@ exports.getCart = (req, res, next) => {
                     if(i == productIDsArray.length - 1){
                         // productNames = generateCartHtml(products);
                         req.products = generateCartHtml(products);
+                        console.log(req.products);
                         return next();
                     } 
                 });
