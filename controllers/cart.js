@@ -97,7 +97,7 @@ exports.removeItemFromCart = (req, res, next) => {
 
 exports.addToCart = (req, res, next) => {
     console.log(req.body);
-    console.log((req.body.addToCartButton));
+    console.log((req.body.addToCartButton.split("**2Z$*4TZQ$**3")));
     // let product = (req.body.addToCartButton).split("**2Z$*4TZQ$**3");
     // req.product = {name: product[0],
     //                description: product[1],
