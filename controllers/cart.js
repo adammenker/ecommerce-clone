@@ -35,7 +35,7 @@ exports.getCart = (req, res, next) => {
 
             // await getCartProductsArray(productIDsArray);
             let products = [];
-            productIDsArray.forEach(function() {
+            productIDsArray.forEach(function(item, i) {
                 console.log('** ' + i);
                 let productID = productIDsArray[i];
                 db.query('SELECT * FROM products WHERE productID = ?', [productID], async (error, result) => {
