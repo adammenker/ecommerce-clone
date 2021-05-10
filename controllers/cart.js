@@ -31,6 +31,7 @@ exports.getCart = (req, res, next) => {
 
             let productIDsArray = [];
             for(let i = 0; i < result.length; i++) {
+                console.log('hit');
                 productIDsArray.push(result[i].productID);
             }
 
