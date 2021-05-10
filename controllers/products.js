@@ -35,7 +35,6 @@ exports.insertAutofillScript = (req, res, next) => {
             return next();
         } 
         
-        // console.log(productNames);
         if(result.length == 0) {
             return next();
         } else {

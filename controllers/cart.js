@@ -73,7 +73,6 @@ function generateCartHtml(products) {
 
 exports.emptyCart = (req, res, next) => {
     let userID = parseInt(req.user.userID);
-    console.log(userID);
     db.query('DELETE FROM cart WHERE userID = ?', [userID], async (error, result) => {
         if(error) {
             console.log(error);
@@ -98,10 +97,13 @@ exports.removeItemFromCart = (req, res, next) => {
 
 exports.addToCart = (req, res, next) => {
     console.log(req.body);
-    console.log(req.body.addToCartButton);
+    let product = (req.body.addToCartButton).split("**2Z$*4TZQ$**3");
+    req.product = {name: product[0],
+                   description: product[1],
+                   price: product[2],
+                   image: product[3]
+                  };
     
     
-    // console.log(req.body.addToCartButton);
-    // req.product = req.body.addToCartButton;
     return next();
 }
