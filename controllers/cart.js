@@ -39,6 +39,7 @@ exports.getCart = (req, res, next) => {
                 console.log('** ' + i);
                 let productID = productIDsArray[i];
                 db.query('SELECT * FROM products WHERE productID = ?', [productID], async (error, result) => {
+                    console.log(result);
                     console.log(i);
                     products.push(result[0]);
                     if(error) {
