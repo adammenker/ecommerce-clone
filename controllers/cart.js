@@ -101,6 +101,7 @@ exports.addToCart = (req, res, next) => {
         req.product = {name: product[0],description: product[1],price: product[2],image: product[3], productID: product[4]};
         console.log(product[4]);
         db.query("INSERT INTO cart (userID,productID) values (?,?)", [userID, product[4]], async (error, result) => {
+            console.log('in query');
             if(error) {
                 console.log(error);
                 return next();
@@ -109,7 +110,6 @@ exports.addToCart = (req, res, next) => {
         });
 
         
-        // return next();
     } catch(error){
         return next();
     }
