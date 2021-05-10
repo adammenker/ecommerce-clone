@@ -74,14 +74,14 @@ nav li a {
   margin-top: 8px;
 }
 
-#product-image-container {
+/* #product-image-container {
   height: 80%;
-}
+} */
 
 #product-image {
   margin-top: 75px;
   width: 100%;
-  height: auto;
+  object-fit: contain;
 }
 
 .product-information {
