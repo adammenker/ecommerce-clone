@@ -88,7 +88,7 @@ router.post('/product', authController.isLoggedIn, productsController.getProduct
             user: req.user,
             product: req.product,
         });
-    } else {
+    } else if(req.message){
         res.render('product', {
             noProductFoundMessage: req.message
         });

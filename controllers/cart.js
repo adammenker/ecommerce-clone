@@ -105,11 +105,11 @@ exports.addToCart = (req, res, next) => {
                 console.log(error);
                 return next();
             }
-
+            return next();
         });
 
         
-        return next();
+        // return next();
     } catch(error){
         return next();
     }
