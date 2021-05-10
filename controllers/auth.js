@@ -20,7 +20,7 @@ const db = mysql.createPool({
 
 exports.register = (req, res) => {
     // destructuring
-    const {name, phone, email, password, passwordConfirm} = req.body;
+    const {firstname, lastname, phone, email, password, passwordConfirm} = req.body;
 
     db.query('SELECT email FROM users WHERE email = ?', [email], async (error, results) => {
 
@@ -32,9 +32,13 @@ exports.register = (req, res) => {
             return res.render('register', {
                 message: 'That email is already in use'
             });
-        } else if(name.length == 0) {
+        } else if(firstname.length == 0) {
             return res.render('register', {
-                message: 'An Name is required'
+                message: 'An First Name is required'
+            });
+        } else if(lastname.length == 0) {
+            return res.render('register', {
+                message: 'An Last Name is required'
             });
         } else if(email.length == 0) {
             return res.render('register', {
@@ -57,7 +61,7 @@ exports.register = (req, res) => {
 
         let hashedPasword = await bcrypt.hash(password, 8);
 
-        db.query('INSERT INTO users SET ?', {name: name, phone: phone, email: email, password: hashedPasword}, (error, results) => {
+        db.query('INSERT INTO users SET ?', {firstname: firstname, lastname: lastname, phone: phone, email: email, password: hashedPasword}, (error, results) => {
             if(error) {
                 console.log(error);
             } else {
