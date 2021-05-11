@@ -1,5 +1,6 @@
 const mysql = require("mysql");
 const { promisify } = require("util");
+const { util } = require("webpack");
 
 // file path not working
 // const dotenv = require("dotenv");
@@ -35,7 +36,8 @@ exports.getCart = (req, res, next) => {
 
             // await getCartProductsArray(productIDsArray);
             let products = [];
-            for(let i = 0; i < productIDsArray.length; i++){
+            
+            function test1(){
                 console.log('** ' + i);
                 let productID = productIDsArray[i];
                 db.query('SELECT * FROM products WHERE productID = ?', [productID], async (error, result) => {
@@ -53,7 +55,38 @@ exports.getCart = (req, res, next) => {
                         return next();
                     } 
                 });
+            } 
+
+            const myAsync = util.promisify(test1);
+
+            async function test2() {
+                return await myAsync();
             }
+
+
+            for(let i = 0; i < productIDsArray.length; i++){
+                  test2();
+            }
+
+            // for(let i = 0; i < productIDsArray.length; i++){
+            //     console.log('** ' + i);
+            //     let productID = productIDsArray[i];
+            //     db.query('SELECT * FROM products WHERE productID = ?', [productID], async (error, result) => {
+            //         // console.log(result);
+                    
+            //         products.push(result[0]);
+            //         if(error) {
+            //             console.log(error);
+            //             return next();
+            //         } 
+            //         if(i == productIDsArray.length - 1){
+            //             // productNames = generateCartHtml(products);
+            //             req.products = generateCartHtml(products);
+            //             console.log(req.products);
+            //             return next();
+            //         } 
+            //     });
+            // }
         });
     } else {
         return next();
