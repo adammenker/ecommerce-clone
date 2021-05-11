@@ -62,7 +62,7 @@ exports.getCart = (req, res, next) => {
             const myAsync = promisify(test1);
 
             async function test2() {
-                return await myAsync();
+                await myAsync();
             }
 
 
