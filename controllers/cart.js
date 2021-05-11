@@ -44,7 +44,7 @@ exports.getCart = (req, res, next) => {
                 let productID = productIDsArray[fakeCount];
                 db.query('SELECT * FROM products WHERE productID = ?', [productID], async (error, result) => {
                     // console.log(result);
-                    console.log('hit');
+                    
                     products.push(result[0]);
                     if(error) {
                         console.log(error);
@@ -57,8 +57,10 @@ exports.getCart = (req, res, next) => {
                         console.log(req.products);
                         return next();
                     } 
+                    console.log('hit ' + fakeCount);
+                    fakeCount++;
                 });
-                fakeCount++;
+                
             } 
 
             const myAsync = promisify(test1);
