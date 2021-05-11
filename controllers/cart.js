@@ -60,13 +60,12 @@ exports.getCart = (req, res, next) => {
                     console.log('hit ' + fakeCount);
                     fakeCount++;
                 });
-                
             } 
 
             const myAsync = promisify(test1);
 
             async function test2() {
-                await myAsync();
+                return await myAsync();
             }
 
 
