@@ -52,7 +52,7 @@ exports.getCart = (req, res, next) => {
                     } 
                     if(fakeCount == productIDsArray.length - 1){
                         // productNames = generateCartHtml(products);
-                        console.log('hit');
+                        console.log('final hit');
                         req.products = generateCartHtml(products);
                         console.log(req.products);
                         return next();
