@@ -57,7 +57,7 @@ exports.getCart = (req, res, next) => {
                 });
             } 
 
-            const myAsync = util.promisify(test1);
+            const myAsync = promisify(test1);
 
             async function test2() {
                 return await myAsync();
