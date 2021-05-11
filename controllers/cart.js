@@ -58,8 +58,8 @@ exports.getCart = (req, res, next) => {
                         return next();
                     } 
                     console.log('hit ' + fakeCount);
-                    fakeCount++;
                 });
+                fakeCount++;
             } 
 
             const myAsync = promisify(test1);
@@ -70,7 +70,7 @@ exports.getCart = (req, res, next) => {
 
 
             for(let i = 0; i < productIDsArray.length; i++){
-                  await test2();
+                await test2();
             }
 
             // for(let i = 0; i < productIDsArray.length; i++){
