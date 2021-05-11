@@ -55,11 +55,12 @@ exports.getCart = (req, res, next) => {
                         console.log('final hit');
                         req.products = generateCartHtml(products);
                         console.log(req.products);
-                        return next();
+                        return 1;
                     } 
                     console.log('hit ' + fakeCount);
                 });
                 fakeCount++;
+                return 0;
             } 
 
             const myAsync = promisify(test1);
@@ -70,7 +71,10 @@ exports.getCart = (req, res, next) => {
 
 
             for(let i = 0; i < productIDsArray.length; i++){
-                await test2();
+                let res = await test2();
+                if(res == 1){
+                    return next();
+                }
             }
 
             // for(let i = 0; i < productIDsArray.length; i++){
