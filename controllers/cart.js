@@ -40,6 +40,7 @@ exports.getCart = (req, res, next) => {
             let fakeCount = 0;
             function test1(){
                 console.log('** ' + fakeCount);
+                console.log('* ' + (productIDsArray.length - 1));
                 let productID = productIDsArray[fakeCount];
                 db.query('SELECT * FROM products WHERE productID = ?', [productID], async (error, result) => {
                     // console.log(result);
