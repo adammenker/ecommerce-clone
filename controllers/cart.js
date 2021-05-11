@@ -36,25 +36,47 @@ exports.getCart = (req, res, next) => {
             // await getCartProductsArray(productIDsArray);
             let products = [];
 
-            for(let i = 0; i < productIDsArray.length; i++){
-                console.log('** ' + i);
-                let productID = productIDsArray[i];
-                db.query('SELECT * FROM products WHERE productID = ?', [productID], async (error, result) => {
-                    // console.log(result);
+            (async function () {
+                for(let i = 0; i < productIDsArray.length; i++){
+                    console.log('** ' + i);
+                    let productID = productIDsArray[i];
+                    await db.query('SELECT * FROM products WHERE productID = ?', [productID], async (error, result) => {
+                        // console.log(result);
+                        console.log(i);
+                        products.push(result[0]);
+                        if(error) {
+                            console.log(error);
+                            return next();
+                        } 
+                        if(i == productIDsArray.length - 1){
+                            // productNames = generateCartHtml(products);
+                            req.products = generateCartHtml(products);
+                            console.log(req.products);
+                            return next();
+                        } 
+                    });
+                }
+            })();
+
+            // for(let i = 0; i < productIDsArray.length; i++){
+            //     console.log('** ' + i);
+            //     let productID = productIDsArray[i];
+            //     db.query('SELECT * FROM products WHERE productID = ?', [productID], async (error, result) => {
+            //         // console.log(result);
                     
-                    products.push(result[0]);
-                    if(error) {
-                        console.log(error);
-                        return next();
-                    } 
-                    if(i == productIDsArray.length - 1){
-                        // productNames = generateCartHtml(products);
-                        req.products = generateCartHtml(products);
-                        console.log(req.products);
-                        return next();
-                    } 
-                });
-            }
+            //         products.push(result[0]);
+            //         if(error) {
+            //             console.log(error);
+            //             return next();
+            //         } 
+            //         if(i == productIDsArray.length - 1){
+            //             // productNames = generateCartHtml(products);
+            //             req.products = generateCartHtml(products);
+            //             console.log(req.products);
+            //             return next();
+            //         } 
+            //     });
+            // }
         });
     } else {
         return next();
