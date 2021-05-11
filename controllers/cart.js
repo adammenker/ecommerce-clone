@@ -70,7 +70,7 @@ exports.getCart = (req, res, next) => {
 
 
             for(let i = 0; i < productIDsArray.length; i++){
-                  test2();
+                  await test2();
             }
 
             // for(let i = 0; i < productIDsArray.length; i++){
