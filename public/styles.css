@@ -126,3 +126,7 @@ nav li a {
   margin-top: 100px;
   height: 60px;
 }
+
+#userInput {
+  border-color: black;
+}
