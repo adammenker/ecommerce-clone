@@ -149,10 +149,11 @@ nav li a {
 }
 
 #all-products-widget-container {
-  display: inline;
+  /* display: inline; */
 }
 
 .widget-container {
+  display: inline-block;
   width: 200px;
 }
 
