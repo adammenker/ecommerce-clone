@@ -97,9 +97,9 @@ router.post('/product', authController.isLoggedIn, productsController.getProduct
 });
 
 
-router.get('/displayProducts.hbs', authController.isLoggedIn, (req, res) => {
+router.get('/displayProducts', authController.isLoggedIn, (req, res) => {
     console.log(req);
-    res.render('displayProduct', {
+    res.render('displayProducts', {
         
     });
 });
