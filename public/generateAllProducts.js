@@ -3,7 +3,7 @@ allProducts = allProducts.split("***23GA2e1SADF2***");
 allProducts.slice(0, -1);
 
 let allProductsArrays = [];
-for(let i = 0; i < allProducts.length; i++) {
+for(let i = 0; i < allProducts.length - 1; i++) {
     let currentProductName = allProducts[i];
     let currentProductImage = allProducts[i + 1];
     let currentProduct = [];
