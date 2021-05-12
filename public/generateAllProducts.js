@@ -1,12 +1,9 @@
 let allProducts = document.getElementById("hidden-all-products-array").innerHTML;
-console.log(allProducts);
 allProducts = allProducts.split("***23GA2e1SADF2***");
-console.log("* " + allProducts);
+allProducts.slice(0, -1);
 
 let allProductsArrays = [];
 for(let i = 0; i < allProducts.length; i++) {
-    console.log(allProducts[i]);
-    console.log(allProducts[i + 1]);
     let currentProductName = allProducts[i];
     let currentProductImage = allProducts[i + 1];
     let currentProduct = [];
@@ -26,7 +23,7 @@ function createProductWidgets(allProductsArrays) {
         productName = allProductsArrays[i][0];
         productImageSrc = allProductsArrays[i][1];
         allProductsWidgets += 
-            '<div>' +
+            '<div class="widget-container">' +
                 `<img src="${productImageSrc}" alt="product widget">` +
                 `<p>${productName}</p>` +
             '</div>'

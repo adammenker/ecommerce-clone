@@ -147,3 +147,7 @@ nav li a {
 #hidden-all-products-array {
   display: none;
 }
+
+.widget-container {
+  width: 50px;
+}
