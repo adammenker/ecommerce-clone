@@ -102,6 +102,9 @@ exports.removeItemFromCart = (req, res, next) => {
 
 
 exports.addToCart = (req, res, next) => {
+    if(!req.body.addToCartButton) {
+        return next();
+    }
     console.log(req.body);
     try{
         let product = (req.body.addToCartButton).split("**2Z$*4TZQ$**3");
