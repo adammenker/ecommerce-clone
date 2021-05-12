@@ -148,9 +148,12 @@ nav li a {
   display: none;
 }
 
+#all-products-widget-container {
+  display: inline;
+}
+
 .widget-container {
   width: 200px;
-  display: inline;
 }
 
 .widget-image {
