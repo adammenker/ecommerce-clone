@@ -137,6 +137,10 @@ nav li a {
 }
 
 #view-all-products-button {
-  margin-left: auto;
+  margin-left: 40%;
   margin-right: auto;
+}
+
+#view-all-products-button-container {
+  text-align: center;
 }
