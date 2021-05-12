@@ -66,8 +66,18 @@ exports.getAllProducts = (req, res, next) => {
         if(result.length == 0) {
             req.message = "We Couldn't Find Any Available Products"
         } else {
-            req.allProducts = result;
+            req.allProducts = generateAllProductsArray(result);
         } 
         return next();
     });
+}
+
+
+function generateAllProductsArray(allProducts) {
+    let allProductsArray = [];
+    for(let i = 0; i < allProducts.length; i++){
+        // replace character string with a .env so no injections
+        allProductsArray.push(`${products[i].name}\\${products[i].image}`); // replaced characters reference on generateCart.js line 31
+    }
+    return allProductsArray;
 }
