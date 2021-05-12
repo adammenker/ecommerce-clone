@@ -102,7 +102,7 @@ exports.removeItemFromCart = (req, res, next) => {
 
 
 exports.addToCart = (req, res, next) => {
-    if(!user) {
+    if(!req.user) {
         return next();
     }
     try{
