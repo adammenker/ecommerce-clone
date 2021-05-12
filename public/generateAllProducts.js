@@ -24,7 +24,7 @@ function createProductWidgets(allProductsArrays) {
         productImageSrc = allProductsArrays[i][1];
         allProductsWidgets += 
             '<div>' +
-                `<img src="${productImageSrc}">${productID}</img>` +
+                `<img src="${productImageSrc}" alt="product widget">` +
                 `<p>${productName}</p>` +
             '</div>'
     }
