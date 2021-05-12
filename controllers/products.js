@@ -66,8 +66,7 @@ exports.getAllProducts = (req, res, next) => {
         if(result.length == 0) {
             req.message = "We Couldn't Find Any Available Products"
         } else {
-            req.products = result;
-            req.body = result
+            req.allProducts = result;
         } 
         return next();
     });
