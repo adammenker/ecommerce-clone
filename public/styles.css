@@ -153,14 +153,16 @@ nav li a {
 }
 
 .widget-container {
-  background-color: rgb(187, 187, 187);
+  background-color: rgb(214, 214, 214);
   border-radius: 10px;
   display: inline-block;
   width: 200px;
+  height: 200px;
+  text-align: center;
 }
 
 .widget-container:hover {
-  background-color: rgb(145, 145, 145);
+  background-color: rgb(189, 189, 189);
 }
 
 .widget-image {
