@@ -142,6 +142,7 @@ nav li a {
 
 #displayProducts-title {
   text-align: center;
+  margin-top: 50px;
 }
 
 #hidden-all-products-array {
@@ -167,7 +168,7 @@ nav li a {
 }
 
 .widget-image {
-  width: auto;
-  height: auto;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
 }
