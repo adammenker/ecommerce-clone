@@ -105,12 +105,4 @@ router.get('/displayProducts', authController.isLoggedIn, (req, res) => {
 });
 
 
-router.post('/displayProducts', authController.isLoggedIn, (req, res) => {
-    console.log(req);
-    res.render('displayProducts', {
-        
-    });
-});
-
-
 module.exports = router;
