@@ -123,7 +123,7 @@ nav li a {
 }
 
 #query-bar-container {
-  margin-top: 100px;
+  margin-top: 20px;
   height: 60px;
 }
 
@@ -133,6 +133,7 @@ nav li a {
 
 #query-page-title {
   text-align: center;
+  margin-top: 80px;
 }
 
 #view-all-products-button {
