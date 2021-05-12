@@ -1,9 +1,11 @@
 let allProducts = document.getElementById("hidden-all-products-array").innerHTML;
 allProducts = allProducts.split("\\");
-console.log("* " + allProducts);
+// console.log("* " + allProducts);
 
 let allProductsArrays = [];
 for(let i = 0; i < allProducts.length; i++) {
+    console.log(allProducts[i]);
+    console.log(allProducts[i + 1]);
     let currentProductName = allProducts[i];
     let currentProductImage = allProducts[i + 1];
     let currentProduct = [];
