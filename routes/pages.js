@@ -6,10 +6,11 @@ const productsController = require('../controllers/products');
 const router = express.Router();
 
 
-router.get('/', authController.isLoggedIn, productsController.insertAutofillScript, (req, res) => {
+router.get('/', authController.isLoggedIn, productsController.insertAutofillScript, productsController.getAllProducts, (req, res) => {
     res.render('index', {
         user: req.user,
-        products: req.productNames
+        products: req.productNames,
+        allProducts: req.allProducts
     });
 });
 
@@ -100,7 +101,7 @@ router.post('/product', authController.isLoggedIn, productsController.getProduct
 router.post('/displayProducts', authController.isLoggedIn, (req, res) => {
     console.log(req.body);
     res.render('displayProducts', {
-        allProducts = req.allProducts
+        // allProducts: req.allProducts
     });
 });
 
