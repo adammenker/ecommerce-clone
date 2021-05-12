@@ -32,3 +32,6 @@ function createProductWidgets(allProductsArrays) {
 }
 
 let imbeddedHTML = createProductWidgets(allProductsArrays);
+console.log(imbeddedHTML);
+
+document.getElementById("all-products-widget-container").innerHTML = imbeddedHTML;
