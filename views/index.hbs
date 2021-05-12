@@ -29,7 +29,7 @@
     </nav>
 
     <form id="query-box" action="/product" method="POST" autocomplete="off">
-        <div class="input-group mb-3">
+        <div class="input-group mb-3" id="query-bar-container">
             <input aria-describedby="button-addon2" aria-label="Search" class="form-control autocomplete" id="userInput"
                 name="userInput" placeholder="Search" type="text"></input>
             <button class="btn btn-outline-secondary" id="button-addon2" type="submit">
@@ -43,16 +43,9 @@
     </form>
 
     <div class="container mt-4">
-        <div class="jumbotron">
-            <h1 class="display-4">Home Page</h1>
-            <p class="lead">This will be the query page, functionality or layout has not been fully implemented</p>
-            <hr class="my-4">
-            <p>Various categories to choose from will be shown below</p>
-            <p class="lead">
-                <a class="btn btn-primary btn-lg" href="#" role="button">Category 1</a>
-                <a class="btn btn-primary btn-lg" href="#" role="button">Category 2</a>
-            </p>
-        </div>
+        <h3>Search for an item to get more information on it and add it to your cart</h3>
+        <a class="btn btn-primary btn-lg" href="#" role="button">Category 1</a>
+        <a class="btn btn-primary btn-lg" href="#" role="button">Category 2</a>
     </div>
     <p id="hidden-product-array">{{products}}</p>
 

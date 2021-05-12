@@ -121,3 +121,9 @@ nav li a {
   position: relative;
   /* z-index: -1; */
 }
+
+#query-bar-container {
+  margin-top: 200px;
+  height: 60px;
+  width: 40%;
+}
