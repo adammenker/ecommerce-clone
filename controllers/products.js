@@ -77,7 +77,7 @@ function generateAllProductsArray(allProducts) {
     let allProductsArray = [];
     for(let i = 0; i < allProducts.length; i++){
         // replace character string with a .env so no injections
-        allProductsArray.push(`${allProducts[i].name}\\${allProducts[i].image}`); // replaced characters reference on generateCart.js line 31
+        allProductsArray.push(`${allProducts[i].name}\\${allProducts[i].image}\\`); // replaced characters reference on generateCart.js line 31
     }
     return allProductsArray;
 }
