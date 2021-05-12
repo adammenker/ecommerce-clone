@@ -155,4 +155,5 @@ nav li a {
 
 .widget-image {
   width: 100%;
+  object-fit: contain;
 }
