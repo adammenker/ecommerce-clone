@@ -159,6 +159,7 @@ nav li a {
   width: 200px;
   height: 200px;
   text-align: center;
+  margin: 25px;
 }
 
 .widget-container:hover {
@@ -166,6 +167,7 @@ nav li a {
 }
 
 .widget-image {
-  width: 100%;
+  width: auto;
+  height: auto;
   object-fit: contain;
 }
