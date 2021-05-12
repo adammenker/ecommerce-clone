@@ -149,7 +149,8 @@ nav li a {
 }
 
 .widget-container {
-  width: 100px;
+  width: 200px;
+  display: inline;
 }
 
 .widget-image {
