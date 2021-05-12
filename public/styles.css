@@ -134,3 +134,8 @@ nav li a {
 #query-page-title {
   text-align: center;
 }
+
+#view-all-products-button {
+  margin-left: auto;
+  margin-right: auto;
+}
