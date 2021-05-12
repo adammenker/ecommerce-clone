@@ -1,6 +1,6 @@
 let allProducts = document.getElementById("hidden-all-products-array").innerHTML;
 console.log(allProducts);
-allProducts = allProducts.split("\\");
+allProducts = allProducts.split("***23GA2e1SADF2***");
 console.log("* " + allProducts);
 
 let allProductsArrays = [];
@@ -35,6 +35,5 @@ function createProductWidgets(allProductsArrays) {
 }
 
 let imbeddedHTML = createProductWidgets(allProductsArrays);
-console.log(imbeddedHTML);
 
 document.getElementById("all-products-widget-container").innerHTML = imbeddedHTML;
