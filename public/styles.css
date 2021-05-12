@@ -49,6 +49,11 @@ nav li a {
   margin: 0 auto;
 }
 
+#query-bar-container {
+  margin-top: 20px;
+  height: 60px;
+}
+
 .autocomplete {
   position: relative;
   display: inline-block;
@@ -122,11 +127,6 @@ nav li a {
   /* z-index: -1; */
 }
 
-#query-bar-container {
-  margin-top: 20px;
-  height: 60px;
-}
-
 #userInput {
   border-color: rgb(32, 32, 32);
 }
@@ -134,11 +134,6 @@ nav li a {
 #query-page-title {
   text-align: center;
   margin-top: 80px;
-}
-
-#view-all-products-button {
-  margin-left: 40%;
-  margin-right: auto;
 }
 
 #view-all-products-button-container {
