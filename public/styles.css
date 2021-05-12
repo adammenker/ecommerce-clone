@@ -170,3 +170,7 @@ nav li a {
   max-height: 80%;
   object-fit: contain;
 }
+
+.profile-text {
+  margin-bottom: -5px;
+}
