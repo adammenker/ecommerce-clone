@@ -28,7 +28,11 @@
                         <img src="/avatar.png" class="avatar" alt="user profile picture" />
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title">{{user.firstname}}</h5>
+                        <h3>Account Details:</h3>
+                        <h6 class="card-title">Name: {{user.firstname}} {{user.lastname}}</h6>
+                        <h6 class="card-title">Email: {{user.email}}</h6>
+                        <h6 class="card-title">Phone: {{user.phone}}</h6>
+                        <br>
                         <p class="card-text">
                             You are currently logged in. To logout, click the link below.
                         </p>
