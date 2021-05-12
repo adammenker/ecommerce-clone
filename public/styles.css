@@ -154,8 +154,7 @@ nav li a {
 }
 
 .widget-container {
-  border-color: rgb(41, 41, 41);
-  border-width: 2px;
+  border: 2px solid black;
   border-radius: 10px;
   display: inline-block;
   width: 200px;
