@@ -149,11 +149,8 @@ nav li a {
   display: none;
 }
 
-#all-products-widget-container {
-  /* display: inline; */
-}
-
 .widget-container {
+  padding: 5px;
   border: 2px solid rgb(172, 172, 172);
   border-radius: 10px;
   display: inline-block;
