@@ -56,3 +56,18 @@ function generateProductHtml(products) {
 }
 
 
+exports.getAllProducts = (req, res, next) => {
+    db.query('SELECT * FROM products', async (error, result) => {
+        if(error) {
+            console.log(error);
+            return next();
+        } 
+        
+        if(result.length == 0) {
+            req.message = "We Couldn't Find Any Available Products"
+        } else {
+            req.products = result;
+        } 
+        return next();
+    });
+}
