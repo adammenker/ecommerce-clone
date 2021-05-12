@@ -11,5 +11,6 @@ for(let i = 0; i < allProducts; i++) {
     currentProduct.push(currentProductName);
     currentProduct.push(currentProductImage);
     allProductsArrays.push(currentProduct);
+    i++;
 }
 console.log(allProductsArrays);
