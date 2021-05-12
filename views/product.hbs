@@ -42,6 +42,7 @@
                     <h4 id="product-description">{{product.description}}
                     </h4>
                     <h2 id="product-price">${{product.price}}</h2>
+                    {{#if user}}
                     <form action="/product" method="POST" autocomplete="off">
                         <button id="add-product-to-cart-button" type="submit" class="btn btn-primary"
                             name="addToCartButton"
@@ -49,6 +50,7 @@
                             Add to Cart
                         </button>
                     </form>
+                    {{/if}}
                 </div>
             </div>
         </div>
