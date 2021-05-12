@@ -99,9 +99,9 @@ router.post('/product', authController.isLoggedIn, productsController.getProduct
 
 
 router.post('/displayProducts', authController.isLoggedIn, (req, res) => {
-    console.log(req.body[0]);
+    console.log(req.body.viewAllProducts);
     res.render('displayProducts', {
-        allProducts: req.body
+        allProducts: req.body.viewAllProducts
     });
 });
 
