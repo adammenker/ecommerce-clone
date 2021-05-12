@@ -130,3 +130,7 @@ nav li a {
 #userInput {
   border-color: black;
 }
+
+#query-page-title {
+  text-align: center;
+}
