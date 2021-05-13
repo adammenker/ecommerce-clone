@@ -44,11 +44,11 @@ exports.createOrder = (req, res, next) => {
             price = parseFloat(price).toFixed(2);
 
             price *= 1.08;
-            if(shippingCarrier = "USPS"){
+            if(shippingCarrier == "USPS"){
                 price += 5.99
-            } else if(shippingCarrier = "UPS") {
+            } else if(shippingCarrier == "UPS") {
                 price += 9.99
-            } else if(shippingCarrier = "Fedex") {
+            } else if(shippingCarrier == "Fedex") {
                 price += 11.99
             }
             
