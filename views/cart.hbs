@@ -34,7 +34,6 @@
                         Your Cart
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title">Hey {{user.firstname}}, checkout when you are ready!</h5>
                         <div id="product-string">{{products}}</div>
 
                         <table class="table" id="cart-table">
@@ -57,9 +56,9 @@
                                 </tr>
                             </tbody>
                         </table>
-                        {{#unless message}}
+                        {{#if message}}
                         <h4 class="alert alert-danger mt-4">{{message}}</h4>
-                        {{!-- {{else}} --}}
+                        {{else}}
                         <div id="cart-totals-container">
                             <p id="subtotal-label">Subtotal: </p>
                             <p id="taxes-label">Taxes: </p>
@@ -82,7 +81,34 @@
                 </div>
             </div>
             <div class="col-3">
+                <div class="card text-center">
+                    <div class="card-header">
+                        Checkout
+                    </div>
+                    <div class="card-body">
 
+                        {{#if message}}
+                        {{else}}
+                        <div id="cart-totals-container">
+                            <p id="subtotal-label">Subtotal: </p>
+                            <p id="taxes-label">Taxes: </p>
+                            <p id="shipping-label">Shipping: </p>
+                            <p id="total-label">Total: </p>
+                        </div>
+                        <div class="container mt-4">
+                            <form action="/orders" method="post">
+                                <button id="checkout-button" class="btn btn-primary" type="submit" name="values"
+                                    value="a">
+                                    Complete Order
+                                </button>
+                            </form>
+                        </div>
+                        {{/unless}}
+                    </div>
+                    <div class="card-footer text-muted">
+                        MySQL 3380 Web Interface
+                    </div>
+                </div>
             </div>
         </div>
     </div>
