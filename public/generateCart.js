@@ -97,7 +97,7 @@ function setShippingOptionPrice(){
 
 
 function updateCheckoutValues(){
-    let creditCardNumber = document.getElementById("creditCardInput").innerHTML;
+    let creditCardNumber = document.getElementById("creditCardInput").value;
     console.log(creditCardNumber);
     let shipping = setShippingOptionPrice();
     let taxes = calculateTax(subtotal).toFixed(2);
