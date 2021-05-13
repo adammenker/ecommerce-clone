@@ -24,12 +24,12 @@ function createProductWidgets(allProductsArrays) {
         productName = allProductsArrays[i][0];
         productImageSrc = allProductsArrays[i][1];
         allProductsWidgets += 
+        '<div class="widget-container">' +
             `<button class="product-widget-transparent-button" type="submit" name="clickedProduct" value="${productName}">` +
-                '<div class="widget-container">' +
                     `<img class="widget-image" src="${productImageSrc}" alt="product widget">` +
                     `<p>${productName}</p>` +
-                '</div>' +
-            '</button>'
+            '</button>' +
+        '</div>'
     }
     return allProductsWidgets;
 }
