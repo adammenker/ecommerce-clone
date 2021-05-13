@@ -40,7 +40,7 @@ exports.createOrder = (req, res, next) => {
         } else {
             let temp = results[Object.keys(results)[0]]
             price = temp[Object.keys(temp)[0]]
-            price = parseFloat(price.toFixed(2));
+            price = parseFloat(price).toFixed(2);
 
             price *= 1.08;
             if(shippingCarrier = "USPS"){
@@ -66,6 +66,7 @@ exports.createOrder = (req, res, next) => {
                     console.log(error);
                     return next();
                 } else {
+                    db.release();
                     return next();
                 }
             });
