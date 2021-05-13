@@ -18,7 +18,7 @@ exports.createOrder = (req, res, next) => {
     reqValues = reqValues.split(",");
 
     // aggregate function
-    db.query('SELECT SUM(price) FROM cart WHERE userID = ?', [userID], (error, results) => {
+    db.query('SELECT * FROM cart c, products p WHERE userID = ?', [userID], (error, results) => {
         if(error) {
             console.log(error);
             return next();
