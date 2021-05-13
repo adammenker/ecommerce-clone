@@ -27,8 +27,8 @@ function createProductWidgets(allProductsArrays) {
         '<div class="widget-container">' +
             `<button class="product-widget-transparent-button" type="submit" name="clickedProduct" value="${productName}">` +
                     `<img class="widget-image" src="${productImageSrc}" alt="product widget">` +
+                    `<p>${productName}</p>` +
             '</button>' +
-            `<p>${productName}</p>` +
         '</div>'
     }
     return allProductsWidgets;
