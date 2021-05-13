@@ -26,11 +26,9 @@ exports.createOrder = (req, res, next) => {
         } else {
             
             // console.log(results[0]);
-            let p = results[0];
             let temp = results[Object.keys(results)[0]]
-            console.log(temp[Object.keys(temp)[0]]);
-            console.log(p[Object.keys(p)[0]]);
-            // price = results[Object.keys(results)[0]];
+            price = temp[Object.keys(temp)[0]]
+            console.log(price);
         }
         // remove
         return next();
