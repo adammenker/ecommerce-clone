@@ -174,3 +174,10 @@ nav li a {
 .profile-text {
   margin-bottom: -5px;
 }
+
+#shipping-options-form {
+  text-align: left;
+}
+
+#credit-card-input-form {
+}
