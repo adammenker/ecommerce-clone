@@ -78,8 +78,9 @@ function calculateFinalTotal(tax, subtotal, shipping) {
     return parseFloat(tax) + parseFloat(subtotal) + parseFloat(shipping);
 }
 
+let shippingCarrier = "USPS";
 function getShippingOption(){
-    
+    console.log('kjadfs');
 }
 
 
