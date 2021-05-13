@@ -44,8 +44,6 @@ exports.createOrder = (req, res, next) => {
             let temp = results[Object.keys(results)[0]]
             price = temp[Object.keys(temp)[0]]
             price = parseFloat(price.toFixed(2));
-            console.log(price);
-            console.log(typeof price);
 
             price *= 1.08;
             if(shippingCarrier = "USPS"){
@@ -55,6 +53,7 @@ exports.createOrder = (req, res, next) => {
             } else if(shippingCarrier = "Fedex") {
                 price += 11.99
             }
+            price = price.toFixed(2);
 
             db.query('INSERT INTO orders SET ?', {tracking_number: trackingNumber, order_date: date, ship_method: shippingCarrier, number_of_products: numberOfProducts, price: price, userID: userID}, (error, results) => {
                 if(error) {
