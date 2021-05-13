@@ -56,8 +56,8 @@ router.post('/cart', authController.isLoggedIn, cartController.removeItemFromCar
     });
 });
 
-//cartController.emptyCart, after create order
-router.post('/orders', authController.isLoggedIn, ordersController.createOrder,   ordersController.getOrder, (req, res) => {
+//, after create order
+router.post('/orders', authController.isLoggedIn, ordersController.createOrder, cartController.emptyCart, ordersController.getOrder, (req, res) => {
     if(req.user && req.orders) {
         res.render('orders', {
             user: req.user,
