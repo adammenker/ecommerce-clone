@@ -12,9 +12,12 @@ const db = mysql.createPool({
 exports.createOrder = (req, res, next) => {
     userID = req.user.userID;
     reqValues = req.body.values
-    console.log(reqValues);
     reqValues = reqValues.split(",");
     price = parseFloat(reqValues[0].replace("$", ""));
+    shippingCarrier = reqValues[2];
+    console.log(shippingCarrier);
+    creditCardNumber = reqValues[3];
+    console.log(creditCardNumber);
     numberOfProducts = parseInt(reqValues[1]);
     let trackingNumber = (Math.round(100000000 * Math.random())).toString();
     // trackingNumber = validateTrackingNum(trackingNumber);
