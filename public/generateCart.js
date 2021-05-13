@@ -80,7 +80,11 @@ function calculateFinalTotal(tax, subtotal, shipping) {
 
 let shippingCarrier = "USPS";
 function getShippingOption(){
-    console.log('kjadfs');
+    if(document.getElementById("USPSShippingOption").value == "USPS"){
+        console.log('ksdfjadfslksdfa');
+    }
+    // let shippingCarrier = ;
+    console.log(document.getElementById("USPSShippingOption").value);
 }
 
 
