@@ -16,7 +16,6 @@ exports.createOrder = (req, res, next) => {
     userID = req.user.userID;
     reqValues = req.body.values
     reqValues = reqValues.split(",");
-    console.log(userID);
 
     let price;
     // aggregate function
@@ -26,6 +25,7 @@ exports.createOrder = (req, res, next) => {
             return next();
         } else {
             
+            console.log(results[0]);
             console.log(results[Object.keys(results)[0]]);
             price = results[Object.keys(results)[0]];
         }
@@ -40,7 +40,7 @@ exports.createOrder = (req, res, next) => {
     // numberOfProducts = parseInt(reqValues[1]);
     // let trackingNumber = (Math.round(100000000 * Math.random())).toString();
 
-    // price *=
+    price *= 1.08;
     if(shippingCarrier = "USPS"){
         price += 5.99
     } else if(shippingCarrier = "UPS") {
