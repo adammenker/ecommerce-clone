@@ -28,7 +28,7 @@ exports.createOrder = (req, res, next) => {
             // console.log(results[0]);
             let temp = results[Object.keys(results)[0]]
             price = temp[Object.keys(temp)[0]]
-            price = price.toFixed(2);
+            price = parseFloat(price.toFixed(2));
             console.log(price);
         }
     });
@@ -61,6 +61,7 @@ exports.createOrder = (req, res, next) => {
             message: 'You have no items in your cart'
         });
     }
+    console.log(price);
 
     db.query('INSERT INTO orders SET ?', {tracking_number: trackingNumber, order_date: date, ship_method: shippingCarrier, number_of_products: numberOfProducts, price: price, userID: userID}, (error, results) => {
         if(error) {
