@@ -191,6 +191,14 @@ nav li a {
   text-align: center;
 }
 
+.product-widget-transparent-button {
+  background-color: transparent;
+  border: 0px solid white;
+  width: 200px;
+  height: 200px;
+  text-align: center;
+}
+
 .product-widget-transparent-button:hover {
   text-decoration: underline;
   color: black;
