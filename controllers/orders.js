@@ -51,7 +51,6 @@ exports.createOrder = (req, res, next) => {
             return next();
         }
     });
-    return next();
 }
 
 
