@@ -27,6 +27,7 @@ exports.createOrder = (req, res, next) => {
         } else {
             
             console.log(results[Object.keys(results)[0]]);
+            price = results[Object.keys(results)[0]];
         }
         // remove
         return next();
@@ -39,6 +40,7 @@ exports.createOrder = (req, res, next) => {
     // numberOfProducts = parseInt(reqValues[1]);
     // let trackingNumber = (Math.round(100000000 * Math.random())).toString();
 
+    // price *=
     if(shippingCarrier = "USPS"){
         price += 5.99
     } else if(shippingCarrier = "UPS") {
