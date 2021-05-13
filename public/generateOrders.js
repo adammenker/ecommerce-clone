@@ -1,7 +1,7 @@
 let ordersText = document.getElementById("orders-string").innerHTML;
 
 ordersText = ordersText.split("\\");
-console.log(ordersText);
+
 
 for(let i = 0; i < ordersText.length; i++) {
     if(i == 0) {
@@ -15,6 +15,7 @@ for(let i = 0; i < ordersText.length; i++) {
 }
 // remove empty string at the end
 ordersArray = ordersText.slice(0, -1);
+console.log(ordersArray);
 
 function createTableRows(orderArr) {
     let tableBody = '';
