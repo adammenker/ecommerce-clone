@@ -50,6 +50,7 @@ exports.createOrder = (req, res, next) => {
             } else if(shippingCarrier = "Fedex") {
                 price += 11.99
             }
+            return next();
             // price = price.toFixed(2);
 
             // db.query('INSERT INTO orders SET ?', {tracking_number: trackingNumber, order_date: date, ship_method: shippingCarrier, number_of_products: numberOfProducts, price: price, userID: userID}, (error, results) => {
