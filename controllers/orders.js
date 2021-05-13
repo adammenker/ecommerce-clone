@@ -16,18 +16,20 @@ exports.createOrder = (req, res, next) => {
     userID = req.user.userID;
     reqValues = req.body.values
     reqValues = reqValues.split(",");
+    console.log(req);
+    return next();
 
     // aggregate function
-    db.query('SELECT * FROM cart c, products p WHERE userID = ? AND c.cartItemID = p.productID', [userID], (error, results) => {
-        if(error) {
-            console.log(error);
-            return next();
-        } else {
-            console.log(results);
-        }
-        // remove
-        return next();
-    });
+    // db.query('SELECT * FROM cart c, products p WHERE userID = ? AND c.cartItemID = p.productID', {userID: userID, }, (error, results) => {
+    //     if(error) {
+    //         console.log(error);
+    //         return next();
+    //     } else {
+    //         console.log(results);
+    //     }
+    //     // remove
+    //     return next();
+    // });
 
     // price = parseFloat(reqValues[0].replace("$", ""));
     // shippingCarrier = reqValues[2];
