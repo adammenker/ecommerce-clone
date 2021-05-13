@@ -71,7 +71,6 @@ exports.createOrder = (req, res, next) => {
                     console.log(error);
                     return next();
                 } else {
-                    db.release();
                     return next();
                 }
             });  
