@@ -96,12 +96,6 @@ function setShippingOptionPrice(){
 }
 
 
-if(!document.getElementById("cart-empty-message")){
-    console.log('afds');
-} else {
-    console.log('fsdnnfdssdnj');
-}
-
 function updateCheckoutValues(){
     let creditCardNumber = document.getElementById("creditCardInput").innerHTML;
     console.log(creditCardNumber);
@@ -115,4 +109,6 @@ function updateCheckoutValues(){
     document.getElementById("checkout-button").setAttribute("value", `$${finalTotal},${quantity},${shippingCarrier},${creditCardNumber}`);
 }
 
-updateCheckoutValues();
+if(!document.getElementById("cart-empty-message")){
+    updateCheckoutValues();
+}
