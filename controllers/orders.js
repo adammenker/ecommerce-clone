@@ -33,14 +33,16 @@ exports.createOrder = (req, res, next) => {
         });
     }
 
-    db.query('INSERT INTO orders SET ?', {tracking_number: trackingNumber, order_date: date, ship_method: defaultShippingMethod, number_of_products: numberOfProducts, price: price, userID: userID}, (error, results) => {
-        if(error) {
-            console.log(error);
-            return next();
-        } else {
-            return next();
-        }
-    });
+    
+
+    // db.query('INSERT INTO orders SET ?', {tracking_number: trackingNumber, order_date: date, ship_method: defaultShippingMethod, number_of_products: numberOfProducts, price: price, userID: userID}, (error, results) => {
+    //     if(error) {
+    //         console.log(error);
+    //         return next();
+    //     } else {
+    //         return next();
+    //     }
+    // });
 }
 
 
