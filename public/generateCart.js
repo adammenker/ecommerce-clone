@@ -79,21 +79,21 @@ function calculateFinalTotal(tax, subtotal, shipping) {
 }
 
 let shippingCarrier = "USPS";
-function getShippingOption(){
+function getShippingOptionPrice(){
     if(document.getElementById("USPSShippingOption").checked){
         shippingCarrier = "USPS";
-        console.log('ksdfjadfslksdfa');
+        return 5.99;
     } else if(document.getElementById("UPSShippingOption").checked){
         shippingCarrier = "UPS";
+        return 9.99
     } else if(document.getElementById("FedexShippingOption").checked){
         shippingCarrier = "Fedex";
+        return 11.99;
     }
-    // let shippingCarrier = ;
-    console.log(document.getElementById("USPSShippingOption").value);
 }
 
 
-let shipping = 5;
+let shipping = getShippingOptionPrice();
 let taxes = calculateTax(subtotal).toFixed(2);
 let finalTotal = calculateFinalTotal(taxes, subtotal, shipping).toFixed(2);
 
