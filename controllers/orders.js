@@ -16,10 +16,10 @@ exports.createOrder = (req, res, next) => {
     userID = req.user.userID;
     reqValues = req.body.values
     reqValues = reqValues.split(",");
-    // console.log(req);
+    console.log(userID);
 
     // aggregate function
-    db.query('SELECT productID FROM cart WHERE userID = ?', [userID], (error, results) => {
+    db.query('SELECT c.productID FROM cart c, products p WHERE userID = ?', [userID], (error, results) => {
         if(error) {
             console.log(error);
             return next();
