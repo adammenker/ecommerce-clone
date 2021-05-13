@@ -18,7 +18,7 @@ ordersArray = ordersText.slice(0, -1);
 
 function createTableRows(orderArr) {
     let tableBody = '';
-    for(let i = orderArr.length - 1; i != 0; i--) {
+    for(let i = orderArr.length; i != 0; i--) {
         currentOrder = orderArr[i].split(",");
         order_number = currentOrder[0];
         tracking_number = currentOrder[1];
