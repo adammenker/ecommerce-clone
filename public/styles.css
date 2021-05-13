@@ -151,7 +151,7 @@ nav li a {
 
 .widget-container {
   padding: 5px;
-  border: 2px solid rgb(172, 172, 172);
+  border: 2px solid rgb(255, 255, 255);
   border-radius: 10px;
   display: inline-block;
   width: 200px;
@@ -162,7 +162,7 @@ nav li a {
 }
 
 .widget-container:hover {
-  border-color: black;
+  border-color: rgb(104, 104, 104);
   cursor: pointer;
 }
 
@@ -183,4 +183,7 @@ nav li a {
 #credit-card-input-form {
   background-color: white;
   /*  */
+}
+#all-products-widget-container {
+  text-align: center;
 }

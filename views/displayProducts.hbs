@@ -29,9 +29,11 @@
     </nav>
     <h1 id="displayProducts-title">Products</h1>
     <div class="container mt-4">
-        <div id="all-products-widget-container">
-            {{!-- generated product widgets --}}
-        </div>
+        <form action="/product">
+            <div id="all-products-widget-container">
+                {{!-- generated product widgets --}}
+            </div>
+        </form>
     </div>
 
     <p id="hidden-all-products-array">{{allProducts}}</p>
