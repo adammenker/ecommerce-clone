@@ -30,6 +30,7 @@ exports.createOrder = (req, res, next) => {
             price = temp[Object.keys(temp)[0]]
             price = parseFloat(price.toFixed(2));
             console.log(price);
+            console.log(typeof price);
         }
     });
 
@@ -61,25 +62,25 @@ exports.createOrder = (req, res, next) => {
             message: 'You have no items in your cart'
         });
     }
-    console.log(price);
+    console.log(typeof price);
 
-    db.query('INSERT INTO orders SET ?', {tracking_number: trackingNumber, order_date: date, ship_method: shippingCarrier, number_of_products: numberOfProducts, price: price, userID: userID}, (error, results) => {
-        if(error) {
-            console.log(error);
-            return next();
-        } else {
-            return next();
-        }
-    });
+    // db.query('INSERT INTO orders SET ?', {tracking_number: trackingNumber, order_date: date, ship_method: shippingCarrier, number_of_products: numberOfProducts, price: price, userID: userID}, (error, results) => {
+    //     if(error) {
+    //         console.log(error);
+    //         return next();
+    //     } else {
+    //         return next();
+    //     }
+    // });
 
-    db.query('INSERT INTO payment SET ?', {card_number: creditCardNumber}, (error, results) => {
-        if(error) {
-            console.log(error);
-            return next();
-        } else {
-            return next();
-        }
-    });
+    // db.query('INSERT INTO payment SET ?', {card_number: creditCardNumber}, (error, results) => {
+    //     if(error) {
+    //         console.log(error);
+    //         return next();
+    //     } else {
+    //         return next();
+    //     }
+    // });
 }
 
 
