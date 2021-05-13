@@ -28,18 +28,16 @@ exports.createOrder = (req, res, next) => {
             // console.log(results[0]);
             let temp = results[Object.keys(results)[0]]
             price = temp[Object.keys(temp)[0]]
+            price = price.toFixed(2);
             console.log(price);
         }
-        // remove
-        return next();
     });
 
 
-    // price = parseFloat(reqValues[0].replace("$", ""));
-    // shippingCarrier = reqValues[2];
-    // creditCardNumber = reqValues[3];
-    // numberOfProducts = parseInt(reqValues[1]);
-    // let trackingNumber = (Math.round(100000000 * Math.random())).toString();
+    shippingCarrier = reqValues[2];
+    creditCardNumber = reqValues[3];
+    numberOfProducts = parseInt(reqValues[1]);
+    let trackingNumber = (Math.round(100000000 * Math.random())).toString();
 
     price *= 1.08;
     if(shippingCarrier = "USPS"){
@@ -50,37 +48,37 @@ exports.createOrder = (req, res, next) => {
         price += 11.99
     }
 
-    // let currentDate = new Date();
-    // let cDay = currentDate.getDate();
-    // let cMonth = currentDate.getMonth() + 1;
-    // let cYear = currentDate.getFullYear();
-    // let date = cMonth + "/" + cDay + "/" + cYear;
+    let currentDate = new Date();
+    let cDay = currentDate.getDate();
+    let cMonth = currentDate.getMonth() + 1;
+    let cYear = currentDate.getFullYear();
+    let date = cMonth + "/" + cDay + "/" + cYear;
 
-    // let defaultShippingMethod = "USPS Priority Mail";
+    let defaultShippingMethod = "USPS Priority Mail";
     
-    // if(numberOfProducts == 0) {
-    //     return res.render('cart', {
-    //         message: 'You have no items in your cart'
-    //     });
-    // }
+    if(numberOfProducts == 0) {
+        return res.render('cart', {
+            message: 'You have no items in your cart'
+        });
+    }
 
-    // db.query('INSERT INTO orders SET ?', {tracking_number: trackingNumber, order_date: date, ship_method: shippingCarrier, number_of_products: numberOfProducts, price: price, userID: userID}, (error, results) => {
-    //     if(error) {
-    //         console.log(error);
-    //         return next();
-    //     } else {
-    //         return next();
-    //     }
-    // });
+    db.query('INSERT INTO orders SET ?', {tracking_number: trackingNumber, order_date: date, ship_method: shippingCarrier, number_of_products: numberOfProducts, price: price, userID: userID}, (error, results) => {
+        if(error) {
+            console.log(error);
+            return next();
+        } else {
+            return next();
+        }
+    });
 
-    // db.query('INSERT INTO payment SET ?', {card_number: creditCardNumber}, (error, results) => {
-    //     if(error) {
-    //         console.log(error);
-    //         return next();
-    //     } else {
-    //         return next();
-    //     }
-    // });
+    db.query('INSERT INTO payment SET ?', {card_number: creditCardNumber}, (error, results) => {
+        if(error) {
+            console.log(error);
+            return next();
+        } else {
+            return next();
+        }
+    });
 }
 
 
