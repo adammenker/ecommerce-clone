@@ -23,7 +23,7 @@ exports.createOrder = (req, res, next) => {
             console.log(error);
             return next();
         } else {
-            console.log('result');
+            console.log(results);
         }
     });
 
