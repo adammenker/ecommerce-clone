@@ -92,16 +92,18 @@ function setShippingOptionPrice(){
         shippingPrice = 11.99;
     }
     document.getElementById("shipping-label").innerHTML = `Shipping: $${shippingPrice}`;
+    return shippingPrice;
 }
 
+function updateCheckoutValues(){
+    let shipping = setShippingOptionPrice();
+    let taxes = calculateTax(subtotal).toFixed(2);
+    let finalTotal = calculateFinalTotal(taxes, subtotal, shipping).toFixed(2);
 
-let taxes = calculateTax(subtotal).toFixed(2);
-let finalTotal = calculateFinalTotal(taxes, subtotal, shipping).toFixed(2);
+    document.getElementById("checkout-button").setAttribute("value", `$${finalTotal},${quantity}`);
+    document.getElementById("subtotal-label").innerHTML = `Subtotal: $${subtotal}`;
+    document.getElementById("taxes-label").innerHTML = `Taxes: $${taxes}`;
+    document.getElementById("total-label").innerHTML = `Total: $${finalTotal}`;
+}
 
-console.log("affsad");
-document.getElementById("checkout-button").setAttribute("value", `$${finalTotal},${quantity}`);
-document.getElementById("subtotal-label").innerHTML = `Subtotal: $${subtotal}`;
-document.getElementById("taxes-label").innerHTML = `Taxes: $${taxes}`;
-document.getElementById("total-label").innerHTML = `Total: $${finalTotal}`;
-
-console.log('vdsasdsdf');
+updateCheckoutValues();
