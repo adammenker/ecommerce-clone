@@ -62,17 +62,19 @@ exports.createOrder = (req, res, next) => {
                 if(error) {
                     console.log(error);
                     return next();
-                }
-            });
-        
-            db.query('INSERT INTO payment SET ?', {card_number: creditCardNumber}, (error, results) => {
-                if(error) {
-                    console.log(error);
-                    return next();
                 } else {
                     return next();
                 }
             });
+        
+            // db.query('INSERT INTO payment SET ?', {card_number: creditCardNumber}, (error, results) => {
+            //     if(error) {
+            //         console.log(error);
+            //         return next();
+            //     } else {
+            //         return next();
+            //     }
+            // });
             
         }
     });  
