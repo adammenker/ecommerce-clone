@@ -17,36 +17,15 @@ exports.createOrder = (req, res, next) => {
     reqValues = req.body.values
     reqValues = reqValues.split(",");
 
-    let price;
-    // aggregate function
-    db.query('SELECT SUM(p.price) FROM cart c, products p WHERE c.userID = ? AND c.productID = p.productID', [userID], (error, results) => {
-        if(error) {
-            console.log(error);
-            return next();
-        } else {
-            
-            // console.log(results[0]);
-            let temp = results[Object.keys(results)[0]]
-            price = temp[Object.keys(temp)[0]]
-            price = parseFloat(price.toFixed(2));
-            console.log(price);
-            console.log(typeof price);
-        }
-    });
-
-
     shippingCarrier = reqValues[2];
     creditCardNumber = reqValues[3];
     numberOfProducts = parseInt(reqValues[1]);
     let trackingNumber = (Math.round(100000000 * Math.random())).toString();
 
-    price *= 1.08;
-    if(shippingCarrier = "USPS"){
-        price += 5.99
-    } else if(shippingCarrier = "UPS") {
-        price += 9.99
-    } else if(shippingCarrier = "Fedex") {
-        price += 11.99
+    if(numberOfProducts == 0) {
+        return res.render('cart', {
+            message: 'You have no items in your cart'
+        });
     }
 
     let currentDate = new Date();
@@ -55,32 +34,47 @@ exports.createOrder = (req, res, next) => {
     let cYear = currentDate.getFullYear();
     let date = cMonth + "/" + cDay + "/" + cYear;
 
-    let defaultShippingMethod = "USPS Priority Mail";
-    
-    if(numberOfProducts == 0) {
-        return res.render('cart', {
-            message: 'You have no items in your cart'
-        });
-    }
-    console.log(typeof price);
+    let price;
+    // aggregate function
+    db.query('SELECT SUM(p.price) FROM cart c, products p WHERE c.userID = ? AND c.productID = p.productID', [userID], (error, results) => {
+        if(error) {
+            console.log(error);
+            return next();
+        } else {
+            let temp = results[Object.keys(results)[0]]
+            price = temp[Object.keys(temp)[0]]
+            price = parseFloat(price.toFixed(2));
+            console.log(price);
+            console.log(typeof price);
 
-    // db.query('INSERT INTO orders SET ?', {tracking_number: trackingNumber, order_date: date, ship_method: shippingCarrier, number_of_products: numberOfProducts, price: price, userID: userID}, (error, results) => {
-    //     if(error) {
-    //         console.log(error);
-    //         return next();
-    //     } else {
-    //         return next();
-    //     }
-    // });
+            price *= 1.08;
+            if(shippingCarrier = "USPS"){
+                price += 5.99
+            } else if(shippingCarrier = "UPS") {
+                price += 9.99
+            } else if(shippingCarrier = "Fedex") {
+                price += 11.99
+            }
 
-    // db.query('INSERT INTO payment SET ?', {card_number: creditCardNumber}, (error, results) => {
-    //     if(error) {
-    //         console.log(error);
-    //         return next();
-    //     } else {
-    //         return next();
-    //     }
-    // });
+            db.query('INSERT INTO orders SET ?', {tracking_number: trackingNumber, order_date: date, ship_method: shippingCarrier, number_of_products: numberOfProducts, price: price, userID: userID}, (error, results) => {
+                if(error) {
+                    console.log(error);
+                    return next();
+                } else {
+                    return next();
+                }
+            });
+        
+            db.query('INSERT INTO payment SET ?', {card_number: creditCardNumber}, (error, results) => {
+                if(error) {
+                    console.log(error);
+                    return next();
+                } else {
+                    return next();
+                }
+            });
+        }
+    });  
 }
 
 
