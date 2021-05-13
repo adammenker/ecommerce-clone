@@ -49,7 +49,6 @@ router.get('/cart', authController.isLoggedIn, cartController.getCart, (req, res
 });
 
 router.post('/cart', authController.isLoggedIn, cartController.removeItemFromCart, cartController.getCart, (req, res) => {
-    console.log(req.user);
     res.render('cart', {
         user: req.user,
         products: req.products,
@@ -85,7 +84,6 @@ router.get('/orders', authController.isLoggedIn, ordersController.getOrder, (req
 
 
 router.post('/product', authController.isLoggedIn, productsController.getProduct, cartController.addToCart, (req, res) => {
-    console.log(req.body);
     if(req.product && req.user){
         res.render('product', {
             user: req.user,

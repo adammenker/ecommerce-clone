@@ -33,10 +33,8 @@ exports.createOrder = (req, res, next) => {
             message: 'You have no items in your cart'
         });
     }
-    console.log('hitkjh');
 
     db.query('INSERT INTO orders SET ?', {tracking_number: trackingNumber, order_date: date, ship_method: shippingCarrier, number_of_products: numberOfProducts, price: price, userID: userID}, (error, results) => {
-        console.log('hit');
         if(error) {
             console.log(error);
             return next();

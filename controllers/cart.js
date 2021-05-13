@@ -2,13 +2,6 @@ const mysql = require("mysql");
 const { promisify } = require("util");
 const { util } = require("webpack");
 
-// file path not working
-// const dotenv = require("dotenv");
-
-// dotenv.config({path: './.env'});
-// console.log(process.env.JWT_SECRET);
-// console.log(dotenv);
-
 const db = mysql.createPool({
     host: "us-cdbr-east-03.cleardb.com",
     user: "b04903d33dd1c0",
@@ -40,9 +33,7 @@ exports.getCart = (req, res, next) => {
             // promises https://dzone.com/articles/from-callbacks-to-async-await-a-migration-guide 
             for(let i = 0; i < productIDsArray.length; i++){
                 let productID = productIDsArray[i];
-                db.query('SELECT * FROM products WHERE productID = ?', [productID], async (error, result) => {
-                    // console.log(result);
-                    
+                db.query('SELECT * FROM products WHERE productID = ?', [productID], async (error, result) => {                    
                     products.push(result[0]);
                     if(error) {
                         console.log(error);

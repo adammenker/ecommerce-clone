@@ -3,13 +3,6 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const { promisify } = require("util");
 
-// file path not working
-// const dotenv = require("dotenv");
-
-// dotenv.config({path: './.env'});
-// console.log(process.env.JWT_SECRET);
-// console.log(dotenv);
-
 const db = mysql.createPool({
     host: "us-cdbr-east-03.cleardb.com",
     user: "b04903d33dd1c0",
