@@ -1,6 +1,7 @@
 let ordersText = document.getElementById("orders-string").innerHTML;
 
 ordersText = ordersText.split("\\");
+console.log(ordersText);
 
 for(let i = 0; i < ordersText.length; i++) {
     if(i == 0) {
