@@ -23,6 +23,11 @@
 
     <div class="container mt-4">
         <div class="row">
+            <div class="col-12">
+                {{#if message}}
+                <h4 class="alert alert-danger mt-4">{{message}}</h4>
+                {{/if}}
+            </div>
             <div class="col-9">
                 <div class="card text-center">
                     <div class="card-header">
@@ -52,9 +57,9 @@
                                 </tr>
                             </tbody>
                         </table>
-                        {{#if message}}
+                        {{#if !message}}
                         <h4 class="alert alert-danger mt-4">{{message}}</h4>
-                        {{else}}
+                        {{!-- {{else}} --}}
                         <div id="cart-totals-container">
                             <p id="subtotal-label">Subtotal: </p>
                             <p id="taxes-label">Taxes: </p>
@@ -75,6 +80,9 @@
                         MySQL 3380 Web Interface
                     </div>
                 </div>
+            </div>
+            <div class="col-3">
+
             </div>
         </div>
     </div>
