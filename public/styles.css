@@ -150,6 +150,7 @@ nav li a {
 }
 
 .widget-container {
+  color: rgb(100, 100, 100);
   padding: 5px;
   border: 2px solid rgb(255, 255, 255);
   border-radius: 10px;
@@ -163,9 +164,8 @@ nav li a {
 }
 
 .widget-container:hover {
-  font-size: 12px;
   text-decoration: underline;
-  font-weight: bold;
+  color: black;
   cursor: pointer;
 }
 
