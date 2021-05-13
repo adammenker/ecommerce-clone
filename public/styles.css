@@ -163,7 +163,7 @@ nav li a {
 }
 
 .widget-container:hover {
-  border-color: rgb(104, 104, 104);
+  font-weight: bold;
   cursor: pointer;
 }
 
