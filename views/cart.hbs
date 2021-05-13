@@ -88,11 +88,13 @@
                     <div class="card-body">
                         <div>
                             <form id="credit-card-input-form">
-                                <label for="creditCardInput">Enter Your Credit Card Number</label>
-                                <input type="radio" id="creditCardInput" name="creditCardNumber"
+                                <label for="creditCardInput">Enter Your Credit Card Number:</label>
+                                <input type="text" id="creditCardInput" name="creditCardNumber"
                                     value="1111-1111-1111-1111">
                             </form>
                         </div>
+                        <br>
+                        <br>
                         <div id="shipping-options-container">
                             <form id="shipping-options-form">
                                 <input type="radio" id="USPSShippingOption" name="shippingService" value="USPS" checked>
@@ -103,6 +105,8 @@
                                 <label for="FedexShippingOption">Fedex</label>
                             </form>
                         </div>
+                        <br>
+                        <br>
                         {{#if message}}
                         {{else}}
                         <div id="cart-totals-container">
