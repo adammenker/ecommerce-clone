@@ -12,7 +12,12 @@ const db = mysql.createPool({
 
 exports.getProduct = (req, res, next) => {
     console.log(req);
-    let productName = req.body.userInput;
+    let productName;
+    if(req.body.userInput) {
+        productName = req.body.userInput;
+    } else if(req.body.clickedProduct) {
+        productName = req.body.clickedProduct;
+    }
     db.query('SELECT * FROM products WHERE name = ?', [productName], async (error, result) => {
         if(error) {
             console.log(error);
