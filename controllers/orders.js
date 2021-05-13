@@ -16,8 +16,7 @@ exports.createOrder = (req, res, next) => {
     userID = req.user.userID;
     reqValues = req.body.values
     reqValues = reqValues.split(",");
-    console.log(req);
-    return next();
+    // console.log(req);
 
     // aggregate function
     db.query('SELECT p.productID FROM cart c, products p WHERE userID = ?', {userID: userID,}, (error, results) => {
