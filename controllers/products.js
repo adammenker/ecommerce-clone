@@ -11,7 +11,6 @@ const db = mysql.createPool({
 
 
 exports.getProduct = (req, res, next) => {
-    console.log(req);
     let productName;
     if(req.body.userInput) {
         productName = req.body.userInput;

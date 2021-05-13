@@ -86,7 +86,7 @@ exports.getOrder = (req, res, next) => {
                 console.log(error);
                 return next();
             } 
-
+            console.log(result);
             if(result.length == 0) {
                 return res.render('orders', {
                     message: 'You Have No Previous Orders'
