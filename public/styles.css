@@ -187,3 +187,7 @@ nav li a {
 #all-products-widget-container {
   text-align: center;
 }
+
+.product-widget-transparent-button {
+  background-color: transparent;
+}
