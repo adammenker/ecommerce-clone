@@ -98,10 +98,10 @@ function setShippingOptionPrice(){
 let taxes = calculateTax(subtotal).toFixed(2);
 let finalTotal = calculateFinalTotal(taxes, subtotal, shipping).toFixed(2);
 
+console.log("affsad");
 document.getElementById("checkout-button").setAttribute("value", `$${finalTotal},${quantity}`);
-
 document.getElementById("subtotal-label").innerHTML = `Subtotal: $${subtotal}`;
 document.getElementById("taxes-label").innerHTML = `Taxes: $${taxes}`;
 document.getElementById("total-label").innerHTML = `Total: $${finalTotal}`;
 
-
+console.log('vdsasdsdf');
