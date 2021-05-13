@@ -39,7 +39,6 @@ exports.getCart = (req, res, next) => {
             // bug is caused bc db.query is using callbacks which are different than await and has to do with
             // promises https://dzone.com/articles/from-callbacks-to-async-await-a-migration-guide 
             for(let i = 0; i < productIDsArray.length; i++){
-                console.log('** ' + i);
                 let productID = productIDsArray[i];
                 db.query('SELECT * FROM products WHERE productID = ?', [productID], async (error, result) => {
                     // console.log(result);
@@ -52,7 +51,6 @@ exports.getCart = (req, res, next) => {
                     if(i == productIDsArray.length - 1){
                         // productNames = generateCartHtml(products);
                         req.products = generateCartHtml(products);
-                        console.log(req.products);
                         return next();
                     } 
                 });
@@ -108,9 +106,7 @@ exports.addToCart = (req, res, next) => {
     try{
         let product = (req.body.addToCartButton).split("**2Z$*4TZQ$**3");
         req.product = {name: product[0],description: product[1],price: product[2],image: product[3], productID: product[4]};
-        console.log(product);
         db.query("INSERT INTO cart (userID,productID) values (?,?)", [req.user.userID, product[4]], async (error, result) => {
-            console.log('in query');
             if(error) {
                 console.log(error);
                 return next();

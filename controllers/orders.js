@@ -12,6 +12,7 @@ const db = mysql.createPool({
 exports.createOrder = (req, res, next) => {
     userID = req.user.userID;
     reqValues = req.body.values
+    console.log(reqValues);
     reqValues = reqValues.split(",");
     price = parseFloat(reqValues[0].replace("$", ""));
     numberOfProducts = parseInt(reqValues[1]);
