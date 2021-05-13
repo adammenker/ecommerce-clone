@@ -77,6 +77,12 @@ function calculateTax(subtotal){
 function calculateFinalTotal(tax, subtotal, shipping) { 
     return parseFloat(tax) + parseFloat(subtotal) + parseFloat(shipping);
 }
+
+function getShippingOption(){
+    
+}
+
+
 let shipping = 5;
 let taxes = calculateTax(subtotal).toFixed(2);
 let finalTotal = calculateFinalTotal(taxes, subtotal, shipping).toFixed(2);
@@ -87,3 +93,5 @@ document.getElementById("subtotal-label").innerHTML = `Subtotal: $${subtotal}`;
 document.getElementById("taxes-label").innerHTML = `Taxes: $${taxes}`;
 document.getElementById("shipping-label").innerHTML = `Shipping: $${shipping}`;
 document.getElementById("total-label").innerHTML = `Total: $${finalTotal}`;
+
+
