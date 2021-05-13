@@ -57,7 +57,7 @@
                                 </tr>
                             </tbody>
                         </table>
-                        {{#if !message}}
+                        {{#unless message}}
                         <h4 class="alert alert-danger mt-4">{{message}}</h4>
                         {{!-- {{else}} --}}
                         <div id="cart-totals-container">
@@ -74,7 +74,7 @@
                                 </button>
                             </form>
                         </div>
-                        {{/if}}
+                        {{/unless}}
                     </div>
                     <div class="card-footer text-muted">
                         MySQL 3380 Web Interface
