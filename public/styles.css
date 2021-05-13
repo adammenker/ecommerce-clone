@@ -194,4 +194,10 @@ nav li a {
 .product-widget-transparent-button {
   background-color: transparent;
   border: 0px solid white;
+  max-width: 100%;
+  max-height: 80%;
+  text-align: center;
+  margin: 25px;
+  margin-right: 50px;
+  margin-left: 50px;
 }
