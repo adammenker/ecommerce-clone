@@ -95,18 +95,20 @@ function setShippingOptionPrice(){
     return shippingPrice;
 }
 
-let creditCardNumber = document.getElementById("creditCardInput").innerHTML;
-console.log(creditCardNumber);
+
+
 
 function updateCheckoutValues(){
+    let creditCardNumber = document.getElementById("creditCardInput").innerHTML;
+    console.log(creditCardNumber);
     let shipping = setShippingOptionPrice();
     let taxes = calculateTax(subtotal).toFixed(2);
     let finalTotal = calculateFinalTotal(taxes, subtotal, shipping).toFixed(2);
 
-    document.getElementById("checkout-button").setAttribute("value", `$${finalTotal},${quantity}`);
     document.getElementById("subtotal-label").innerHTML = `Subtotal: $${subtotal}`;
     document.getElementById("taxes-label").innerHTML = `Taxes: $${taxes}`;
     document.getElementById("total-label").innerHTML = `Total: $${finalTotal}`;
+    document.getElementById("checkout-button").setAttribute("value", `$${finalTotal},${quantity},${shippingCarrier},${creditCardNumber}`);
 }
 
 updateCheckoutValues();
