@@ -96,7 +96,11 @@ function setShippingOptionPrice(){
 }
 
 
-
+if(!document.getElementById("cart-empty-message")){
+    console.log('afds');
+} else {
+    console.log('fsdnnfdssdnj');
+}
 
 function updateCheckoutValues(){
     let creditCardNumber = document.getElementById("creditCardInput").innerHTML;
