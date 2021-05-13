@@ -18,13 +18,15 @@ exports.createOrder = (req, res, next) => {
     reqValues = reqValues.split(",");
 
     // aggregate function
-    db.query('SELECT * FROM cart c, products p WHERE userID = ?', [userID], (error, results) => {
+    db.query('SELECT * FROM cart c, products p WHERE userID = ? AND c.cartItemID = p.productID', [userID], (error, results) => {
         if(error) {
             console.log(error);
             return next();
         } else {
             console.log(results);
         }
+        // remove
+        return next();
     });
 
     // price = parseFloat(reqValues[0].replace("$", ""));
