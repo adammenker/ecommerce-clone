@@ -25,19 +25,27 @@ exports.createOrder = (req, res, next) => {
             console.log(error);
             return next();
         } else {
-            console.log(results[0]);
-            console.log(results.SUM(p.price));
             
+            console.log(results[Object.keys(results)[0]]);
         }
         // remove
         return next();
     });
+
 
     // price = parseFloat(reqValues[0].replace("$", ""));
     // shippingCarrier = reqValues[2];
     // creditCardNumber = reqValues[3];
     // numberOfProducts = parseInt(reqValues[1]);
     // let trackingNumber = (Math.round(100000000 * Math.random())).toString();
+
+    if(shippingCarrier = "USPS"){
+        price += 5.99
+    } else if(shippingCarrier = "UPS") {
+        price += 9.99
+    } else if(shippingCarrier = "Fedex") {
+        price += 11.99
+    }
 
     // let currentDate = new Date();
     // let cDay = currentDate.getDate();
