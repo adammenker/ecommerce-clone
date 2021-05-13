@@ -163,6 +163,8 @@ nav li a {
 }
 
 .widget-container:hover {
+  font-size: 12px;
+  text-decoration: underline;
   font-weight: bold;
   cursor: pointer;
 }
