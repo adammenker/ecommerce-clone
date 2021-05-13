@@ -81,7 +81,12 @@ function calculateFinalTotal(tax, subtotal, shipping) {
 let shippingCarrier = "USPS";
 function getShippingOption(){
     if(document.getElementById("USPSShippingOption").checked){
+        shippingCarrier = "USPS";
         console.log('ksdfjadfslksdfa');
+    } else if(document.getElementById("UPSShippingOption").checked){
+        shippingCarrier = "UPS";
+    } else if(document.getElementById("FedexShippingOption").checked){
+        shippingCarrier = "Fedex";
     }
     // let shippingCarrier = ;
     console.log(document.getElementById("USPSShippingOption").value);
