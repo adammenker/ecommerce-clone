@@ -198,3 +198,9 @@ nav li a {
   max-height: 80%;
   text-align: center;
 }
+
+.product-widget-transparent-button:hover {
+  text-decoration: underline;
+  color: black;
+  cursor: pointer;
+}
