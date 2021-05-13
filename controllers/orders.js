@@ -15,6 +15,7 @@ exports.createOrder = (req, res, next) => {
     reqValues = reqValues.split(",");
 
     shippingCarrier = reqValues[2];
+    console.log(shippingCarrier);
     creditCardNumber = reqValues[3];
     numberOfProducts = parseInt(reqValues[1]);
     let trackingNumber = (Math.round(100000000 * Math.random())).toString();
