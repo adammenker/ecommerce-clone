@@ -120,5 +120,6 @@ function generateOrderHtml(orders) {
         ordersArray.push(orders[i].price);
         ordersArray.push("\\");
     }
+    console.log(ordersArray);
     return ordersArray;
 }
