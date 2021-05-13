@@ -79,21 +79,22 @@ function calculateFinalTotal(tax, subtotal, shipping) {
 }
 
 let shippingCarrier = "USPS";
-function getShippingOptionPrice(){
+function setShippingOptionPrice(){
+    let shippingPrice;
     if(document.getElementById("USPSShippingOption").checked){
         shippingCarrier = "USPS";
-        return 5.99;
+        shippingPrice = 5.99;
     } else if(document.getElementById("UPSShippingOption").checked){
         shippingCarrier = "UPS";
-        return 9.99
+        shippingPrice = 9.99
     } else if(document.getElementById("FedexShippingOption").checked){
         shippingCarrier = "Fedex";
-        return 11.99;
+        shippingPrice = 11.99;
     }
+    document.getElementById("shipping-label").innerHTML = `Shipping: $${shippingPrice}`;
 }
 
 
-let shipping = getShippingOptionPrice();
 let taxes = calculateTax(subtotal).toFixed(2);
 let finalTotal = calculateFinalTotal(taxes, subtotal, shipping).toFixed(2);
 
@@ -101,7 +102,6 @@ document.getElementById("checkout-button").setAttribute("value", `$${finalTotal}
 
 document.getElementById("subtotal-label").innerHTML = `Subtotal: $${subtotal}`;
 document.getElementById("taxes-label").innerHTML = `Taxes: $${taxes}`;
-document.getElementById("shipping-label").innerHTML = `Shipping: $${shipping}`;
 document.getElementById("total-label").innerHTML = `Total: $${finalTotal}`;
 
 
