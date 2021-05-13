@@ -53,14 +53,14 @@ exports.createOrder = (req, res, next) => {
             return next();
             // price = price.toFixed(2);
 
-            // db.query('INSERT INTO orders SET ?', {tracking_number: trackingNumber, order_date: date, ship_method: shippingCarrier, number_of_products: numberOfProducts, price: price, userID: userID}, (error, results) => {
-            //     if(error) {
-            //         console.log(error);
-            //         return next();
-            //     } else {
-            //         return next();
-            //     }
-            // });
+            db.query('INSERT INTO orders SET ?', {tracking_number: trackingNumber, order_date: date, ship_method: shippingCarrier, number_of_products: numberOfProducts, price: price, userID: userID}, (error, results) => {
+                if(error) {
+                    console.log(error);
+                    return next();
+                } else {
+                    return next();
+                }
+            });
         
             // db.query('INSERT INTO payment SET ?', {card_number: creditCardNumber}, (error, results) => {
             //     if(error) {
