@@ -19,7 +19,7 @@ exports.createOrder = (req, res, next) => {
     console.log(userID);
 
     // aggregate function
-    db.query('SELECT p.price FROM cart c, products p WHERE c.userID = ? AND c.productID = p.productID', [userID], (error, results) => {
+    db.query('SELECT SUM(p.price) FROM cart c, products p WHERE c.userID = ? AND c.productID = p.productID', [userID], (error, results) => {
         if(error) {
             console.log(error);
             return next();
