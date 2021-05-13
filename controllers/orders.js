@@ -18,13 +18,16 @@ exports.createOrder = (req, res, next) => {
     reqValues = reqValues.split(",");
     console.log(userID);
 
+    let price;
     // aggregate function
     db.query('SELECT SUM(p.price) FROM cart c, products p WHERE c.userID = ? AND c.productID = p.productID', [userID], (error, results) => {
         if(error) {
             console.log(error);
             return next();
         } else {
-            console.log(results);
+            console.log(results[0]);
+            console.log(results.SUM(p.price));
+            
         }
         // remove
         return next();
