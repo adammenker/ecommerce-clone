@@ -8,19 +8,17 @@ const db = mysql.createPool({
     database: "heroku_ce5d691c17f624d"
 });
 
-
+// creates payment too
 exports.createOrder = (req, res, next) => {
     userID = req.user.userID;
     reqValues = req.body.values
     reqValues = reqValues.split(",");
+
     price = parseFloat(reqValues[0].replace("$", ""));
     shippingCarrier = reqValues[2];
-    console.log(shippingCarrier);
     creditCardNumber = reqValues[3];
-    console.log(creditCardNumber);
     numberOfProducts = parseInt(reqValues[1]);
     let trackingNumber = (Math.round(100000000 * Math.random())).toString();
-    // trackingNumber = validateTrackingNum(trackingNumber);
 
     let currentDate = new Date();
     let cDay = currentDate.getDate();
@@ -38,7 +36,7 @@ exports.createOrder = (req, res, next) => {
 
 
 
-    // db.query('INSERT INTO orders SET ?', {tracking_number: trackingNumber, order_date: date, ship_method: defaultShippingMethod, number_of_products: numberOfProducts, price: price, userID: userID}, (error, results) => {
+    // db.query('INSERT INTO orders SET ?', {tracking_number: trackingNumber, order_date: date, ship_method: shippingCarrier, number_of_products: numberOfProducts, price: price, userID: userID}, (error, results) => {
     //     if(error) {
     //         console.log(error);
     //         return next();
@@ -46,6 +44,15 @@ exports.createOrder = (req, res, next) => {
     //         return next();
     //     }
     // });
+
+    db.query('INSERT INTO payment SET ?', {card_number: creditCardNumber}, (error, results) => {
+        if(error) {
+            console.log(error);
+            return next();
+        } else {
+            return next();
+        }
+    });
     return next();
 }
 
