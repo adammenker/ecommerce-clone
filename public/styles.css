@@ -85,7 +85,7 @@ nav li a {
 
 #product-image {
   margin-top: 75px;
-  width: 100%;
+  width: 300px;
   height: 70%;
   object-fit: contain;
 }
@@ -185,8 +185,8 @@ nav li a {
 
 #credit-card-input-form {
   background-color: white;
-  /*  */
 }
+
 #all-products-widget-container {
   text-align: center;
 }
