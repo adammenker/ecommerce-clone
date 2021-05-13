@@ -53,7 +53,8 @@ exports.createOrder = (req, res, next) => {
             
             price = price.toFixed(2);
 
-            if(price == 0){
+            if(price <= .01){
+                console.log('hit');
                 return next();
             }
 
