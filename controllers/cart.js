@@ -27,10 +27,7 @@ exports.getCart = (req, res, next) => {
                 productIDsArray.push(result[i].productID);
             }
 
-            // await getCartProductsArray(productIDsArray);
             let products = [];
-            // bug is caused bc db.query is using callbacks which are different than await and has to do with
-            // promises https://dzone.com/articles/from-callbacks-to-async-await-a-migration-guide 
             for(let i = 0; i < productIDsArray.length; i++){
                 let productID = productIDsArray[i];
                 db.query('SELECT * FROM products WHERE productID = ?', [productID], async (error, result) => {                    
